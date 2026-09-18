@@ -225,15 +225,37 @@ body {
 
 .matchup {
     font-size: 18px;
-
     font-weight: 800;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
 }
 
-.matchup span {
+.matchup .at-symbol {
     color: #677386;
+    margin: 0 2px;
+}
 
-    margin:
-        0 7px;
+.team-with-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 0;
+}
+
+.team-logo-small {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    flex: 0 0 auto;
+}
+
+.team-logo-score {
+    width: 34px;
+    height: 34px;
+    object-fit: contain;
+    flex: 0 0 auto;
 }
 
 .kickoff {
@@ -282,8 +304,9 @@ body {
         4px 0;
 }
 
-.team-score span {
+.team-score > .score-team-name {
     font-size: 16px;
+    min-width: 0;
 }
 
 .team-score strong {
@@ -510,6 +533,14 @@ body {
                 Week 3
             </a>
             
+
+            <a
+                class="week-link"
+                href="/cfb-model/week4/"
+            >
+                Week 4
+            </a>
+            
     </nav>
 
 
@@ -551,9 +582,9 @@ body {
             <div>
 
                 <div class="matchup">
-                    Syracuse
-                    <span>@</span>
-                    Pittsburgh
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/183.png" alt="" loading="lazy"><span>Syracuse</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/221.png" alt="" loading="lazy"><span>Pittsburgh</span></span>
                 </div>
 
                 
@@ -576,8 +607,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Syracuse
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/183.png" alt="" loading="lazy"><span>Syracuse</span></span>
                 </span>
 
                 <strong>
@@ -589,8 +620,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Pittsburgh
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/221.png" alt="" loading="lazy"><span>Pittsburgh</span></span>
                 </span>
 
                 <strong>
@@ -619,9 +650,9 @@ body {
             <div>
 
                 <div class="matchup">
-                    Miami
-                    <span>@</span>
-                    Wake Forest
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/2390.png" alt="" loading="lazy"><span>Miami</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/154.png" alt="" loading="lazy"><span>Wake Forest</span></span>
                 </div>
 
                 
@@ -644,8 +675,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Miami
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/2390.png" alt="" loading="lazy"><span>Miami</span></span>
                 </span>
 
                 <strong>
@@ -657,8 +688,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Wake Forest
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/154.png" alt="" loading="lazy"><span>Wake Forest</span></span>
                 </span>
 
                 <strong>
@@ -782,9 +813,9 @@ body {
             <div>
 
                 <div class="matchup">
-                    Houston
-                    <span>@</span>
-                    Texas Tech
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/248.png" alt="" loading="lazy"><span>Houston</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/2641.png" alt="" loading="lazy"><span>Texas Tech</span></span>
                 </div>
 
                 
@@ -807,8 +838,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Houston
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/248.png" alt="" loading="lazy"><span>Houston</span></span>
                 </span>
 
                 <strong>
@@ -820,8 +851,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Texas Tech
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/2641.png" alt="" loading="lazy"><span>Texas Tech</span></span>
                 </span>
 
                 <strong>
@@ -945,9 +976,9 @@ body {
             <div>
 
                 <div class="matchup">
-                    Coastal Carolina
-                    <span>@</span>
-                    Delaware
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/324.png" alt="" loading="lazy"><span>Coastal Carolina</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/48.png" alt="" loading="lazy"><span>Delaware</span></span>
                 </div>
 
                 
@@ -970,8 +1001,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Coastal Carolina
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/324.png" alt="" loading="lazy"><span>Coastal Carolina</span></span>
                 </span>
 
                 <strong>
@@ -983,8 +1014,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Delaware
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/48.png" alt="" loading="lazy"><span>Delaware</span></span>
                 </span>
 
                 <strong>
@@ -1108,9 +1139,9 @@ body {
             <div>
 
                 <div class="matchup">
-                    Akron
-                    <span>@</span>
-                    Minnesota
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/2006.png" alt="" loading="lazy"><span>Akron</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/135.png" alt="" loading="lazy"><span>Minnesota</span></span>
                 </div>
 
                 
@@ -1133,8 +1164,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Akron
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/2006.png" alt="" loading="lazy"><span>Akron</span></span>
                 </span>
 
                 <strong>
@@ -1146,8 +1177,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Minnesota
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/135.png" alt="" loading="lazy"><span>Minnesota</span></span>
                 </span>
 
                 <strong>
@@ -1271,9 +1302,9 @@ body {
             <div>
 
                 <div class="matchup">
-                    Arizona State
-                    <span>@</span>
-                    Kansas
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/9.png" alt="" loading="lazy"><span>Arizona State</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/2305.png" alt="" loading="lazy"><span>Kansas</span></span>
                 </div>
 
                 
@@ -1296,8 +1327,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Arizona State
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/9.png" alt="" loading="lazy"><span>Arizona State</span></span>
                 </span>
 
                 <strong>
@@ -1309,8 +1340,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Kansas
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/2305.png" alt="" loading="lazy"><span>Kansas</span></span>
                 </span>
 
                 <strong>
@@ -1434,9 +1465,9 @@ body {
             <div>
 
                 <div class="matchup">
-                    Bowling Green
-                    <span>@</span>
-                    Iowa State
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/189.png" alt="" loading="lazy"><span>Bowling Green</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/66.png" alt="" loading="lazy"><span>Iowa State</span></span>
                 </div>
 
                 
@@ -1459,8 +1490,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Bowling Green
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/189.png" alt="" loading="lazy"><span>Bowling Green</span></span>
                 </span>
 
                 <strong>
@@ -1472,8 +1503,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Iowa State
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/66.png" alt="" loading="lazy"><span>Iowa State</span></span>
                 </span>
 
                 <strong>
@@ -1597,9 +1628,9 @@ body {
             <div>
 
                 <div class="matchup">
-                    Buffalo
-                    <span>@</span>
-                    Penn State
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/2084.png" alt="" loading="lazy"><span>Buffalo</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/213.png" alt="" loading="lazy"><span>Penn State</span></span>
                 </div>
 
                 
@@ -1622,8 +1653,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Buffalo
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/2084.png" alt="" loading="lazy"><span>Buffalo</span></span>
                 </span>
 
                 <strong>
@@ -1635,8 +1666,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Penn State
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/213.png" alt="" loading="lazy"><span>Penn State</span></span>
                 </span>
 
                 <strong>
@@ -1760,9 +1791,9 @@ body {
             <div>
 
                 <div class="matchup">
-                    Georgia
-                    <span>@</span>
-                    Arkansas
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/61.png" alt="" loading="lazy"><span>Georgia</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/8.png" alt="" loading="lazy"><span>Arkansas</span></span>
                 </div>
 
                 
@@ -1785,8 +1816,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Georgia
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/61.png" alt="" loading="lazy"><span>Georgia</span></span>
                 </span>
 
                 <strong>
@@ -1798,8 +1829,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Arkansas
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/8.png" alt="" loading="lazy"><span>Arkansas</span></span>
                 </span>
 
                 <strong>
@@ -1923,9 +1954,9 @@ body {
             <div>
 
                 <div class="matchup">
-                    Kent State
-                    <span>@</span>
-                    Ohio State
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/2309.png" alt="" loading="lazy"><span>Kent State</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/194.png" alt="" loading="lazy"><span>Ohio State</span></span>
                 </div>
 
                 
@@ -1948,8 +1979,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Kent State
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/2309.png" alt="" loading="lazy"><span>Kent State</span></span>
                 </span>
 
                 <strong>
@@ -1961,8 +1992,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Ohio State
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/194.png" alt="" loading="lazy"><span>Ohio State</span></span>
                 </span>
 
                 <strong>
@@ -2086,9 +2117,9 @@ body {
             <div>
 
                 <div class="matchup">
-                    North Carolina
-                    <span>@</span>
-                    Clemson
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/153.png" alt="" loading="lazy"><span>North Carolina</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/228.png" alt="" loading="lazy"><span>Clemson</span></span>
                 </div>
 
                 
@@ -2111,8 +2142,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    North Carolina
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/153.png" alt="" loading="lazy"><span>North Carolina</span></span>
                 </span>
 
                 <strong>
@@ -2124,8 +2155,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Clemson
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/228.png" alt="" loading="lazy"><span>Clemson</span></span>
                 </span>
 
                 <strong>
@@ -2249,9 +2280,9 @@ body {
             <div>
 
                 <div class="matchup">
-                    North Texas
-                    <span>@</span>
-                    Texas State
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/249.png" alt="" loading="lazy"><span>North Texas</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/326.png" alt="" loading="lazy"><span>Texas State</span></span>
                 </div>
 
                 
@@ -2274,8 +2305,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    North Texas
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/249.png" alt="" loading="lazy"><span>North Texas</span></span>
                 </span>
 
                 <strong>
@@ -2287,8 +2318,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Texas State
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/326.png" alt="" loading="lazy"><span>Texas State</span></span>
                 </span>
 
                 <strong>
@@ -2412,9 +2443,9 @@ body {
             <div>
 
                 <div class="matchup">
-                    Tulane
-                    <span>@</span>
-                    Kansas State
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/2655.png" alt="" loading="lazy"><span>Tulane</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/2306.png" alt="" loading="lazy"><span>Kansas State</span></span>
                 </div>
 
                 
@@ -2437,8 +2468,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Tulane
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/2655.png" alt="" loading="lazy"><span>Tulane</span></span>
                 </span>
 
                 <strong>
@@ -2450,8 +2481,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Kansas State
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/2306.png" alt="" loading="lazy"><span>Kansas State</span></span>
                 </span>
 
                 <strong>
@@ -2575,9 +2606,9 @@ body {
             <div>
 
                 <div class="matchup">
-                    Eastern Michigan
-                    <span>@</span>
-                    Wisconsin
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/2199.png" alt="" loading="lazy"><span>Eastern Michigan</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/275.png" alt="" loading="lazy"><span>Wisconsin</span></span>
                 </div>
 
                 
@@ -2600,8 +2631,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Eastern Michigan
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/2199.png" alt="" loading="lazy"><span>Eastern Michigan</span></span>
                 </span>
 
                 <strong>
@@ -2613,8 +2644,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Wisconsin
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/275.png" alt="" loading="lazy"><span>Wisconsin</span></span>
                 </span>
 
                 <strong>
@@ -2738,9 +2769,9 @@ body {
             <div>
 
                 <div class="matchup">
-                    NC State
-                    <span>@</span>
-                    Vanderbilt
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/152.png" alt="" loading="lazy"><span>NC State</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/238.png" alt="" loading="lazy"><span>Vanderbilt</span></span>
                 </div>
 
                 
@@ -2763,8 +2794,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    NC State
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/152.png" alt="" loading="lazy"><span>NC State</span></span>
                 </span>
 
                 <strong>
@@ -2776,8 +2807,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Vanderbilt
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/238.png" alt="" loading="lazy"><span>Vanderbilt</span></span>
                 </span>
 
                 <strong>
@@ -2901,9 +2932,9 @@ body {
             <div>
 
                 <div class="matchup">
-                    Wyoming
-                    <span>@</span>
-                    Central Michigan
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/2751.png" alt="" loading="lazy"><span>Wyoming</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/2117.png" alt="" loading="lazy"><span>Central Michigan</span></span>
                 </div>
 
                 
@@ -2926,8 +2957,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Wyoming
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/2751.png" alt="" loading="lazy"><span>Wyoming</span></span>
                 </span>
 
                 <strong>
@@ -2939,8 +2970,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Central Michigan
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/2117.png" alt="" loading="lazy"><span>Central Michigan</span></span>
                 </span>
 
                 <strong>
@@ -3064,9 +3095,9 @@ body {
             <div>
 
                 <div class="matchup">
-                    Temple
-                    <span>@</span>
-                    Toledo
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/218.png" alt="" loading="lazy"><span>Temple</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/2649.png" alt="" loading="lazy"><span>Toledo</span></span>
                 </div>
 
                 
@@ -3089,8 +3120,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Temple
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/218.png" alt="" loading="lazy"><span>Temple</span></span>
                 </span>
 
                 <strong>
@@ -3102,8 +3133,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Toledo
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/2649.png" alt="" loading="lazy"><span>Toledo</span></span>
                 </span>
 
                 <strong>
@@ -3227,9 +3258,9 @@ body {
             <div>
 
                 <div class="matchup">
-                    Florida State
-                    <span>@</span>
-                    Alabama
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/52.png" alt="" loading="lazy"><span>Florida State</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/333.png" alt="" loading="lazy"><span>Alabama</span></span>
                 </div>
 
                 
@@ -3252,8 +3283,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Florida State
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/52.png" alt="" loading="lazy"><span>Florida State</span></span>
                 </span>
 
                 <strong>
@@ -3265,8 +3296,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Alabama
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/333.png" alt="" loading="lazy"><span>Alabama</span></span>
                 </span>
 
                 <strong>
@@ -3390,9 +3421,9 @@ body {
             <div>
 
                 <div class="matchup">
-                    Kentucky
-                    <span>@</span>
-                    Texas A&amp;M
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/96.png" alt="" loading="lazy"><span>Kentucky</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/245.png" alt="" loading="lazy"><span>Texas A&amp;M</span></span>
                 </div>
 
                 
@@ -3415,8 +3446,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Kentucky
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/96.png" alt="" loading="lazy"><span>Kentucky</span></span>
                 </span>
 
                 <strong>
@@ -3428,8 +3459,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Texas A&amp;M
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/245.png" alt="" loading="lazy"><span>Texas A&amp;M</span></span>
                 </span>
 
                 <strong>
@@ -3553,9 +3584,9 @@ body {
             <div>
 
                 <div class="matchup">
-                    Miami (OH)
-                    <span>@</span>
-                    Cincinnati
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/193.png" alt="" loading="lazy"><span>Miami (OH)</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/2132.png" alt="" loading="lazy"><span>Cincinnati</span></span>
                 </div>
 
                 
@@ -3578,8 +3609,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Miami (OH)
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/193.png" alt="" loading="lazy"><span>Miami (OH)</span></span>
                 </span>
 
                 <strong>
@@ -3591,8 +3622,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Cincinnati
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/2132.png" alt="" loading="lazy"><span>Cincinnati</span></span>
                 </span>
 
                 <strong>
@@ -3716,9 +3747,9 @@ body {
             <div>
 
                 <div class="matchup">
-                    SMU
-                    <span>@</span>
-                    Louisville
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/2567.png" alt="" loading="lazy"><span>SMU</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/97.png" alt="" loading="lazy"><span>Louisville</span></span>
                 </div>
 
                 
@@ -3741,8 +3772,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    SMU
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/2567.png" alt="" loading="lazy"><span>SMU</span></span>
                 </span>
 
                 <strong>
@@ -3754,8 +3785,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Louisville
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/97.png" alt="" loading="lazy"><span>Louisville</span></span>
                 </span>
 
                 <strong>
@@ -3879,9 +3910,9 @@ body {
             <div>
 
                 <div class="matchup">
-                    USC
-                    <span>@</span>
-                    Rutgers
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/30.png" alt="" loading="lazy"><span>USC</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/164.png" alt="" loading="lazy"><span>Rutgers</span></span>
                 </div>
 
                 
@@ -3904,8 +3935,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    USC
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/30.png" alt="" loading="lazy"><span>USC</span></span>
                 </span>
 
                 <strong>
@@ -3917,8 +3948,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Rutgers
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/164.png" alt="" loading="lazy"><span>Rutgers</span></span>
                 </span>
 
                 <strong>
@@ -4042,9 +4073,9 @@ body {
             <div>
 
                 <div class="matchup">
-                    UTEP
-                    <span>@</span>
-                    Michigan
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/2638.png" alt="" loading="lazy"><span>UTEP</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/130.png" alt="" loading="lazy"><span>Michigan</span></span>
                 </div>
 
                 
@@ -4067,8 +4098,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    UTEP
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/2638.png" alt="" loading="lazy"><span>UTEP</span></span>
                 </span>
 
                 <strong>
@@ -4080,8 +4111,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Michigan
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/130.png" alt="" loading="lazy"><span>Michigan</span></span>
                 </span>
 
                 <strong>
@@ -4205,9 +4236,9 @@ body {
             <div>
 
                 <div class="matchup">
-                    Utah State
-                    <span>@</span>
-                    Utah
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/328.png" alt="" loading="lazy"><span>Utah State</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/254.png" alt="" loading="lazy"><span>Utah</span></span>
                 </div>
 
                 
@@ -4230,8 +4261,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Utah State
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/328.png" alt="" loading="lazy"><span>Utah State</span></span>
                 </span>
 
                 <strong>
@@ -4243,8 +4274,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Utah
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/254.png" alt="" loading="lazy"><span>Utah</span></span>
                 </span>
 
                 <strong>
@@ -4368,9 +4399,9 @@ body {
             <div>
 
                 <div class="matchup">
-                    Ball State
-                    <span>@</span>
-                    Liberty
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/2050.png" alt="" loading="lazy"><span>Ball State</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/2335.png" alt="" loading="lazy"><span>Liberty</span></span>
                 </div>
 
                 
@@ -4393,8 +4424,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Ball State
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/2050.png" alt="" loading="lazy"><span>Ball State</span></span>
                 </span>
 
                 <strong>
@@ -4406,8 +4437,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Liberty
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/2335.png" alt="" loading="lazy"><span>Liberty</span></span>
                 </span>
 
                 <strong>
@@ -4531,9 +4562,9 @@ body {
             <div>
 
                 <div class="matchup">
-                    Louisiana Tech
-                    <span>@</span>
-                    Baylor
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/2348.png" alt="" loading="lazy"><span>Louisiana Tech</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/239.png" alt="" loading="lazy"><span>Baylor</span></span>
                 </div>
 
                 
@@ -4556,8 +4587,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Louisiana Tech
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/2348.png" alt="" loading="lazy"><span>Louisiana Tech</span></span>
                 </span>
 
                 <strong>
@@ -4569,8 +4600,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Baylor
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/239.png" alt="" loading="lazy"><span>Baylor</span></span>
                 </span>
 
                 <strong>
@@ -4694,9 +4725,9 @@ body {
             <div>
 
                 <div class="matchup">
-                    Stanford
-                    <span>@</span>
-                    Duke
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/24.png" alt="" loading="lazy"><span>Stanford</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/150.png" alt="" loading="lazy"><span>Duke</span></span>
                 </div>
 
                 
@@ -4719,8 +4750,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Stanford
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/24.png" alt="" loading="lazy"><span>Stanford</span></span>
                 </span>
 
                 <strong>
@@ -4732,8 +4763,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Duke
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/150.png" alt="" loading="lazy"><span>Duke</span></span>
                 </span>
 
                 <strong>
@@ -4857,9 +4888,9 @@ body {
             <div>
 
                 <div class="matchup">
-                    Western Kentucky
-                    <span>@</span>
-                    Indiana
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/98.png" alt="" loading="lazy"><span>Western Kentucky</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/84.png" alt="" loading="lazy"><span>Indiana</span></span>
                 </div>
 
                 
@@ -4882,8 +4913,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Western Kentucky
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/98.png" alt="" loading="lazy"><span>Western Kentucky</span></span>
                 </span>
 
                 <strong>
@@ -4895,8 +4926,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Indiana
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/84.png" alt="" loading="lazy"><span>Indiana</span></span>
                 </span>
 
                 <strong>
@@ -5020,9 +5051,9 @@ body {
             <div>
 
                 <div class="matchup">
-                    Mississippi State
-                    <span>@</span>
-                    South Carolina
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/344.png" alt="" loading="lazy"><span>Mississippi State</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/2579.png" alt="" loading="lazy"><span>South Carolina</span></span>
                 </div>
 
                 
@@ -5045,8 +5076,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Mississippi State
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/344.png" alt="" loading="lazy"><span>Mississippi State</span></span>
                 </span>
 
                 <strong>
@@ -5058,8 +5089,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    South Carolina
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/2579.png" alt="" loading="lazy"><span>South Carolina</span></span>
                 </span>
 
                 <strong>
@@ -5183,9 +5214,9 @@ body {
             <div>
 
                 <div class="matchup">
-                    Charlotte
-                    <span>@</span>
-                    App State
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/2429.png" alt="" loading="lazy"><span>Charlotte</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/2026.png" alt="" loading="lazy"><span>App State</span></span>
                 </div>
 
                 
@@ -5208,8 +5239,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Charlotte
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/2429.png" alt="" loading="lazy"><span>Charlotte</span></span>
                 </span>
 
                 <strong>
@@ -5221,8 +5252,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    App State
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/2026.png" alt="" loading="lazy"><span>App State</span></span>
                 </span>
 
                 <strong>
@@ -5346,9 +5377,9 @@ body {
             <div>
 
                 <div class="matchup">
-                    East Carolina
-                    <span>@</span>
-                    Old Dominion
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/151.png" alt="" loading="lazy"><span>East Carolina</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/295.png" alt="" loading="lazy"><span>Old Dominion</span></span>
                 </div>
 
                 
@@ -5371,8 +5402,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    East Carolina
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/151.png" alt="" loading="lazy"><span>East Carolina</span></span>
                 </span>
 
                 <strong>
@@ -5384,8 +5415,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Old Dominion
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/295.png" alt="" loading="lazy"><span>Old Dominion</span></span>
                 </span>
 
                 <strong>
@@ -5509,9 +5540,9 @@ body {
             <div>
 
                 <div class="matchup">
-                    Florida International
-                    <span>@</span>
-                    Florida Atlantic
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/2229.png" alt="" loading="lazy"><span>Florida International</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/2226.png" alt="" loading="lazy"><span>Florida Atlantic</span></span>
                 </div>
 
                 
@@ -5534,8 +5565,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Florida International
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/2229.png" alt="" loading="lazy"><span>Florida International</span></span>
                 </span>
 
                 <strong>
@@ -5547,8 +5578,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Florida Atlantic
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/2226.png" alt="" loading="lazy"><span>Florida Atlantic</span></span>
                 </span>
 
                 <strong>
@@ -5672,9 +5703,9 @@ body {
             <div>
 
                 <div class="matchup">
-                    Marshall
-                    <span>@</span>
-                    Missouri State
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/276.png" alt="" loading="lazy"><span>Marshall</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/2623.png" alt="" loading="lazy"><span>Missouri State</span></span>
                 </div>
 
                 
@@ -5697,8 +5728,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Marshall
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/276.png" alt="" loading="lazy"><span>Marshall</span></span>
                 </span>
 
                 <strong>
@@ -5710,8 +5741,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Missouri State
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/2623.png" alt="" loading="lazy"><span>Missouri State</span></span>
                 </span>
 
                 <strong>
@@ -5835,9 +5866,9 @@ body {
             <div>
 
                 <div class="matchup">
-                    Florida
-                    <span>@</span>
-                    Auburn
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/57.png" alt="" loading="lazy"><span>Florida</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/2.png" alt="" loading="lazy"><span>Auburn</span></span>
                 </div>
 
                 
@@ -5860,8 +5891,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Florida
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/57.png" alt="" loading="lazy"><span>Florida</span></span>
                 </span>
 
                 <strong>
@@ -5873,8 +5904,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Auburn
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/2.png" alt="" loading="lazy"><span>Auburn</span></span>
                 </span>
 
                 <strong>
@@ -5998,9 +6029,9 @@ body {
             <div>
 
                 <div class="matchup">
-                    Georgia Southern
-                    <span>@</span>
-                    Jacksonville State
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/290.png" alt="" loading="lazy"><span>Georgia Southern</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/55.png" alt="" loading="lazy"><span>Jacksonville State</span></span>
                 </div>
 
                 
@@ -6023,8 +6054,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Georgia Southern
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/290.png" alt="" loading="lazy"><span>Georgia Southern</span></span>
                 </span>
 
                 <strong>
@@ -6036,8 +6067,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Jacksonville State
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/55.png" alt="" loading="lazy"><span>Jacksonville State</span></span>
                 </span>
 
                 <strong>
@@ -6161,9 +6192,9 @@ body {
             <div>
 
                 <div class="matchup">
-                    Georgia State
-                    <span>@</span>
-                    UCF
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/2247.png" alt="" loading="lazy"><span>Georgia State</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/2116.png" alt="" loading="lazy"><span>UCF</span></span>
                 </div>
 
                 
@@ -6186,8 +6217,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Georgia State
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/2247.png" alt="" loading="lazy"><span>Georgia State</span></span>
                 </span>
 
                 <strong>
@@ -6199,8 +6230,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    UCF
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/2116.png" alt="" loading="lazy"><span>UCF</span></span>
                 </span>
 
                 <strong>
@@ -6324,9 +6355,9 @@ body {
             <div>
 
                 <div class="matchup">
-                    Nevada
-                    <span>@</span>
-                    Middle Tennessee
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/2440.png" alt="" loading="lazy"><span>Nevada</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/2393.png" alt="" loading="lazy"><span>Middle Tennessee</span></span>
                 </div>
 
                 
@@ -6349,8 +6380,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Nevada
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/2440.png" alt="" loading="lazy"><span>Nevada</span></span>
                 </span>
 
                 <strong>
@@ -6362,8 +6393,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Middle Tennessee
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/2393.png" alt="" loading="lazy"><span>Middle Tennessee</span></span>
                 </span>
 
                 <strong>
@@ -6487,9 +6518,9 @@ body {
             <div>
 
                 <div class="matchup">
-                    Ohio
-                    <span>@</span>
-                    South Alabama
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/195.png" alt="" loading="lazy"><span>Ohio</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/6.png" alt="" loading="lazy"><span>South Alabama</span></span>
                 </div>
 
                 
@@ -6512,8 +6543,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Ohio
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/195.png" alt="" loading="lazy"><span>Ohio</span></span>
                 </span>
 
                 <strong>
@@ -6525,8 +6556,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    South Alabama
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/6.png" alt="" loading="lazy"><span>South Alabama</span></span>
                 </span>
 
                 <strong>
@@ -6650,9 +6681,9 @@ body {
             <div>
 
                 <div class="matchup">
-                    Troy
-                    <span>@</span>
-                    Missouri
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/2653.png" alt="" loading="lazy"><span>Troy</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/142.png" alt="" loading="lazy"><span>Missouri</span></span>
                 </div>
 
                 
@@ -6675,8 +6706,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Troy
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/2653.png" alt="" loading="lazy"><span>Troy</span></span>
                 </span>
 
                 <strong>
@@ -6688,8 +6719,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Missouri
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/142.png" alt="" loading="lazy"><span>Missouri</span></span>
                 </span>
 
                 <strong>
@@ -6813,9 +6844,9 @@ body {
             <div>
 
                 <div class="matchup">
-                    UConn
-                    <span>@</span>
-                    Southern Miss
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/41.png" alt="" loading="lazy"><span>UConn</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/2572.png" alt="" loading="lazy"><span>Southern Miss</span></span>
                 </div>
 
                 
@@ -6838,8 +6869,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    UConn
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/41.png" alt="" loading="lazy"><span>UConn</span></span>
                 </span>
 
                 <strong>
@@ -6851,8 +6882,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Southern Miss
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/2572.png" alt="" loading="lazy"><span>Southern Miss</span></span>
                 </span>
 
                 <strong>
@@ -6976,9 +7007,9 @@ body {
             <div>
 
                 <div class="matchup">
-                    Western Michigan
-                    <span>@</span>
-                    Rice
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/2711.png" alt="" loading="lazy"><span>Western Michigan</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/242.png" alt="" loading="lazy"><span>Rice</span></span>
                 </div>
 
                 
@@ -7001,8 +7032,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Western Michigan
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/2711.png" alt="" loading="lazy"><span>Western Michigan</span></span>
                 </span>
 
                 <strong>
@@ -7014,8 +7045,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Rice
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/242.png" alt="" loading="lazy"><span>Rice</span></span>
                 </span>
 
                 <strong>
@@ -7139,9 +7170,9 @@ body {
             <div>
 
                 <div class="matchup">
-                    BYU
-                    <span>@</span>
-                    Colorado State
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/252.png" alt="" loading="lazy"><span>BYU</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/36.png" alt="" loading="lazy"><span>Colorado State</span></span>
                 </div>
 
                 
@@ -7164,8 +7195,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    BYU
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/252.png" alt="" loading="lazy"><span>BYU</span></span>
                 </span>
 
                 <strong>
@@ -7177,8 +7208,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Colorado State
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/36.png" alt="" loading="lazy"><span>Colorado State</span></span>
                 </span>
 
                 <strong>
@@ -7302,9 +7333,9 @@ body {
             <div>
 
                 <div class="matchup">
-                    Colorado
-                    <span>@</span>
-                    Northwestern
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/38.png" alt="" loading="lazy"><span>Colorado</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/77.png" alt="" loading="lazy"><span>Northwestern</span></span>
                 </div>
 
                 
@@ -7327,8 +7358,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Colorado
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/38.png" alt="" loading="lazy"><span>Colorado</span></span>
                 </span>
 
                 <strong>
@@ -7340,8 +7371,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Northwestern
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/77.png" alt="" loading="lazy"><span>Northwestern</span></span>
                 </span>
 
                 <strong>
@@ -7465,9 +7496,9 @@ body {
             <div>
 
                 <div class="matchup">
-                    LSU
-                    <span>@</span>
-                    Ole Miss
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/99.png" alt="" loading="lazy"><span>LSU</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/145.png" alt="" loading="lazy"><span>Ole Miss</span></span>
                 </div>
 
                 
@@ -7490,8 +7521,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    LSU
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/99.png" alt="" loading="lazy"><span>LSU</span></span>
                 </span>
 
                 <strong>
@@ -7503,8 +7534,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Ole Miss
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/145.png" alt="" loading="lazy"><span>Ole Miss</span></span>
                 </span>
 
                 <strong>
@@ -7628,9 +7659,9 @@ body {
             <div>
 
                 <div class="matchup">
-                    Michigan State
-                    <span>@</span>
-                    Notre Dame
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/127.png" alt="" loading="lazy"><span>Michigan State</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/87.png" alt="" loading="lazy"><span>Notre Dame</span></span>
                 </div>
 
                 
@@ -7653,8 +7684,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Michigan State
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/127.png" alt="" loading="lazy"><span>Michigan State</span></span>
                 </span>
 
                 <strong>
@@ -7666,8 +7697,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Notre Dame
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/87.png" alt="" loading="lazy"><span>Notre Dame</span></span>
                 </span>
 
                 <strong>
@@ -7791,9 +7822,9 @@ body {
             <div>
 
                 <div class="matchup">
-                    New Mexico
-                    <span>@</span>
-                    Oklahoma
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/167.png" alt="" loading="lazy"><span>New Mexico</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/201.png" alt="" loading="lazy"><span>Oklahoma</span></span>
                 </div>
 
                 
@@ -7816,8 +7847,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    New Mexico
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/167.png" alt="" loading="lazy"><span>New Mexico</span></span>
                 </span>
 
                 <strong>
@@ -7829,8 +7860,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Oklahoma
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/201.png" alt="" loading="lazy"><span>Oklahoma</span></span>
                 </span>
 
                 <strong>
@@ -7954,9 +7985,9 @@ body {
             <div>
 
                 <div class="matchup">
-                    Virginia Tech
-                    <span>@</span>
-                    Maryland
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/259.png" alt="" loading="lazy"><span>Virginia Tech</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/120.png" alt="" loading="lazy"><span>Maryland</span></span>
                 </div>
 
                 
@@ -7979,8 +8010,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Virginia Tech
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/259.png" alt="" loading="lazy"><span>Virginia Tech</span></span>
                 </span>
 
                 <strong>
@@ -7992,8 +8023,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Maryland
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/120.png" alt="" loading="lazy"><span>Maryland</span></span>
                 </span>
 
                 <strong>
@@ -8117,9 +8148,9 @@ body {
             <div>
 
                 <div class="matchup">
-                    West Virginia
-                    <span>@</span>
-                    Virginia
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/277.png" alt="" loading="lazy"><span>West Virginia</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/258.png" alt="" loading="lazy"><span>Virginia</span></span>
                 </div>
 
                 
@@ -8142,8 +8173,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    West Virginia
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/277.png" alt="" loading="lazy"><span>West Virginia</span></span>
                 </span>
 
                 <strong>
@@ -8155,8 +8186,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Virginia
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/258.png" alt="" loading="lazy"><span>Virginia</span></span>
                 </span>
 
                 <strong>
@@ -8280,9 +8311,9 @@ body {
             <div>
 
                 <div class="matchup">
-                    Kennesaw State
-                    <span>@</span>
-                    Tennessee
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/338.png" alt="" loading="lazy"><span>Kennesaw State</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/2633.png" alt="" loading="lazy"><span>Tennessee</span></span>
                 </div>
 
                 
@@ -8305,8 +8336,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Kennesaw State
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/338.png" alt="" loading="lazy"><span>Kennesaw State</span></span>
                 </span>
 
                 <strong>
@@ -8318,8 +8349,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Tennessee
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/2633.png" alt="" loading="lazy"><span>Tennessee</span></span>
                 </span>
 
                 <strong>
@@ -8443,9 +8474,9 @@ body {
             <div>
 
                 <div class="matchup">
-                    Arkansas State
-                    <span>@</span>
-                    TCU
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/2032.png" alt="" loading="lazy"><span>Arkansas State</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/2628.png" alt="" loading="lazy"><span>TCU</span></span>
                 </div>
 
                 
@@ -8468,8 +8499,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Arkansas State
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/2032.png" alt="" loading="lazy"><span>Arkansas State</span></span>
                 </span>
 
                 <strong>
@@ -8481,8 +8512,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    TCU
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/2628.png" alt="" loading="lazy"><span>TCU</span></span>
                 </span>
 
                 <strong>
@@ -8606,9 +8637,9 @@ body {
             <div>
 
                 <div class="matchup">
-                    UAB
-                    <span>@</span>
-                    Louisiana
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/5.png" alt="" loading="lazy"><span>UAB</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/309.png" alt="" loading="lazy"><span>Louisiana</span></span>
                 </div>
 
                 
@@ -8631,8 +8662,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    UAB
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/5.png" alt="" loading="lazy"><span>UAB</span></span>
                 </span>
 
                 <strong>
@@ -8644,8 +8675,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Louisiana
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/309.png" alt="" loading="lazy"><span>Louisiana</span></span>
                 </span>
 
                 <strong>
@@ -8769,9 +8800,9 @@ body {
             <div>
 
                 <div class="matchup">
-                    UTSA
-                    <span>@</span>
-                    Texas
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/2636.png" alt="" loading="lazy"><span>UTSA</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/251.png" alt="" loading="lazy"><span>Texas</span></span>
                 </div>
 
                 
@@ -8794,8 +8825,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    UTSA
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/2636.png" alt="" loading="lazy"><span>UTSA</span></span>
                 </span>
 
                 <strong>
@@ -8807,8 +8838,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Texas
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/251.png" alt="" loading="lazy"><span>Texas</span></span>
                 </span>
 
                 <strong>
@@ -8932,9 +8963,9 @@ body {
             <div>
 
                 <div class="matchup">
-                    James Madison
-                    <span>@</span>
-                    San Diego State
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/256.png" alt="" loading="lazy"><span>James Madison</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/21.png" alt="" loading="lazy"><span>San Diego State</span></span>
                 </div>
 
                 
@@ -8957,8 +8988,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    James Madison
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/256.png" alt="" loading="lazy"><span>James Madison</span></span>
                 </span>
 
                 <strong>
@@ -8970,8 +9001,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    San Diego State
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/21.png" alt="" loading="lazy"><span>San Diego State</span></span>
                 </span>
 
                 <strong>
@@ -9095,9 +9126,9 @@ body {
             <div>
 
                 <div class="matchup">
-                    North Dakota State
-                    <span>@</span>
-                    Sacramento State
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/2449.png" alt="" loading="lazy"><span>North Dakota State</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/16.png" alt="" loading="lazy"><span>Sacramento State</span></span>
                 </div>
 
                 
@@ -9120,8 +9151,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    North Dakota State
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/2449.png" alt="" loading="lazy"><span>North Dakota State</span></span>
                 </span>
 
                 <strong>
@@ -9133,8 +9164,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Sacramento State
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/16.png" alt="" loading="lazy"><span>Sacramento State</span></span>
                 </span>
 
                 <strong>
@@ -9258,9 +9289,9 @@ body {
             <div>
 
                 <div class="matchup">
-                    Northern Illinois
-                    <span>@</span>
-                    Arizona
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/2459.png" alt="" loading="lazy"><span>Northern Illinois</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/12.png" alt="" loading="lazy"><span>Arizona</span></span>
                 </div>
 
                 
@@ -9283,8 +9314,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Northern Illinois
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/2459.png" alt="" loading="lazy"><span>Northern Illinois</span></span>
                 </span>
 
                 <strong>
@@ -9296,8 +9327,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Arizona
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/12.png" alt="" loading="lazy"><span>Arizona</span></span>
                 </span>
 
                 <strong>
@@ -9421,9 +9452,9 @@ body {
             <div>
 
                 <div class="matchup">
-                    Fresno State
-                    <span>@</span>
-                    San José State
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/278.png" alt="" loading="lazy"><span>Fresno State</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/23.png" alt="" loading="lazy"><span>San José State</span></span>
                 </div>
 
                 
@@ -9446,8 +9477,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Fresno State
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/278.png" alt="" loading="lazy"><span>Fresno State</span></span>
                 </span>
 
                 <strong>
@@ -9459,8 +9490,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    San José State
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/23.png" alt="" loading="lazy"><span>San José State</span></span>
                 </span>
 
                 <strong>
@@ -9584,9 +9615,9 @@ body {
             <div>
 
                 <div class="matchup">
-                    Purdue
-                    <span>@</span>
-                    UCLA
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/2509.png" alt="" loading="lazy"><span>Purdue</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/26.png" alt="" loading="lazy"><span>UCLA</span></span>
                 </div>
 
                 
@@ -9609,8 +9640,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    Purdue
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/2509.png" alt="" loading="lazy"><span>Purdue</span></span>
                 </span>
 
                 <strong>
@@ -9622,8 +9653,8 @@ body {
 
             <div class="team-score">
 
-                <span>
-                    UCLA
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/26.png" alt="" loading="lazy"><span>UCLA</span></span>
                 </span>
 
                 <strong>
