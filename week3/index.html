@@ -1,0 +1,9710 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>CFB MODEL</title>
+
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: #0b0e14;
+    color: #f4f6f8;
+    font-family:
+        Inter,
+        Arial,
+        Helvetica,
+        sans-serif;
+}
+
+.hero {
+    padding: 55px 20px 35px;
+    text-align: center;
+
+    background:
+        linear-gradient(
+            180deg,
+            #151a24 0%,
+            #0b0e14 100%
+        );
+}
+
+.logo {
+    font-size: 46px;
+    font-weight: 900;
+    letter-spacing: 3px;
+}
+
+.logo span {
+    color: #56c2ff;
+}
+
+.subtitle {
+    margin-top: 8px;
+    color: #aab2c0;
+    font-size: 17px;
+}
+
+.week {
+    margin-top: 16px;
+    font-size: 14px;
+    color: #707b8c;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.updated {
+    margin-top: 8px;
+    color: #8993a3;
+    font-size: 12px;
+}
+
+.records {
+    max-width: 850px;
+    margin: 25px auto 0;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 12px;
+}
+
+.record {
+    background: #171c27;
+
+    border:
+        1px solid #252c3a;
+
+    border-radius: 12px;
+
+    padding: 15px;
+}
+
+.record-label {
+    color: #8e98a8;
+
+    font-size: 12px;
+
+    letter-spacing: 1px;
+}
+
+.record-value {
+    margin-top: 5px;
+
+    font-size: 21px;
+
+    font-weight: 800;
+}
+
+.container {
+    width:
+        min(1150px, 94%);
+
+    margin:
+        25px auto 60px;
+}
+
+.board-title {
+    margin:
+        25px 0;
+
+    font-size: 24px;
+}
+
+.games {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            2,
+            minmax(0, 1fr)
+        );
+
+    gap: 18px;
+}
+
+.game-card {
+    background: #141923;
+
+    border:
+        1px solid #252d3a;
+
+    border-radius: 16px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 8px 25px
+        rgba(0,0,0,.22);
+}
+
+.game-header {
+    padding:
+        18px 20px;
+
+    border-bottom:
+        1px solid #252d3a;
+}
+
+.matchup {
+    font-size: 18px;
+
+    font-weight: 800;
+}
+
+.matchup span {
+    color: #677386;
+
+    margin:
+        0 7px;
+}
+
+.kickoff {
+    color: #8993a3;
+
+    font-size: 12px;
+
+    margin-top: 6px;
+}
+
+.final-score {
+    color: #56c2ff;
+
+    font-weight: 700;
+
+    font-size: 13px;
+
+    margin-top: 7px;
+}
+
+.score-title {
+    padding:
+        15px 20px 5px;
+
+    color: #778397;
+
+    font-size: 11px;
+
+    letter-spacing: 1.5px;
+}
+
+.scoreboard {
+    padding:
+        4px 20px 17px;
+}
+
+.team-score {
+    display: flex;
+
+    align-items: center;
+
+    justify-content:
+        space-between;
+
+    padding:
+        4px 0;
+}
+
+.team-score span {
+    font-size: 16px;
+}
+
+.team-score strong {
+    font-size: 26px;
+}
+
+.markets {
+    border-top:
+        1px solid #252d3a;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+}
+
+.market {
+    padding:
+        17px 20px;
+}
+
+.market:first-child {
+    border-right:
+        1px solid #252d3a;
+}
+
+.market-title {
+    color: #8c97a8;
+
+    font-size: 11px;
+
+    letter-spacing: 1.5px;
+
+    font-weight: 800;
+}
+
+.market-line,
+.model-line {
+    margin-top: 7px;
+
+    color: #aab3c1;
+
+    font-size: 12px;
+}
+
+.pick {
+    margin-top: 12px;
+
+    font-size: 17px;
+
+    font-weight: 900;
+}
+
+.confidence {
+    margin-top: 5px;
+
+    color: #7f8a9c;
+
+    font-size: 11px;
+}
+
+.best-pick {
+    padding:
+        18px 20px;
+
+    background: #1b2230;
+
+    border-top:
+        1px solid #303a4b;
+}
+
+.best-label {
+    color: #56c2ff;
+
+    font-size: 11px;
+
+    letter-spacing: 1.5px;
+
+    font-weight: 900;
+}
+
+.best-value {
+    font-size: 22px;
+
+    font-weight: 900;
+
+    margin-top: 6px;
+}
+
+.best-confidence {
+    color: #98a3b4;
+
+    font-size: 12px;
+
+    margin-top: 4px;
+}
+
+.no-market {
+    border-top:
+        1px solid #252d3a;
+
+    padding: 20px;
+
+    color: #8f99a8;
+
+    font-size: 13px;
+}
+
+.result {
+    display: none;
+
+    margin-top: 8px;
+
+    font-weight: 900;
+
+    font-size: 12px;
+}
+
+.result.win {
+    display: block;
+
+    color: #62d890;
+}
+
+.result.loss {
+    display: block;
+
+    color: #ff6b6b;
+}
+
+.result.push {
+    display: block;
+
+    color: #f3c969;
+}
+
+.footer {
+    text-align: center;
+
+    color: #596475;
+
+    font-size: 12px;
+
+    padding:
+        20px 15px 45px;
+}
+
+
+@media (max-width: 800px) {
+
+    .games {
+        grid-template-columns:
+            1fr;
+    }
+
+    .logo {
+        font-size: 37px;
+    }
+
+}
+
+
+@media (max-width: 520px) {
+
+    .records {
+        grid-template-columns:
+            1fr;
+    }
+
+    .markets {
+        grid-template-columns:
+            1fr;
+    }
+
+    .market:first-child {
+        border-right: none;
+
+        border-bottom:
+            1px solid #252d3a;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header class="hero">
+
+    <div class="logo">
+        CFB <span>MODEL</span>
+    </div>
+
+    <div class="subtitle">
+        College Football Predictions
+    </div>
+
+    <div class="week">
+        2026
+        ·
+        Week 3
+        ·
+        57 Model Predictions
+    </div>
+
+    <div class="updated">
+        Model predictions locked for Week 3
+    </div>
+
+
+    <div class="records">
+
+        <div class="record">
+
+            <div class="record-label">
+                SPREAD
+            </div>
+
+            <div class="record-value">
+                0-0-0
+            </div>
+
+        </div>
+
+
+        <div class="record">
+
+            <div class="record-label">
+                OVER / UNDER
+            </div>
+
+            <div class="record-value">
+                0-0-0
+            </div>
+
+        </div>
+
+
+        <div class="record">
+
+            <div class="record-label">
+                BEST PICKS
+            </div>
+
+            <div class="record-value">
+                0-0-0
+            </div>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<main class="container">
+
+    <h1 class="board-title">
+        Week 3 Picks
+    </h1>
+
+    <section class="games">
+        
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    Syracuse
+                    <span>@</span>
+                    Pittsburgh
+                </div>
+
+                
+        <div class="final-score">
+            FINAL · Syracuse 13 - Pittsburgh 27
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span>
+                    Syracuse
+                </span>
+
+                <strong>
+                    23.3
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span>
+                    Pittsburgh
+                </span>
+
+                <strong>
+                    30.9
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="no-market">
+            No current DraftKings market was locked
+            for this game.
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    Miami
+                    <span>@</span>
+                    Wake Forest
+                </div>
+
+                
+        <div class="kickoff">
+            Fri Sep 18 · 11:30 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span>
+                    Miami
+                </span>
+
+                <strong>
+                    35.2
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span>
+                    Wake Forest
+                </span>
+
+                <strong>
+                    21.7
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="markets">
+
+            <div class="market">
+
+                <div class="market-title">
+                    SPREAD
+                </div>
+
+                <div class="market-line">
+                    DK: Miami -20.5
+                    ·
+                    Wake Forest +20.5
+                </div>
+
+                <div class="model-line">
+                    Model:
+                    Miami +13.6
+                </div>
+
+                <div class="pick">
+                    Wake Forest +20.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    51.4%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+
+            <div class="market">
+
+                <div class="market-title">
+                    TOTAL
+                </div>
+
+                <div class="market-line">
+                    DK O/U:
+                    55.5
+                </div>
+
+                <div class="model-line">
+                    Model total:
+                    56.9
+                </div>
+
+                <div class="pick">
+                    Over 55.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    48.5%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="best-pick">
+
+            <div class="best-label">
+                BEST PICK ·
+                SPREAD
+            </div>
+
+            <div class="best-value">
+                Wake Forest +20.5
+            </div>
+
+            <div class="best-confidence">
+                Historical confidence:
+                51.4%
+            </div>
+
+            <div class="
+                result
+                
+            ">
+                
+            </div>
+
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    Houston
+                    <span>@</span>
+                    Texas Tech
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 19 · 12:00 AM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span>
+                    Houston
+                </span>
+
+                <strong>
+                    27.9
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span>
+                    Texas Tech
+                </span>
+
+                <strong>
+                    31.0
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="markets">
+
+            <div class="market">
+
+                <div class="market-title">
+                    SPREAD
+                </div>
+
+                <div class="market-line">
+                    DK: Houston +7.5
+                    ·
+                    Texas Tech -7.5
+                </div>
+
+                <div class="model-line">
+                    Model:
+                    Texas Tech +3.0
+                </div>
+
+                <div class="pick">
+                    Houston +7.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    51.7%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+
+            <div class="market">
+
+                <div class="market-title">
+                    TOTAL
+                </div>
+
+                <div class="market-line">
+                    DK O/U:
+                    52.5
+                </div>
+
+                <div class="model-line">
+                    Model total:
+                    58.9
+                </div>
+
+                <div class="pick">
+                    Over 52.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    53.9%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="best-pick">
+
+            <div class="best-label">
+                BEST PICK ·
+                TOTAL
+            </div>
+
+            <div class="best-value">
+                Over 52.5
+            </div>
+
+            <div class="best-confidence">
+                Historical confidence:
+                53.9%
+            </div>
+
+            <div class="
+                result
+                
+            ">
+                
+            </div>
+
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    Coastal Carolina
+                    <span>@</span>
+                    Delaware
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 19 · 03:30 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span>
+                    Coastal Carolina
+                </span>
+
+                <strong>
+                    24.3
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span>
+                    Delaware
+                </span>
+
+                <strong>
+                    27.4
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="markets">
+
+            <div class="market">
+
+                <div class="market-title">
+                    SPREAD
+                </div>
+
+                <div class="market-line">
+                    DK: Coastal Carolina +5.5
+                    ·
+                    Delaware -5.5
+                </div>
+
+                <div class="model-line">
+                    Model:
+                    Delaware +3.1
+                </div>
+
+                <div class="pick">
+                    Coastal Carolina +5.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    50.3%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+
+            <div class="market">
+
+                <div class="market-title">
+                    TOTAL
+                </div>
+
+                <div class="market-line">
+                    DK O/U:
+                    57.5
+                </div>
+
+                <div class="model-line">
+                    Model total:
+                    51.7
+                </div>
+
+                <div class="pick">
+                    Under 57.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    53.9%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="best-pick">
+
+            <div class="best-label">
+                BEST PICK ·
+                TOTAL
+            </div>
+
+            <div class="best-value">
+                Under 57.5
+            </div>
+
+            <div class="best-confidence">
+                Historical confidence:
+                53.9%
+            </div>
+
+            <div class="
+                result
+                
+            ">
+                
+            </div>
+
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    Akron
+                    <span>@</span>
+                    Minnesota
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 19 · 04:00 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span>
+                    Akron
+                </span>
+
+                <strong>
+                    20.5
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span>
+                    Minnesota
+                </span>
+
+                <strong>
+                    31.5
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="markets">
+
+            <div class="market">
+
+                <div class="market-title">
+                    SPREAD
+                </div>
+
+                <div class="market-line">
+                    DK: Akron +23.5
+                    ·
+                    Minnesota -23.5
+                </div>
+
+                <div class="model-line">
+                    Model:
+                    Minnesota +11.0
+                </div>
+
+                <div class="pick">
+                    Akron +23.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    48.4%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+
+            <div class="market">
+
+                <div class="market-title">
+                    TOTAL
+                </div>
+
+                <div class="market-line">
+                    DK O/U:
+                    49.5
+                </div>
+
+                <div class="model-line">
+                    Model total:
+                    52.0
+                </div>
+
+                <div class="pick">
+                    Over 49.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    53.2%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="best-pick">
+
+            <div class="best-label">
+                BEST PICK ·
+                TOTAL
+            </div>
+
+            <div class="best-value">
+                Over 49.5
+            </div>
+
+            <div class="best-confidence">
+                Historical confidence:
+                53.2%
+            </div>
+
+            <div class="
+                result
+                
+            ">
+                
+            </div>
+
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    Arizona State
+                    <span>@</span>
+                    Kansas
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 19 · 04:00 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span>
+                    Arizona State
+                </span>
+
+                <strong>
+                    26.2
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span>
+                    Kansas
+                </span>
+
+                <strong>
+                    26.9
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="markets">
+
+            <div class="market">
+
+                <div class="market-title">
+                    SPREAD
+                </div>
+
+                <div class="market-line">
+                    DK: Arizona State -5.5
+                    ·
+                    Kansas +5.5
+                </div>
+
+                <div class="model-line">
+                    Model:
+                    Kansas +0.7
+                </div>
+
+                <div class="pick">
+                    Kansas +5.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    51.4%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+
+            <div class="market">
+
+                <div class="market-title">
+                    TOTAL
+                </div>
+
+                <div class="market-line">
+                    DK O/U:
+                    50.5
+                </div>
+
+                <div class="model-line">
+                    Model total:
+                    53.1
+                </div>
+
+                <div class="pick">
+                    Over 50.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    53.2%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="best-pick">
+
+            <div class="best-label">
+                BEST PICK ·
+                TOTAL
+            </div>
+
+            <div class="best-value">
+                Over 50.5
+            </div>
+
+            <div class="best-confidence">
+                Historical confidence:
+                53.2%
+            </div>
+
+            <div class="
+                result
+                
+            ">
+                
+            </div>
+
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    Bowling Green
+                    <span>@</span>
+                    Iowa State
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 19 · 04:00 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span>
+                    Bowling Green
+                </span>
+
+                <strong>
+                    18.0
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span>
+                    Iowa State
+                </span>
+
+                <strong>
+                    36.7
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="markets">
+
+            <div class="market">
+
+                <div class="market-title">
+                    SPREAD
+                </div>
+
+                <div class="market-line">
+                    DK: Bowling Green +23.5
+                    ·
+                    Iowa State -23.5
+                </div>
+
+                <div class="model-line">
+                    Model:
+                    Iowa State +18.7
+                </div>
+
+                <div class="pick">
+                    Bowling Green +23.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    51.7%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+
+            <div class="market">
+
+                <div class="market-title">
+                    TOTAL
+                </div>
+
+                <div class="market-line">
+                    DK O/U:
+                    43.5
+                </div>
+
+                <div class="model-line">
+                    Model total:
+                    54.7
+                </div>
+
+                <div class="pick">
+                    Over 43.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    57.0%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="best-pick">
+
+            <div class="best-label">
+                BEST PICK ·
+                TOTAL
+            </div>
+
+            <div class="best-value">
+                Over 43.5
+            </div>
+
+            <div class="best-confidence">
+                Historical confidence:
+                57.0%
+            </div>
+
+            <div class="
+                result
+                
+            ">
+                
+            </div>
+
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    Buffalo
+                    <span>@</span>
+                    Penn State
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 19 · 04:00 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span>
+                    Buffalo
+                </span>
+
+                <strong>
+                    18.0
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span>
+                    Penn State
+                </span>
+
+                <strong>
+                    40.2
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="markets">
+
+            <div class="market">
+
+                <div class="market-title">
+                    SPREAD
+                </div>
+
+                <div class="market-line">
+                    DK: Buffalo +40.5
+                    ·
+                    Penn State -40.5
+                </div>
+
+                <div class="model-line">
+                    Model:
+                    Penn State +22.2
+                </div>
+
+                <div class="pick">
+                    Buffalo +40.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    47.4%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+
+            <div class="market">
+
+                <div class="market-title">
+                    TOTAL
+                </div>
+
+                <div class="market-line">
+                    DK O/U:
+                    49.5
+                </div>
+
+                <div class="model-line">
+                    Model total:
+                    58.2
+                </div>
+
+                <div class="pick">
+                    Over 49.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    52.1%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="best-pick">
+
+            <div class="best-label">
+                BEST PICK ·
+                TOTAL
+            </div>
+
+            <div class="best-value">
+                Over 49.5
+            </div>
+
+            <div class="best-confidence">
+                Historical confidence:
+                52.1%
+            </div>
+
+            <div class="
+                result
+                
+            ">
+                
+            </div>
+
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    Georgia
+                    <span>@</span>
+                    Arkansas
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 19 · 04:00 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span>
+                    Georgia
+                </span>
+
+                <strong>
+                    36.5
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span>
+                    Arkansas
+                </span>
+
+                <strong>
+                    23.6
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="markets">
+
+            <div class="market">
+
+                <div class="market-title">
+                    SPREAD
+                </div>
+
+                <div class="market-line">
+                    DK: Georgia -24.5
+                    ·
+                    Arkansas +24.5
+                </div>
+
+                <div class="model-line">
+                    Model:
+                    Georgia +12.9
+                </div>
+
+                <div class="pick">
+                    Arkansas +24.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    48.4%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+
+            <div class="market">
+
+                <div class="market-title">
+                    TOTAL
+                </div>
+
+                <div class="market-line">
+                    DK O/U:
+                    54.5
+                </div>
+
+                <div class="model-line">
+                    Model total:
+                    60.0
+                </div>
+
+                <div class="pick">
+                    Over 54.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    53.9%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="best-pick">
+
+            <div class="best-label">
+                BEST PICK ·
+                TOTAL
+            </div>
+
+            <div class="best-value">
+                Over 54.5
+            </div>
+
+            <div class="best-confidence">
+                Historical confidence:
+                53.9%
+            </div>
+
+            <div class="
+                result
+                
+            ">
+                
+            </div>
+
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    Kent State
+                    <span>@</span>
+                    Ohio State
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 19 · 04:00 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span>
+                    Kent State
+                </span>
+
+                <strong>
+                    13.2
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span>
+                    Ohio State
+                </span>
+
+                <strong>
+                    46.6
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="markets">
+
+            <div class="market">
+
+                <div class="market-title">
+                    SPREAD
+                </div>
+
+                <div class="market-line">
+                    DK: Kent State +52.5
+                    ·
+                    Ohio State -52.5
+                </div>
+
+                <div class="model-line">
+                    Model:
+                    Ohio State +33.4
+                </div>
+
+                <div class="pick">
+                    Kent State +52.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    47.4%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+
+            <div class="market">
+
+                <div class="market-title">
+                    TOTAL
+                </div>
+
+                <div class="market-line">
+                    DK O/U:
+                    59.5
+                </div>
+
+                <div class="model-line">
+                    Model total:
+                    59.8
+                </div>
+
+                <div class="pick">
+                    Over 59.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    48.2%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="best-pick">
+
+            <div class="best-label">
+                BEST PICK ·
+                TOTAL
+            </div>
+
+            <div class="best-value">
+                Over 59.5
+            </div>
+
+            <div class="best-confidence">
+                Historical confidence:
+                48.2%
+            </div>
+
+            <div class="
+                result
+                
+            ">
+                
+            </div>
+
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    North Carolina
+                    <span>@</span>
+                    Clemson
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 19 · 04:00 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span>
+                    North Carolina
+                </span>
+
+                <strong>
+                    25.5
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span>
+                    Clemson
+                </span>
+
+                <strong>
+                    24.9
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="markets">
+
+            <div class="market">
+
+                <div class="market-title">
+                    SPREAD
+                </div>
+
+                <div class="market-line">
+                    DK: North Carolina +3.0
+                    ·
+                    Clemson -3.0
+                </div>
+
+                <div class="model-line">
+                    Model:
+                    North Carolina +0.6
+                </div>
+
+                <div class="pick">
+                    North Carolina +3.0
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    50.8%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+
+            <div class="market">
+
+                <div class="market-title">
+                    TOTAL
+                </div>
+
+                <div class="market-line">
+                    DK O/U:
+                    44.5
+                </div>
+
+                <div class="model-line">
+                    Model total:
+                    50.4
+                </div>
+
+                <div class="pick">
+                    Over 44.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    53.9%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="best-pick">
+
+            <div class="best-label">
+                BEST PICK ·
+                TOTAL
+            </div>
+
+            <div class="best-value">
+                Over 44.5
+            </div>
+
+            <div class="best-confidence">
+                Historical confidence:
+                53.9%
+            </div>
+
+            <div class="
+                result
+                
+            ">
+                
+            </div>
+
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    North Texas
+                    <span>@</span>
+                    Texas State
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 19 · 04:00 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span>
+                    North Texas
+                </span>
+
+                <strong>
+                    34.8
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span>
+                    Texas State
+                </span>
+
+                <strong>
+                    27.3
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="markets">
+
+            <div class="market">
+
+                <div class="market-title">
+                    SPREAD
+                </div>
+
+                <div class="market-line">
+                    DK: North Texas +2.5
+                    ·
+                    Texas State -2.5
+                </div>
+
+                <div class="model-line">
+                    Model:
+                    North Texas +7.5
+                </div>
+
+                <div class="pick">
+                    North Texas +2.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    51.4%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+
+            <div class="market">
+
+                <div class="market-title">
+                    TOTAL
+                </div>
+
+                <div class="market-line">
+                    DK O/U:
+                    62.5
+                </div>
+
+                <div class="model-line">
+                    Model total:
+                    62.0
+                </div>
+
+                <div class="pick">
+                    Under 62.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    48.2%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="best-pick">
+
+            <div class="best-label">
+                BEST PICK ·
+                SPREAD
+            </div>
+
+            <div class="best-value">
+                North Texas +2.5
+            </div>
+
+            <div class="best-confidence">
+                Historical confidence:
+                51.4%
+            </div>
+
+            <div class="
+                result
+                
+            ">
+                
+            </div>
+
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    Tulane
+                    <span>@</span>
+                    Kansas State
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 19 · 04:00 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span>
+                    Tulane
+                </span>
+
+                <strong>
+                    19.8
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span>
+                    Kansas State
+                </span>
+
+                <strong>
+                    35.9
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="markets">
+
+            <div class="market">
+
+                <div class="market-title">
+                    SPREAD
+                </div>
+
+                <div class="market-line">
+                    DK: Tulane +20.5
+                    ·
+                    Kansas State -20.5
+                </div>
+
+                <div class="model-line">
+                    Model:
+                    Kansas State +16.0
+                </div>
+
+                <div class="pick">
+                    Tulane +20.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    51.7%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+
+            <div class="market">
+
+                <div class="market-title">
+                    TOTAL
+                </div>
+
+                <div class="market-line">
+                    DK O/U:
+                    49.5
+                </div>
+
+                <div class="model-line">
+                    Model total:
+                    55.7
+                </div>
+
+                <div class="pick">
+                    Over 49.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    53.9%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="best-pick">
+
+            <div class="best-label">
+                BEST PICK ·
+                TOTAL
+            </div>
+
+            <div class="best-value">
+                Over 49.5
+            </div>
+
+            <div class="best-confidence">
+                Historical confidence:
+                53.9%
+            </div>
+
+            <div class="
+                result
+                
+            ">
+                
+            </div>
+
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    Eastern Michigan
+                    <span>@</span>
+                    Wisconsin
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 19 · 04:30 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span>
+                    Eastern Michigan
+                </span>
+
+                <strong>
+                    16.0
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span>
+                    Wisconsin
+                </span>
+
+                <strong>
+                    29.6
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="markets">
+
+            <div class="market">
+
+                <div class="market-title">
+                    SPREAD
+                </div>
+
+                <div class="market-line">
+                    DK: Eastern Michigan +23.5
+                    ·
+                    Wisconsin -23.5
+                </div>
+
+                <div class="model-line">
+                    Model:
+                    Wisconsin +13.7
+                </div>
+
+                <div class="pick">
+                    Eastern Michigan +23.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    51.4%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+
+            <div class="market">
+
+                <div class="market-title">
+                    TOTAL
+                </div>
+
+                <div class="market-line">
+                    DK O/U:
+                    44.5
+                </div>
+
+                <div class="model-line">
+                    Model total:
+                    45.6
+                </div>
+
+                <div class="pick">
+                    Over 44.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    48.5%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="best-pick">
+
+            <div class="best-label">
+                BEST PICK ·
+                SPREAD
+            </div>
+
+            <div class="best-value">
+                Eastern Michigan +23.5
+            </div>
+
+            <div class="best-confidence">
+                Historical confidence:
+                51.4%
+            </div>
+
+            <div class="
+                result
+                
+            ">
+                
+            </div>
+
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    NC State
+                    <span>@</span>
+                    Vanderbilt
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 19 · 04:45 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span>
+                    NC State
+                </span>
+
+                <strong>
+                    25.6
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span>
+                    Vanderbilt
+                </span>
+
+                <strong>
+                    28.1
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="markets">
+
+            <div class="market">
+
+                <div class="market-title">
+                    SPREAD
+                </div>
+
+                <div class="market-line">
+                    DK: NC State +3.0
+                    ·
+                    Vanderbilt -3.0
+                </div>
+
+                <div class="model-line">
+                    Model:
+                    Vanderbilt +2.5
+                </div>
+
+                <div class="pick">
+                    NC State +3.0
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    49.0%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+
+            <div class="market">
+
+                <div class="market-title">
+                    TOTAL
+                </div>
+
+                <div class="market-line">
+                    DK O/U:
+                    50.5
+                </div>
+
+                <div class="model-line">
+                    Model total:
+                    53.6
+                </div>
+
+                <div class="pick">
+                    Over 50.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    53.8%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="best-pick">
+
+            <div class="best-label">
+                BEST PICK ·
+                TOTAL
+            </div>
+
+            <div class="best-value">
+                Over 50.5
+            </div>
+
+            <div class="best-confidence">
+                Historical confidence:
+                53.8%
+            </div>
+
+            <div class="
+                result
+                
+            ">
+                
+            </div>
+
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    Wyoming
+                    <span>@</span>
+                    Central Michigan
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 19 · 05:00 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span>
+                    Wyoming
+                </span>
+
+                <strong>
+                    21.8
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span>
+                    Central Michigan
+                </span>
+
+                <strong>
+                    24.4
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="markets">
+
+            <div class="market">
+
+                <div class="market-title">
+                    SPREAD
+                </div>
+
+                <div class="market-line">
+                    DK: Wyoming -1.5
+                    ·
+                    Central Michigan +1.5
+                </div>
+
+                <div class="model-line">
+                    Model:
+                    Central Michigan +2.6
+                </div>
+
+                <div class="pick">
+                    Central Michigan +1.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    51.7%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+
+            <div class="market">
+
+                <div class="market-title">
+                    TOTAL
+                </div>
+
+                <div class="market-line">
+                    DK O/U:
+                    38.5
+                </div>
+
+                <div class="model-line">
+                    Model total:
+                    46.2
+                </div>
+
+                <div class="pick">
+                    Over 38.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    52.1%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="best-pick">
+
+            <div class="best-label">
+                BEST PICK ·
+                TOTAL
+            </div>
+
+            <div class="best-value">
+                Over 38.5
+            </div>
+
+            <div class="best-confidence">
+                Historical confidence:
+                52.1%
+            </div>
+
+            <div class="
+                result
+                
+            ">
+                
+            </div>
+
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    Temple
+                    <span>@</span>
+                    Toledo
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 19 · 07:00 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span>
+                    Temple
+                </span>
+
+                <strong>
+                    20.6
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span>
+                    Toledo
+                </span>
+
+                <strong>
+                    32.4
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="markets">
+
+            <div class="market">
+
+                <div class="market-title">
+                    SPREAD
+                </div>
+
+                <div class="market-line">
+                    DK: Temple +6.0
+                    ·
+                    Toledo -6.0
+                </div>
+
+                <div class="model-line">
+                    Model:
+                    Toledo +11.8
+                </div>
+
+                <div class="pick">
+                    Toledo -6.0
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    51.4%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+
+            <div class="market">
+
+                <div class="market-title">
+                    TOTAL
+                </div>
+
+                <div class="market-line">
+                    DK O/U:
+                    49.5
+                </div>
+
+                <div class="model-line">
+                    Model total:
+                    53.0
+                </div>
+
+                <div class="pick">
+                    Over 49.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    53.8%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="best-pick">
+
+            <div class="best-label">
+                BEST PICK ·
+                TOTAL
+            </div>
+
+            <div class="best-value">
+                Over 49.5
+            </div>
+
+            <div class="best-confidence">
+                Historical confidence:
+                53.8%
+            </div>
+
+            <div class="
+                result
+                
+            ">
+                
+            </div>
+
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    Florida State
+                    <span>@</span>
+                    Alabama
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 19 · 07:30 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span>
+                    Florida State
+                </span>
+
+                <strong>
+                    23.3
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span>
+                    Alabama
+                </span>
+
+                <strong>
+                    32.4
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="markets">
+
+            <div class="market">
+
+                <div class="market-title">
+                    SPREAD
+                </div>
+
+                <div class="market-line">
+                    DK: Florida State +19.5
+                    ·
+                    Alabama -19.5
+                </div>
+
+                <div class="model-line">
+                    Model:
+                    Alabama +9.1
+                </div>
+
+                <div class="pick">
+                    Florida State +19.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    48.4%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+
+            <div class="market">
+
+                <div class="market-title">
+                    TOTAL
+                </div>
+
+                <div class="market-line">
+                    DK O/U:
+                    49.5
+                </div>
+
+                <div class="model-line">
+                    Model total:
+                    55.6
+                </div>
+
+                <div class="pick">
+                    Over 49.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    53.9%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="best-pick">
+
+            <div class="best-label">
+                BEST PICK ·
+                TOTAL
+            </div>
+
+            <div class="best-value">
+                Over 49.5
+            </div>
+
+            <div class="best-confidence">
+                Historical confidence:
+                53.9%
+            </div>
+
+            <div class="
+                result
+                
+            ">
+                
+            </div>
+
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    Kentucky
+                    <span>@</span>
+                    Texas A&amp;M
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 19 · 07:30 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span>
+                    Kentucky
+                </span>
+
+                <strong>
+                    21.9
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span>
+                    Texas A&amp;M
+                </span>
+
+                <strong>
+                    35.2
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="markets">
+
+            <div class="market">
+
+                <div class="market-title">
+                    SPREAD
+                </div>
+
+                <div class="market-line">
+                    DK: Kentucky +16.5
+                    ·
+                    Texas A&amp;M -16.5
+                </div>
+
+                <div class="model-line">
+                    Model:
+                    Texas A&amp;M +13.3
+                </div>
+
+                <div class="pick">
+                    Kentucky +16.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    50.8%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+
+            <div class="market">
+
+                <div class="market-title">
+                    TOTAL
+                </div>
+
+                <div class="market-line">
+                    DK O/U:
+                    49.5
+                </div>
+
+                <div class="model-line">
+                    Model total:
+                    57.0
+                </div>
+
+                <div class="pick">
+                    Over 49.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    52.1%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="best-pick">
+
+            <div class="best-label">
+                BEST PICK ·
+                TOTAL
+            </div>
+
+            <div class="best-value">
+                Over 49.5
+            </div>
+
+            <div class="best-confidence">
+                Historical confidence:
+                52.1%
+            </div>
+
+            <div class="
+                result
+                
+            ">
+                
+            </div>
+
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    Miami (OH)
+                    <span>@</span>
+                    Cincinnati
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 19 · 07:30 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span>
+                    Miami (OH)
+                </span>
+
+                <strong>
+                    25.4
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span>
+                    Cincinnati
+                </span>
+
+                <strong>
+                    33.9
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="markets">
+
+            <div class="market">
+
+                <div class="market-title">
+                    SPREAD
+                </div>
+
+                <div class="market-line">
+                    DK: Miami (OH) +15.5
+                    ·
+                    Cincinnati -15.5
+                </div>
+
+                <div class="model-line">
+                    Model:
+                    Cincinnati +8.5
+                </div>
+
+                <div class="pick">
+                    Miami (OH) +15.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    51.4%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+
+            <div class="market">
+
+                <div class="market-title">
+                    TOTAL
+                </div>
+
+                <div class="market-line">
+                    DK O/U:
+                    49.5
+                </div>
+
+                <div class="model-line">
+                    Model total:
+                    59.2
+                </div>
+
+                <div class="pick">
+                    Over 49.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    52.1%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="best-pick">
+
+            <div class="best-label">
+                BEST PICK ·
+                TOTAL
+            </div>
+
+            <div class="best-value">
+                Over 49.5
+            </div>
+
+            <div class="best-confidence">
+                Historical confidence:
+                52.1%
+            </div>
+
+            <div class="
+                result
+                
+            ">
+                
+            </div>
+
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    SMU
+                    <span>@</span>
+                    Louisville
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 19 · 07:30 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span>
+                    SMU
+                </span>
+
+                <strong>
+                    30.9
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span>
+                    Louisville
+                </span>
+
+                <strong>
+                    26.8
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="markets">
+
+            <div class="market">
+
+                <div class="market-title">
+                    SPREAD
+                </div>
+
+                <div class="market-line">
+                    DK: SMU +1.5
+                    ·
+                    Louisville -1.5
+                </div>
+
+                <div class="model-line">
+                    Model:
+                    SMU +4.1
+                </div>
+
+                <div class="pick">
+                    SMU +1.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    51.4%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+
+            <div class="market">
+
+                <div class="market-title">
+                    TOTAL
+                </div>
+
+                <div class="market-line">
+                    DK O/U:
+                    58.5
+                </div>
+
+                <div class="model-line">
+                    Model total:
+                    57.7
+                </div>
+
+                <div class="pick">
+                    Under 58.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    48.2%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="best-pick">
+
+            <div class="best-label">
+                BEST PICK ·
+                SPREAD
+            </div>
+
+            <div class="best-value">
+                SMU +1.5
+            </div>
+
+            <div class="best-confidence">
+                Historical confidence:
+                51.4%
+            </div>
+
+            <div class="
+                result
+                
+            ">
+                
+            </div>
+
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    USC
+                    <span>@</span>
+                    Rutgers
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 19 · 07:30 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span>
+                    USC
+                </span>
+
+                <strong>
+                    36.6
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span>
+                    Rutgers
+                </span>
+
+                <strong>
+                    23.7
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="markets">
+
+            <div class="market">
+
+                <div class="market-title">
+                    SPREAD
+                </div>
+
+                <div class="market-line">
+                    DK: USC -21.5
+                    ·
+                    Rutgers +21.5
+                </div>
+
+                <div class="model-line">
+                    Model:
+                    USC +12.9
+                </div>
+
+                <div class="pick">
+                    Rutgers +21.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    51.4%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+
+            <div class="market">
+
+                <div class="market-title">
+                    TOTAL
+                </div>
+
+                <div class="market-line">
+                    DK O/U:
+                    58.5
+                </div>
+
+                <div class="model-line">
+                    Model total:
+                    60.2
+                </div>
+
+                <div class="pick">
+                    Over 58.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    48.5%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="best-pick">
+
+            <div class="best-label">
+                BEST PICK ·
+                SPREAD
+            </div>
+
+            <div class="best-value">
+                Rutgers +21.5
+            </div>
+
+            <div class="best-confidence">
+                Historical confidence:
+                51.4%
+            </div>
+
+            <div class="
+                result
+                
+            ">
+                
+            </div>
+
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    UTEP
+                    <span>@</span>
+                    Michigan
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 19 · 07:30 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span>
+                    UTEP
+                </span>
+
+                <strong>
+                    18.0
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span>
+                    Michigan
+                </span>
+
+                <strong>
+                    40.2
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="markets">
+
+            <div class="market">
+
+                <div class="market-title">
+                    SPREAD
+                </div>
+
+                <div class="market-line">
+                    DK: UTEP +34.5
+                    ·
+                    Michigan -34.5
+                </div>
+
+                <div class="model-line">
+                    Model:
+                    Michigan +22.2
+                </div>
+
+                <div class="pick">
+                    UTEP +34.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    48.4%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+
+            <div class="market">
+
+                <div class="market-title">
+                    TOTAL
+                </div>
+
+                <div class="market-line">
+                    DK O/U:
+                    48.5
+                </div>
+
+                <div class="model-line">
+                    Model total:
+                    58.2
+                </div>
+
+                <div class="pick">
+                    Over 48.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    52.1%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="best-pick">
+
+            <div class="best-label">
+                BEST PICK ·
+                TOTAL
+            </div>
+
+            <div class="best-value">
+                Over 48.5
+            </div>
+
+            <div class="best-confidence">
+                Historical confidence:
+                52.1%
+            </div>
+
+            <div class="
+                result
+                
+            ">
+                
+            </div>
+
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    Utah State
+                    <span>@</span>
+                    Utah
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 19 · 07:30 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span>
+                    Utah State
+                </span>
+
+                <strong>
+                    17.5
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span>
+                    Utah
+                </span>
+
+                <strong>
+                    41.3
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="markets">
+
+            <div class="market">
+
+                <div class="market-title">
+                    SPREAD
+                </div>
+
+                <div class="market-line">
+                    DK: Utah State +27.5
+                    ·
+                    Utah -27.5
+                </div>
+
+                <div class="model-line">
+                    Model:
+                    Utah +23.8
+                </div>
+
+                <div class="pick">
+                    Utah State +27.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    50.8%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+
+            <div class="market">
+
+                <div class="market-title">
+                    TOTAL
+                </div>
+
+                <div class="market-line">
+                    DK O/U:
+                    56.5
+                </div>
+
+                <div class="model-line">
+                    Model total:
+                    58.8
+                </div>
+
+                <div class="pick">
+                    Over 56.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    53.2%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="best-pick">
+
+            <div class="best-label">
+                BEST PICK ·
+                TOTAL
+            </div>
+
+            <div class="best-value">
+                Over 56.5
+            </div>
+
+            <div class="best-confidence">
+                Historical confidence:
+                53.2%
+            </div>
+
+            <div class="
+                result
+                
+            ">
+                
+            </div>
+
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    Ball State
+                    <span>@</span>
+                    Liberty
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 19 · 08:00 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span>
+                    Ball State
+                </span>
+
+                <strong>
+                    18.5
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span>
+                    Liberty
+                </span>
+
+                <strong>
+                    29.5
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="markets">
+
+            <div class="market">
+
+                <div class="market-title">
+                    SPREAD
+                </div>
+
+                <div class="market-line">
+                    DK: Ball State +14.5
+                    ·
+                    Liberty -14.5
+                </div>
+
+                <div class="model-line">
+                    Model:
+                    Liberty +11.0
+                </div>
+
+                <div class="pick">
+                    Ball State +14.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    50.8%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+
+            <div class="market">
+
+                <div class="market-title">
+                    TOTAL
+                </div>
+
+                <div class="market-line">
+                    DK O/U:
+                    49.5
+                </div>
+
+                <div class="model-line">
+                    Model total:
+                    48.0
+                </div>
+
+                <div class="pick">
+                    Under 49.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    48.5%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="best-pick">
+
+            <div class="best-label">
+                BEST PICK ·
+                SPREAD
+            </div>
+
+            <div class="best-value">
+                Ball State +14.5
+            </div>
+
+            <div class="best-confidence">
+                Historical confidence:
+                50.8%
+            </div>
+
+            <div class="
+                result
+                
+            ">
+                
+            </div>
+
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    Louisiana Tech
+                    <span>@</span>
+                    Baylor
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 19 · 08:00 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span>
+                    Louisiana Tech
+                </span>
+
+                <strong>
+                    16.6
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span>
+                    Baylor
+                </span>
+
+                <strong>
+                    31.3
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="markets">
+
+            <div class="market">
+
+                <div class="market-title">
+                    SPREAD
+                </div>
+
+                <div class="market-line">
+                    DK: Louisiana Tech +20.5
+                    ·
+                    Baylor -20.5
+                </div>
+
+                <div class="model-line">
+                    Model:
+                    Baylor +14.8
+                </div>
+
+                <div class="pick">
+                    Louisiana Tech +20.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    51.4%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+
+            <div class="market">
+
+                <div class="market-title">
+                    TOTAL
+                </div>
+
+                <div class="market-line">
+                    DK O/U:
+                    49.5
+                </div>
+
+                <div class="model-line">
+                    Model total:
+                    47.9
+                </div>
+
+                <div class="pick">
+                    Under 49.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    48.5%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="best-pick">
+
+            <div class="best-label">
+                BEST PICK ·
+                SPREAD
+            </div>
+
+            <div class="best-value">
+                Louisiana Tech +20.5
+            </div>
+
+            <div class="best-confidence">
+                Historical confidence:
+                51.4%
+            </div>
+
+            <div class="
+                result
+                
+            ">
+                
+            </div>
+
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    Stanford
+                    <span>@</span>
+                    Duke
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 19 · 08:00 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span>
+                    Stanford
+                </span>
+
+                <strong>
+                    23.7
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span>
+                    Duke
+                </span>
+
+                <strong>
+                    29.7
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="markets">
+
+            <div class="market">
+
+                <div class="market-title">
+                    SPREAD
+                </div>
+
+                <div class="market-line">
+                    DK: Stanford +10.0
+                    ·
+                    Duke -10.0
+                </div>
+
+                <div class="model-line">
+                    Model:
+                    Duke +6.0
+                </div>
+
+                <div class="pick">
+                    Stanford +10.0
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    50.8%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+
+            <div class="market">
+
+                <div class="market-title">
+                    TOTAL
+                </div>
+
+                <div class="market-line">
+                    DK O/U:
+                    50.5
+                </div>
+
+                <div class="model-line">
+                    Model total:
+                    53.4
+                </div>
+
+                <div class="pick">
+                    Over 50.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    53.2%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="best-pick">
+
+            <div class="best-label">
+                BEST PICK ·
+                TOTAL
+            </div>
+
+            <div class="best-value">
+                Over 50.5
+            </div>
+
+            <div class="best-confidence">
+                Historical confidence:
+                53.2%
+            </div>
+
+            <div class="
+                result
+                
+            ">
+                
+            </div>
+
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    Western Kentucky
+                    <span>@</span>
+                    Indiana
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 19 · 08:00 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span>
+                    Western Kentucky
+                </span>
+
+                <strong>
+                    13.4
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span>
+                    Indiana
+                </span>
+
+                <strong>
+                    41.4
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="markets">
+
+            <div class="market">
+
+                <div class="market-title">
+                    SPREAD
+                </div>
+
+                <div class="market-line">
+                    DK: Western Kentucky +44.5
+                    ·
+                    Indiana -44.5
+                </div>
+
+                <div class="model-line">
+                    Model:
+                    Indiana +28.0
+                </div>
+
+                <div class="pick">
+                    Western Kentucky +44.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    47.4%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+
+            <div class="market">
+
+                <div class="market-title">
+                    TOTAL
+                </div>
+
+                <div class="market-line">
+                    DK O/U:
+                    60.5
+                </div>
+
+                <div class="model-line">
+                    Model total:
+                    54.9
+                </div>
+
+                <div class="pick">
+                    Under 60.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    53.9%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="best-pick">
+
+            <div class="best-label">
+                BEST PICK ·
+                TOTAL
+            </div>
+
+            <div class="best-value">
+                Under 60.5
+            </div>
+
+            <div class="best-confidence">
+                Historical confidence:
+                53.9%
+            </div>
+
+            <div class="
+                result
+                
+            ">
+                
+            </div>
+
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    Mississippi State
+                    <span>@</span>
+                    South Carolina
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 19 · 08:15 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span>
+                    Mississippi State
+                </span>
+
+                <strong>
+                    26.2
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span>
+                    South Carolina
+                </span>
+
+                <strong>
+                    29.1
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="markets">
+
+            <div class="market">
+
+                <div class="market-title">
+                    SPREAD
+                </div>
+
+                <div class="market-line">
+                    DK: Mississippi State +4.0
+                    ·
+                    South Carolina -4.0
+                </div>
+
+                <div class="model-line">
+                    Model:
+                    South Carolina +2.9
+                </div>
+
+                <div class="pick">
+                    Mississippi State +4.0
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    52.6%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+
+            <div class="market">
+
+                <div class="market-title">
+                    TOTAL
+                </div>
+
+                <div class="market-line">
+                    DK O/U:
+                    58.5
+                </div>
+
+                <div class="model-line">
+                    Model total:
+                    55.4
+                </div>
+
+                <div class="pick">
+                    Under 58.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    53.8%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="best-pick">
+
+            <div class="best-label">
+                BEST PICK ·
+                TOTAL
+            </div>
+
+            <div class="best-value">
+                Under 58.5
+            </div>
+
+            <div class="best-confidence">
+                Historical confidence:
+                53.8%
+            </div>
+
+            <div class="
+                result
+                
+            ">
+                
+            </div>
+
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    Charlotte
+                    <span>@</span>
+                    App State
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 19 · 10:00 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span>
+                    Charlotte
+                </span>
+
+                <strong>
+                    20.5
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span>
+                    App State
+                </span>
+
+                <strong>
+                    37.8
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="markets">
+
+            <div class="market">
+
+                <div class="market-title">
+                    SPREAD
+                </div>
+
+                <div class="market-line">
+                    DK: Charlotte +17.5
+                    ·
+                    App State -17.5
+                </div>
+
+                <div class="model-line">
+                    Model:
+                    App State +17.3
+                </div>
+
+                <div class="pick">
+                    Charlotte +17.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    49.0%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+
+            <div class="market">
+
+                <div class="market-title">
+                    TOTAL
+                </div>
+
+                <div class="market-line">
+                    DK O/U:
+                    52.5
+                </div>
+
+                <div class="model-line">
+                    Model total:
+                    58.4
+                </div>
+
+                <div class="pick">
+                    Over 52.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    53.9%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="best-pick">
+
+            <div class="best-label">
+                BEST PICK ·
+                TOTAL
+            </div>
+
+            <div class="best-value">
+                Over 52.5
+            </div>
+
+            <div class="best-confidence">
+                Historical confidence:
+                53.9%
+            </div>
+
+            <div class="
+                result
+                
+            ">
+                
+            </div>
+
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    East Carolina
+                    <span>@</span>
+                    Old Dominion
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 19 · 10:00 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span>
+                    East Carolina
+                </span>
+
+                <strong>
+                    22.7
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span>
+                    Old Dominion
+                </span>
+
+                <strong>
+                    32.2
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="markets">
+
+            <div class="market">
+
+                <div class="market-title">
+                    SPREAD
+                </div>
+
+                <div class="market-line">
+                    DK: East Carolina +3.0
+                    ·
+                    Old Dominion -3.0
+                </div>
+
+                <div class="model-line">
+                    Model:
+                    Old Dominion +9.6
+                </div>
+
+                <div class="pick">
+                    Old Dominion -3.0
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    51.4%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+
+            <div class="market">
+
+                <div class="market-title">
+                    TOTAL
+                </div>
+
+                <div class="market-line">
+                    DK O/U:
+                    48.5
+                </div>
+
+                <div class="model-line">
+                    Model total:
+                    55.0
+                </div>
+
+                <div class="pick">
+                    Over 48.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    53.9%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="best-pick">
+
+            <div class="best-label">
+                BEST PICK ·
+                TOTAL
+            </div>
+
+            <div class="best-value">
+                Over 48.5
+            </div>
+
+            <div class="best-confidence">
+                Historical confidence:
+                53.9%
+            </div>
+
+            <div class="
+                result
+                
+            ">
+                
+            </div>
+
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    Florida International
+                    <span>@</span>
+                    Florida Atlantic
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 19 · 10:00 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span>
+                    Florida International
+                </span>
+
+                <strong>
+                    28.8
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span>
+                    Florida Atlantic
+                </span>
+
+                <strong>
+                    29.0
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="markets">
+
+            <div class="market">
+
+                <div class="market-title">
+                    SPREAD
+                </div>
+
+                <div class="market-line">
+                    DK: Florida International +6.5
+                    ·
+                    Florida Atlantic -6.5
+                </div>
+
+                <div class="model-line">
+                    Model:
+                    Florida Atlantic +0.2
+                </div>
+
+                <div class="pick">
+                    Florida International +6.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    51.4%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+
+            <div class="market">
+
+                <div class="market-title">
+                    TOTAL
+                </div>
+
+                <div class="market-line">
+                    DK O/U:
+                    62.5
+                </div>
+
+                <div class="model-line">
+                    Model total:
+                    57.8
+                </div>
+
+                <div class="pick">
+                    Under 62.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    47.8%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="best-pick">
+
+            <div class="best-label">
+                BEST PICK ·
+                SPREAD
+            </div>
+
+            <div class="best-value">
+                Florida International +6.5
+            </div>
+
+            <div class="best-confidence">
+                Historical confidence:
+                51.4%
+            </div>
+
+            <div class="
+                result
+                
+            ">
+                
+            </div>
+
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    Marshall
+                    <span>@</span>
+                    Missouri State
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 19 · 10:30 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span>
+                    Marshall
+                </span>
+
+                <strong>
+                    26.2
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span>
+                    Missouri State
+                </span>
+
+                <strong>
+                    27.8
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="markets">
+
+            <div class="market">
+
+                <div class="market-title">
+                    SPREAD
+                </div>
+
+                <div class="market-line">
+                    DK: Marshall -4.0
+                    ·
+                    Missouri State +4.0
+                </div>
+
+                <div class="model-line">
+                    Model:
+                    Missouri State +1.6
+                </div>
+
+                <div class="pick">
+                    Missouri State +4.0
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    51.4%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+
+            <div class="market">
+
+                <div class="market-title">
+                    TOTAL
+                </div>
+
+                <div class="market-line">
+                    DK O/U:
+                    53.5
+                </div>
+
+                <div class="model-line">
+                    Model total:
+                    54.0
+                </div>
+
+                <div class="pick">
+                    Over 53.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    48.2%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="best-pick">
+
+            <div class="best-label">
+                BEST PICK ·
+                SPREAD
+            </div>
+
+            <div class="best-value">
+                Missouri State +4.0
+            </div>
+
+            <div class="best-confidence">
+                Historical confidence:
+                51.4%
+            </div>
+
+            <div class="
+                result
+                
+            ">
+                
+            </div>
+
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    Florida
+                    <span>@</span>
+                    Auburn
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 19 · 11:00 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span>
+                    Florida
+                </span>
+
+                <strong>
+                    30.0
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span>
+                    Auburn
+                </span>
+
+                <strong>
+                    27.0
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="markets">
+
+            <div class="market">
+
+                <div class="market-title">
+                    SPREAD
+                </div>
+
+                <div class="market-line">
+                    DK: Florida -2.5
+                    ·
+                    Auburn +2.5
+                </div>
+
+                <div class="model-line">
+                    Model:
+                    Florida +3.0
+                </div>
+
+                <div class="pick">
+                    Florida -2.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    49.0%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+
+            <div class="market">
+
+                <div class="market-title">
+                    TOTAL
+                </div>
+
+                <div class="market-line">
+                    DK O/U:
+                    53.5
+                </div>
+
+                <div class="model-line">
+                    Model total:
+                    56.9
+                </div>
+
+                <div class="pick">
+                    Over 53.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    53.8%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="best-pick">
+
+            <div class="best-label">
+                BEST PICK ·
+                TOTAL
+            </div>
+
+            <div class="best-value">
+                Over 53.5
+            </div>
+
+            <div class="best-confidence">
+                Historical confidence:
+                53.8%
+            </div>
+
+            <div class="
+                result
+                
+            ">
+                
+            </div>
+
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    Georgia Southern
+                    <span>@</span>
+                    Jacksonville State
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 19 · 11:00 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span>
+                    Georgia Southern
+                </span>
+
+                <strong>
+                    23.7
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span>
+                    Jacksonville State
+                </span>
+
+                <strong>
+                    30.4
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="markets">
+
+            <div class="market">
+
+                <div class="market-title">
+                    SPREAD
+                </div>
+
+                <div class="market-line">
+                    DK: Georgia Southern +3.5
+                    ·
+                    Jacksonville State -3.5
+                </div>
+
+                <div class="model-line">
+                    Model:
+                    Jacksonville State +6.7
+                </div>
+
+                <div class="pick">
+                    Jacksonville State -3.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    50.8%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+
+            <div class="market">
+
+                <div class="market-title">
+                    TOTAL
+                </div>
+
+                <div class="market-line">
+                    DK O/U:
+                    52.5
+                </div>
+
+                <div class="model-line">
+                    Model total:
+                    54.1
+                </div>
+
+                <div class="pick">
+                    Over 52.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    48.5%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="best-pick">
+
+            <div class="best-label">
+                BEST PICK ·
+                SPREAD
+            </div>
+
+            <div class="best-value">
+                Jacksonville State -3.5
+            </div>
+
+            <div class="best-confidence">
+                Historical confidence:
+                50.8%
+            </div>
+
+            <div class="
+                result
+                
+            ">
+                
+            </div>
+
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    Georgia State
+                    <span>@</span>
+                    UCF
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 19 · 11:00 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span>
+                    Georgia State
+                </span>
+
+                <strong>
+                    23.4
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span>
+                    UCF
+                </span>
+
+                <strong>
+                    25.1
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="markets">
+
+            <div class="market">
+
+                <div class="market-title">
+                    SPREAD
+                </div>
+
+                <div class="market-line">
+                    DK: Georgia State +17.5
+                    ·
+                    UCF -17.5
+                </div>
+
+                <div class="model-line">
+                    Model:
+                    UCF +1.7
+                </div>
+
+                <div class="pick">
+                    Georgia State +17.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    47.4%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+
+            <div class="market">
+
+                <div class="market-title">
+                    TOTAL
+                </div>
+
+                <div class="market-line">
+                    DK O/U:
+                    49.5
+                </div>
+
+                <div class="model-line">
+                    Model total:
+                    48.5
+                </div>
+
+                <div class="pick">
+                    Under 49.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    48.5%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="best-pick">
+
+            <div class="best-label">
+                BEST PICK ·
+                TOTAL
+            </div>
+
+            <div class="best-value">
+                Under 49.5
+            </div>
+
+            <div class="best-confidence">
+                Historical confidence:
+                48.5%
+            </div>
+
+            <div class="
+                result
+                
+            ">
+                
+            </div>
+
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    Nevada
+                    <span>@</span>
+                    Middle Tennessee
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 19 · 11:00 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span>
+                    Nevada
+                </span>
+
+                <strong>
+                    22.4
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span>
+                    Middle Tennessee
+                </span>
+
+                <strong>
+                    28.0
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="markets">
+
+            <div class="market">
+
+                <div class="market-title">
+                    SPREAD
+                </div>
+
+                <div class="market-line">
+                    DK: Nevada -3.5
+                    ·
+                    Middle Tennessee +3.5
+                </div>
+
+                <div class="model-line">
+                    Model:
+                    Middle Tennessee +5.6
+                </div>
+
+                <div class="pick">
+                    Middle Tennessee +3.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    51.4%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+
+            <div class="market">
+
+                <div class="market-title">
+                    TOTAL
+                </div>
+
+                <div class="market-line">
+                    DK O/U:
+                    50.5
+                </div>
+
+                <div class="model-line">
+                    Model total:
+                    50.5
+                </div>
+
+                <div class="pick">
+                    Under 50.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    48.2%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="best-pick">
+
+            <div class="best-label">
+                BEST PICK ·
+                SPREAD
+            </div>
+
+            <div class="best-value">
+                Middle Tennessee +3.5
+            </div>
+
+            <div class="best-confidence">
+                Historical confidence:
+                51.4%
+            </div>
+
+            <div class="
+                result
+                
+            ">
+                
+            </div>
+
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    Ohio
+                    <span>@</span>
+                    South Alabama
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 19 · 11:00 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span>
+                    Ohio
+                </span>
+
+                <strong>
+                    21.5
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span>
+                    South Alabama
+                </span>
+
+                <strong>
+                    33.8
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="markets">
+
+            <div class="market">
+
+                <div class="market-title">
+                    SPREAD
+                </div>
+
+                <div class="market-line">
+                    DK: Ohio +6.5
+                    ·
+                    South Alabama -6.5
+                </div>
+
+                <div class="model-line">
+                    Model:
+                    South Alabama +12.3
+                </div>
+
+                <div class="pick">
+                    South Alabama -6.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    51.4%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+
+            <div class="market">
+
+                <div class="market-title">
+                    TOTAL
+                </div>
+
+                <div class="market-line">
+                    DK O/U:
+                    48.5
+                </div>
+
+                <div class="model-line">
+                    Model total:
+                    55.3
+                </div>
+
+                <div class="pick">
+                    Over 48.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    53.9%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="best-pick">
+
+            <div class="best-label">
+                BEST PICK ·
+                TOTAL
+            </div>
+
+            <div class="best-value">
+                Over 48.5
+            </div>
+
+            <div class="best-confidence">
+                Historical confidence:
+                53.9%
+            </div>
+
+            <div class="
+                result
+                
+            ">
+                
+            </div>
+
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    Troy
+                    <span>@</span>
+                    Missouri
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 19 · 11:00 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span>
+                    Troy
+                </span>
+
+                <strong>
+                    19.2
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span>
+                    Missouri
+                </span>
+
+                <strong>
+                    38.7
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="markets">
+
+            <div class="market">
+
+                <div class="market-title">
+                    SPREAD
+                </div>
+
+                <div class="market-line">
+                    DK: Troy +27.5
+                    ·
+                    Missouri -27.5
+                </div>
+
+                <div class="model-line">
+                    Model:
+                    Missouri +19.5
+                </div>
+
+                <div class="pick">
+                    Troy +27.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    51.4%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+
+            <div class="market">
+
+                <div class="market-title">
+                    TOTAL
+                </div>
+
+                <div class="market-line">
+                    DK O/U:
+                    50.5
+                </div>
+
+                <div class="model-line">
+                    Model total:
+                    57.9
+                </div>
+
+                <div class="pick">
+                    Over 50.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    52.1%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="best-pick">
+
+            <div class="best-label">
+                BEST PICK ·
+                TOTAL
+            </div>
+
+            <div class="best-value">
+                Over 50.5
+            </div>
+
+            <div class="best-confidence">
+                Historical confidence:
+                52.1%
+            </div>
+
+            <div class="
+                result
+                
+            ">
+                
+            </div>
+
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    UConn
+                    <span>@</span>
+                    Southern Miss
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 19 · 11:00 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span>
+                    UConn
+                </span>
+
+                <strong>
+                    27.1
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span>
+                    Southern Miss
+                </span>
+
+                <strong>
+                    28.1
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="markets">
+
+            <div class="market">
+
+                <div class="market-title">
+                    SPREAD
+                </div>
+
+                <div class="market-line">
+                    DK: UConn -3.0
+                    ·
+                    Southern Miss +3.0
+                </div>
+
+                <div class="model-line">
+                    Model:
+                    Southern Miss +0.9
+                </div>
+
+                <div class="pick">
+                    Southern Miss +3.0
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    50.8%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+
+            <div class="market">
+
+                <div class="market-title">
+                    TOTAL
+                </div>
+
+                <div class="market-line">
+                    DK O/U:
+                    54.5
+                </div>
+
+                <div class="model-line">
+                    Model total:
+                    55.2
+                </div>
+
+                <div class="pick">
+                    Over 54.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    48.2%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="best-pick">
+
+            <div class="best-label">
+                BEST PICK ·
+                SPREAD
+            </div>
+
+            <div class="best-value">
+                Southern Miss +3.0
+            </div>
+
+            <div class="best-confidence">
+                Historical confidence:
+                50.8%
+            </div>
+
+            <div class="
+                result
+                
+            ">
+                
+            </div>
+
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    Western Michigan
+                    <span>@</span>
+                    Rice
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 19 · 11:00 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span>
+                    Western Michigan
+                </span>
+
+                <strong>
+                    29.5
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span>
+                    Rice
+                </span>
+
+                <strong>
+                    23.6
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="markets">
+
+            <div class="market">
+
+                <div class="market-title">
+                    SPREAD
+                </div>
+
+                <div class="market-line">
+                    DK: Western Michigan -9.5
+                    ·
+                    Rice +9.5
+                </div>
+
+                <div class="model-line">
+                    Model:
+                    Western Michigan +6.0
+                </div>
+
+                <div class="pick">
+                    Rice +9.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    50.8%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+
+            <div class="market">
+
+                <div class="market-title">
+                    TOTAL
+                </div>
+
+                <div class="market-line">
+                    DK O/U:
+                    43.5
+                </div>
+
+                <div class="model-line">
+                    Model total:
+                    53.1
+                </div>
+
+                <div class="pick">
+                    Over 43.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    52.1%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="best-pick">
+
+            <div class="best-label">
+                BEST PICK ·
+                TOTAL
+            </div>
+
+            <div class="best-value">
+                Over 43.5
+            </div>
+
+            <div class="best-confidence">
+                Historical confidence:
+                52.1%
+            </div>
+
+            <div class="
+                result
+                
+            ">
+                
+            </div>
+
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    BYU
+                    <span>@</span>
+                    Colorado State
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 19 · 11:30 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span>
+                    BYU
+                </span>
+
+                <strong>
+                    29.7
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span>
+                    Colorado State
+                </span>
+
+                <strong>
+                    22.9
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="markets">
+
+            <div class="market">
+
+                <div class="market-title">
+                    SPREAD
+                </div>
+
+                <div class="market-line">
+                    DK: BYU -17.5
+                    ·
+                    Colorado State +17.5
+                </div>
+
+                <div class="model-line">
+                    Model:
+                    BYU +6.8
+                </div>
+
+                <div class="pick">
+                    Colorado State +17.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    48.4%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+
+            <div class="market">
+
+                <div class="market-title">
+                    TOTAL
+                </div>
+
+                <div class="market-line">
+                    DK O/U:
+                    52.5
+                </div>
+
+                <div class="model-line">
+                    Model total:
+                    52.6
+                </div>
+
+                <div class="pick">
+                    Over 52.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    48.2%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="best-pick">
+
+            <div class="best-label">
+                BEST PICK ·
+                SPREAD
+            </div>
+
+            <div class="best-value">
+                Colorado State +17.5
+            </div>
+
+            <div class="best-confidence">
+                Historical confidence:
+                48.4%
+            </div>
+
+            <div class="
+                result
+                
+            ">
+                
+            </div>
+
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    Colorado
+                    <span>@</span>
+                    Northwestern
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 19 · 11:30 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span>
+                    Colorado
+                </span>
+
+                <strong>
+                    24.2
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span>
+                    Northwestern
+                </span>
+
+                <strong>
+                    27.0
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="markets">
+
+            <div class="market">
+
+                <div class="market-title">
+                    SPREAD
+                </div>
+
+                <div class="market-line">
+                    DK: Colorado +3.5
+                    ·
+                    Northwestern -3.5
+                </div>
+
+                <div class="model-line">
+                    Model:
+                    Northwestern +2.9
+                </div>
+
+                <div class="pick">
+                    Colorado +3.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    49.0%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+
+            <div class="market">
+
+                <div class="market-title">
+                    TOTAL
+                </div>
+
+                <div class="market-line">
+                    DK O/U:
+                    47.5
+                </div>
+
+                <div class="model-line">
+                    Model total:
+                    51.2
+                </div>
+
+                <div class="pick">
+                    Over 47.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    53.8%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="best-pick">
+
+            <div class="best-label">
+                BEST PICK ·
+                TOTAL
+            </div>
+
+            <div class="best-value">
+                Over 47.5
+            </div>
+
+            <div class="best-confidence">
+                Historical confidence:
+                53.8%
+            </div>
+
+            <div class="
+                result
+                
+            ">
+                
+            </div>
+
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    LSU
+                    <span>@</span>
+                    Ole Miss
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 19 · 11:30 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span>
+                    LSU
+                </span>
+
+                <strong>
+                    26.5
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span>
+                    Ole Miss
+                </span>
+
+                <strong>
+                    29.7
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="markets">
+
+            <div class="market">
+
+                <div class="market-title">
+                    SPREAD
+                </div>
+
+                <div class="market-line">
+                    DK: LSU -3.0
+                    ·
+                    Ole Miss +3.0
+                </div>
+
+                <div class="model-line">
+                    Model:
+                    Ole Miss +3.2
+                </div>
+
+                <div class="pick">
+                    Ole Miss +3.0
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    51.4%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+
+            <div class="market">
+
+                <div class="market-title">
+                    TOTAL
+                </div>
+
+                <div class="market-line">
+                    DK O/U:
+                    58.5
+                </div>
+
+                <div class="model-line">
+                    Model total:
+                    56.2
+                </div>
+
+                <div class="pick">
+                    Under 58.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    53.2%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="best-pick">
+
+            <div class="best-label">
+                BEST PICK ·
+                TOTAL
+            </div>
+
+            <div class="best-value">
+                Under 58.5
+            </div>
+
+            <div class="best-confidence">
+                Historical confidence:
+                53.2%
+            </div>
+
+            <div class="
+                result
+                
+            ">
+                
+            </div>
+
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    Michigan State
+                    <span>@</span>
+                    Notre Dame
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 19 · 11:30 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span>
+                    Michigan State
+                </span>
+
+                <strong>
+                    17.7
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span>
+                    Notre Dame
+                </span>
+
+                <strong>
+                    38.7
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="markets">
+
+            <div class="market">
+
+                <div class="market-title">
+                    SPREAD
+                </div>
+
+                <div class="market-line">
+                    DK: Michigan State +29.5
+                    ·
+                    Notre Dame -29.5
+                </div>
+
+                <div class="model-line">
+                    Model:
+                    Notre Dame +21.0
+                </div>
+
+                <div class="pick">
+                    Michigan State +29.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    51.4%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+
+            <div class="market">
+
+                <div class="market-title">
+                    TOTAL
+                </div>
+
+                <div class="market-line">
+                    DK O/U:
+                    51.5
+                </div>
+
+                <div class="model-line">
+                    Model total:
+                    56.4
+                </div>
+
+                <div class="pick">
+                    Over 51.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    47.8%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="best-pick">
+
+            <div class="best-label">
+                BEST PICK ·
+                SPREAD
+            </div>
+
+            <div class="best-value">
+                Michigan State +29.5
+            </div>
+
+            <div class="best-confidence">
+                Historical confidence:
+                51.4%
+            </div>
+
+            <div class="
+                result
+                
+            ">
+                
+            </div>
+
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    New Mexico
+                    <span>@</span>
+                    Oklahoma
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 19 · 11:30 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span>
+                    New Mexico
+                </span>
+
+                <strong>
+                    21.5
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span>
+                    Oklahoma
+                </span>
+
+                <strong>
+                    31.7
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="markets">
+
+            <div class="market">
+
+                <div class="market-title">
+                    SPREAD
+                </div>
+
+                <div class="market-line">
+                    DK: New Mexico +21.5
+                    ·
+                    Oklahoma -21.5
+                </div>
+
+                <div class="model-line">
+                    Model:
+                    Oklahoma +10.2
+                </div>
+
+                <div class="pick">
+                    New Mexico +21.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    48.4%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+
+            <div class="market">
+
+                <div class="market-title">
+                    TOTAL
+                </div>
+
+                <div class="market-line">
+                    DK O/U:
+                    45.5
+                </div>
+
+                <div class="model-line">
+                    Model total:
+                    53.2
+                </div>
+
+                <div class="pick">
+                    Over 45.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    52.1%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="best-pick">
+
+            <div class="best-label">
+                BEST PICK ·
+                TOTAL
+            </div>
+
+            <div class="best-value">
+                Over 45.5
+            </div>
+
+            <div class="best-confidence">
+                Historical confidence:
+                52.1%
+            </div>
+
+            <div class="
+                result
+                
+            ">
+                
+            </div>
+
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    Virginia Tech
+                    <span>@</span>
+                    Maryland
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 19 · 11:30 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span>
+                    Virginia Tech
+                </span>
+
+                <strong>
+                    28.6
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span>
+                    Maryland
+                </span>
+
+                <strong>
+                    29.3
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="markets">
+
+            <div class="market">
+
+                <div class="market-title">
+                    SPREAD
+                </div>
+
+                <div class="market-line">
+                    DK: Virginia Tech -3.0
+                    ·
+                    Maryland +3.0
+                </div>
+
+                <div class="model-line">
+                    Model:
+                    Maryland +0.8
+                </div>
+
+                <div class="pick">
+                    Maryland +3.0
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    50.8%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+
+            <div class="market">
+
+                <div class="market-title">
+                    TOTAL
+                </div>
+
+                <div class="market-line">
+                    DK O/U:
+                    53.5
+                </div>
+
+                <div class="model-line">
+                    Model total:
+                    57.9
+                </div>
+
+                <div class="pick">
+                    Over 53.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    47.8%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="best-pick">
+
+            <div class="best-label">
+                BEST PICK ·
+                SPREAD
+            </div>
+
+            <div class="best-value">
+                Maryland +3.0
+            </div>
+
+            <div class="best-confidence">
+                Historical confidence:
+                50.8%
+            </div>
+
+            <div class="
+                result
+                
+            ">
+                
+            </div>
+
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    West Virginia
+                    <span>@</span>
+                    Virginia
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 19 · 11:30 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span>
+                    West Virginia
+                </span>
+
+                <strong>
+                    23.9
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span>
+                    Virginia
+                </span>
+
+                <strong>
+                    33.5
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="markets">
+
+            <div class="market">
+
+                <div class="market-title">
+                    SPREAD
+                </div>
+
+                <div class="market-line">
+                    DK: West Virginia +10.5
+                    ·
+                    Virginia -10.5
+                </div>
+
+                <div class="model-line">
+                    Model:
+                    Virginia +9.6
+                </div>
+
+                <div class="pick">
+                    West Virginia +10.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    49.0%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+
+            <div class="market">
+
+                <div class="market-title">
+                    TOTAL
+                </div>
+
+                <div class="market-line">
+                    DK O/U:
+                    53.5
+                </div>
+
+                <div class="model-line">
+                    Model total:
+                    57.4
+                </div>
+
+                <div class="pick">
+                    Over 53.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    53.8%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="best-pick">
+
+            <div class="best-label">
+                BEST PICK ·
+                TOTAL
+            </div>
+
+            <div class="best-value">
+                Over 53.5
+            </div>
+
+            <div class="best-confidence">
+                Historical confidence:
+                53.8%
+            </div>
+
+            <div class="
+                result
+                
+            ">
+                
+            </div>
+
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    Kennesaw State
+                    <span>@</span>
+                    Tennessee
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 19 · 11:45 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span>
+                    Kennesaw State
+                </span>
+
+                <strong>
+                    18.4
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span>
+                    Tennessee
+                </span>
+
+                <strong>
+                    42.4
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="markets">
+
+            <div class="market">
+
+                <div class="market-title">
+                    SPREAD
+                </div>
+
+                <div class="market-line">
+                    DK: Kennesaw State +35.5
+                    ·
+                    Tennessee -35.5
+                </div>
+
+                <div class="model-line">
+                    Model:
+                    Tennessee +24.0
+                </div>
+
+                <div class="pick">
+                    Kennesaw State +35.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    48.4%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+
+            <div class="market">
+
+                <div class="market-title">
+                    TOTAL
+                </div>
+
+                <div class="market-line">
+                    DK O/U:
+                    60.5
+                </div>
+
+                <div class="model-line">
+                    Model total:
+                    60.8
+                </div>
+
+                <div class="pick">
+                    Over 60.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    48.2%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="best-pick">
+
+            <div class="best-label">
+                BEST PICK ·
+                SPREAD
+            </div>
+
+            <div class="best-value">
+                Kennesaw State +35.5
+            </div>
+
+            <div class="best-confidence">
+                Historical confidence:
+                48.4%
+            </div>
+
+            <div class="
+                result
+                
+            ">
+                
+            </div>
+
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    Arkansas State
+                    <span>@</span>
+                    TCU
+                </div>
+
+                
+        <div class="kickoff">
+            Sun Sep 20 · 12:00 AM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span>
+                    Arkansas State
+                </span>
+
+                <strong>
+                    13.2
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span>
+                    TCU
+                </span>
+
+                <strong>
+                    32.3
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="markets">
+
+            <div class="market">
+
+                <div class="market-title">
+                    SPREAD
+                </div>
+
+                <div class="market-line">
+                    DK: Arkansas State +18.5
+                    ·
+                    TCU -18.5
+                </div>
+
+                <div class="model-line">
+                    Model:
+                    TCU +19.1
+                </div>
+
+                <div class="pick">
+                    TCU -18.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    49.0%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+
+            <div class="market">
+
+                <div class="market-title">
+                    TOTAL
+                </div>
+
+                <div class="market-line">
+                    DK O/U:
+                    56.5
+                </div>
+
+                <div class="model-line">
+                    Model total:
+                    45.6
+                </div>
+
+                <div class="pick">
+                    Under 56.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    57.0%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="best-pick">
+
+            <div class="best-label">
+                BEST PICK ·
+                TOTAL
+            </div>
+
+            <div class="best-value">
+                Under 56.5
+            </div>
+
+            <div class="best-confidence">
+                Historical confidence:
+                57.0%
+            </div>
+
+            <div class="
+                result
+                
+            ">
+                
+            </div>
+
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    UAB
+                    <span>@</span>
+                    Louisiana
+                </div>
+
+                
+        <div class="kickoff">
+            Sun Sep 20 · 12:00 AM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span>
+                    UAB
+                </span>
+
+                <strong>
+                    24.1
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span>
+                    Louisiana
+                </span>
+
+                <strong>
+                    34.1
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="markets">
+
+            <div class="market">
+
+                <div class="market-title">
+                    SPREAD
+                </div>
+
+                <div class="market-line">
+                    DK: UAB +7.5
+                    ·
+                    Louisiana -7.5
+                </div>
+
+                <div class="model-line">
+                    Model:
+                    Louisiana +10.1
+                </div>
+
+                <div class="pick">
+                    Louisiana -7.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    50.3%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+
+            <div class="market">
+
+                <div class="market-title">
+                    TOTAL
+                </div>
+
+                <div class="market-line">
+                    DK O/U:
+                    55.5
+                </div>
+
+                <div class="model-line">
+                    Model total:
+                    58.2
+                </div>
+
+                <div class="pick">
+                    Over 55.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    53.2%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="best-pick">
+
+            <div class="best-label">
+                BEST PICK ·
+                TOTAL
+            </div>
+
+            <div class="best-value">
+                Over 55.5
+            </div>
+
+            <div class="best-confidence">
+                Historical confidence:
+                53.2%
+            </div>
+
+            <div class="
+                result
+                
+            ">
+                
+            </div>
+
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    UTSA
+                    <span>@</span>
+                    Texas
+                </div>
+
+                
+        <div class="kickoff">
+            Sun Sep 20 · 12:00 AM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span>
+                    UTSA
+                </span>
+
+                <strong>
+                    20.4
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span>
+                    Texas
+                </span>
+
+                <strong>
+                    33.3
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="markets">
+
+            <div class="market">
+
+                <div class="market-title">
+                    SPREAD
+                </div>
+
+                <div class="market-line">
+                    DK: UTSA +30.5
+                    ·
+                    Texas -30.5
+                </div>
+
+                <div class="model-line">
+                    Model:
+                    Texas +12.9
+                </div>
+
+                <div class="pick">
+                    UTSA +30.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    47.4%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+
+            <div class="market">
+
+                <div class="market-title">
+                    TOTAL
+                </div>
+
+                <div class="market-line">
+                    DK O/U:
+                    58.5
+                </div>
+
+                <div class="model-line">
+                    Model total:
+                    53.7
+                </div>
+
+                <div class="pick">
+                    Under 58.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    47.8%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="best-pick">
+
+            <div class="best-label">
+                BEST PICK ·
+                TOTAL
+            </div>
+
+            <div class="best-value">
+                Under 58.5
+            </div>
+
+            <div class="best-confidence">
+                Historical confidence:
+                47.8%
+            </div>
+
+            <div class="
+                result
+                
+            ">
+                
+            </div>
+
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    James Madison
+                    <span>@</span>
+                    San Diego State
+                </div>
+
+                
+        <div class="kickoff">
+            Sun Sep 20 · 02:00 AM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span>
+                    James Madison
+                </span>
+
+                <strong>
+                    30.2
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span>
+                    San Diego State
+                </span>
+
+                <strong>
+                    24.6
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="markets">
+
+            <div class="market">
+
+                <div class="market-title">
+                    SPREAD
+                </div>
+
+                <div class="market-line">
+                    DK: James Madison +1.5
+                    ·
+                    San Diego State -1.5
+                </div>
+
+                <div class="model-line">
+                    Model:
+                    James Madison +5.6
+                </div>
+
+                <div class="pick">
+                    James Madison +1.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    51.4%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+
+            <div class="market">
+
+                <div class="market-title">
+                    TOTAL
+                </div>
+
+                <div class="market-line">
+                    DK O/U:
+                    46.5
+                </div>
+
+                <div class="model-line">
+                    Model total:
+                    54.8
+                </div>
+
+                <div class="pick">
+                    Over 46.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    52.1%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="best-pick">
+
+            <div class="best-label">
+                BEST PICK ·
+                TOTAL
+            </div>
+
+            <div class="best-value">
+                Over 46.5
+            </div>
+
+            <div class="best-confidence">
+                Historical confidence:
+                52.1%
+            </div>
+
+            <div class="
+                result
+                
+            ">
+                
+            </div>
+
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    North Dakota State
+                    <span>@</span>
+                    Sacramento State
+                </div>
+
+                
+        <div class="kickoff">
+            Sun Sep 20 · 02:30 AM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span>
+                    North Dakota State
+                </span>
+
+                <strong>
+                    30.7
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span>
+                    Sacramento State
+                </span>
+
+                <strong>
+                    25.2
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="markets">
+
+            <div class="market">
+
+                <div class="market-title">
+                    SPREAD
+                </div>
+
+                <div class="market-line">
+                    DK: North Dakota State -27.5
+                    ·
+                    Sacramento State +27.5
+                </div>
+
+                <div class="model-line">
+                    Model:
+                    North Dakota State +5.5
+                </div>
+
+                <div class="pick">
+                    Sacramento State +27.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    54.4%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+
+            <div class="market">
+
+                <div class="market-title">
+                    TOTAL
+                </div>
+
+                <div class="market-line">
+                    DK O/U:
+                    50.5
+                </div>
+
+                <div class="model-line">
+                    Model total:
+                    55.9
+                </div>
+
+                <div class="pick">
+                    Over 50.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    53.9%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="best-pick">
+
+            <div class="best-label">
+                BEST PICK ·
+                SPREAD
+            </div>
+
+            <div class="best-value">
+                Sacramento State +27.5
+            </div>
+
+            <div class="best-confidence">
+                Historical confidence:
+                54.4%
+            </div>
+
+            <div class="
+                result
+                
+            ">
+                
+            </div>
+
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    Northern Illinois
+                    <span>@</span>
+                    Arizona
+                </div>
+
+                
+        <div class="kickoff">
+            Sun Sep 20 · 02:30 AM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span>
+                    Northern Illinois
+                </span>
+
+                <strong>
+                    16.4
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span>
+                    Arizona
+                </span>
+
+                <strong>
+                    40.7
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="markets">
+
+            <div class="market">
+
+                <div class="market-title">
+                    SPREAD
+                </div>
+
+                <div class="market-line">
+                    DK: Northern Illinois +33.5
+                    ·
+                    Arizona -33.5
+                </div>
+
+                <div class="model-line">
+                    Model:
+                    Arizona +24.2
+                </div>
+
+                <div class="pick">
+                    Northern Illinois +33.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    51.4%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+
+            <div class="market">
+
+                <div class="market-title">
+                    TOTAL
+                </div>
+
+                <div class="market-line">
+                    DK O/U:
+                    50.5
+                </div>
+
+                <div class="model-line">
+                    Model total:
+                    57.1
+                </div>
+
+                <div class="pick">
+                    Over 50.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    53.9%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="best-pick">
+
+            <div class="best-label">
+                BEST PICK ·
+                TOTAL
+            </div>
+
+            <div class="best-value">
+                Over 50.5
+            </div>
+
+            <div class="best-confidence">
+                Historical confidence:
+                53.9%
+            </div>
+
+            <div class="
+                result
+                
+            ">
+                
+            </div>
+
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    Fresno State
+                    <span>@</span>
+                    San José State
+                </div>
+
+                
+        <div class="kickoff">
+            Sun Sep 20 · 03:00 AM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span>
+                    Fresno State
+                </span>
+
+                <strong>
+                    29.6
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span>
+                    San José State
+                </span>
+
+                <strong>
+                    25.9
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="markets">
+
+            <div class="market">
+
+                <div class="market-title">
+                    SPREAD
+                </div>
+
+                <div class="market-line">
+                    DK: Fresno State -6.5
+                    ·
+                    San José State +6.5
+                </div>
+
+                <div class="model-line">
+                    Model:
+                    Fresno State +3.7
+                </div>
+
+                <div class="pick">
+                    San José State +6.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    50.3%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+
+            <div class="market">
+
+                <div class="market-title">
+                    TOTAL
+                </div>
+
+                <div class="market-line">
+                    DK O/U:
+                    49.5
+                </div>
+
+                <div class="model-line">
+                    Model total:
+                    55.5
+                </div>
+
+                <div class="pick">
+                    Over 49.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    53.9%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="best-pick">
+
+            <div class="best-label">
+                BEST PICK ·
+                TOTAL
+            </div>
+
+            <div class="best-value">
+                Over 49.5
+            </div>
+
+            <div class="best-confidence">
+                Historical confidence:
+                53.9%
+            </div>
+
+            <div class="
+                result
+                
+            ">
+                
+            </div>
+
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    Purdue
+                    <span>@</span>
+                    UCLA
+                </div>
+
+                
+        <div class="kickoff">
+            Sun Sep 20 · 03:00 AM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span>
+                    Purdue
+                </span>
+
+                <strong>
+                    24.4
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span>
+                    UCLA
+                </span>
+
+                <strong>
+                    32.3
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="markets">
+
+            <div class="market">
+
+                <div class="market-title">
+                    SPREAD
+                </div>
+
+                <div class="market-line">
+                    DK: Purdue +14.0
+                    ·
+                    UCLA -14.0
+                </div>
+
+                <div class="model-line">
+                    Model:
+                    UCLA +7.9
+                </div>
+
+                <div class="pick">
+                    Purdue +14.0
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    51.4%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+
+            <div class="market">
+
+                <div class="market-title">
+                    TOTAL
+                </div>
+
+                <div class="market-line">
+                    DK O/U:
+                    52.5
+                </div>
+
+                <div class="model-line">
+                    Model total:
+                    56.6
+                </div>
+
+                <div class="pick">
+                    Over 52.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    47.8%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="best-pick">
+
+            <div class="best-label">
+                BEST PICK ·
+                SPREAD
+            </div>
+
+            <div class="best-value">
+                Purdue +14.0
+            </div>
+
+            <div class="best-confidence">
+                Historical confidence:
+                51.4%
+            </div>
+
+            <div class="
+                result
+                
+            ">
+                
+            </div>
+
+        </div>
+        
+
+    </article>
+    
+    </section>
+
+</main>
+
+
+<footer class="footer">
+
+    Model projections are informational and based on
+    pregame data.
+
+    Lines shown are the DraftKings markets saved with
+    the original prediction.
+
+</footer>
+
+
+</body>
+
+</html>
