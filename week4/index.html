@@ -1,0 +1,5869 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>CFB MODEL · Week 4</title>
+
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: #0b0e14;
+    color: #f4f6f8;
+    font-family:
+        Inter,
+        Arial,
+        Helvetica,
+        sans-serif;
+}
+
+.hero {
+    padding: 55px 20px 35px;
+    text-align: center;
+
+    background:
+        linear-gradient(
+            180deg,
+            #151a24 0%,
+            #0b0e14 100%
+        );
+}
+
+.logo {
+    font-size: 46px;
+    font-weight: 900;
+    letter-spacing: 3px;
+}
+
+.logo span {
+    color: #56c2ff;
+}
+
+.subtitle {
+    margin-top: 8px;
+    color: #aab2c0;
+    font-size: 17px;
+}
+
+.week {
+    margin-top: 16px;
+    font-size: 14px;
+    color: #707b8c;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.updated {
+    margin-top: 8px;
+    color: #8993a3;
+    font-size: 12px;
+}
+
+.week-navigation {
+    margin:
+        24px auto 0;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+}
+
+.week-link {
+    display: inline-block;
+
+    padding:
+        8px 14px;
+
+    border:
+        1px solid #303949;
+
+    border-radius: 8px;
+
+    color: #aeb7c5;
+
+    background: #151a24;
+
+    text-decoration: none;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    transition:
+        background .15s ease,
+        border-color .15s ease,
+        color .15s ease;
+}
+
+.week-link:hover {
+    background: #1c2330;
+    border-color: #46536a;
+    color: #ffffff;
+}
+
+.week-link.active {
+    background: #1d3040;
+    border-color: #56c2ff;
+    color: #56c2ff;
+}
+
+.record-section-title {
+    margin-top: 26px;
+    color: #8e98a8;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.records {
+    max-width: 850px;
+    margin: 10px auto 0;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 12px;
+}
+
+.record {
+    background: #171c27;
+
+    border:
+        1px solid #252c3a;
+
+    border-radius: 12px;
+
+    padding: 15px;
+}
+
+.record-label {
+    color: #8e98a8;
+
+    font-size: 12px;
+
+    letter-spacing: 1px;
+}
+
+.record-value {
+    margin-top: 5px;
+
+    font-size: 21px;
+
+    font-weight: 800;
+}
+
+.container {
+    width:
+        min(1150px, 94%);
+
+    margin:
+        25px auto 60px;
+}
+
+.board-title {
+    margin:
+        25px 0;
+
+    font-size: 24px;
+}
+
+.games {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            2,
+            minmax(0, 1fr)
+        );
+
+    gap: 18px;
+}
+
+.game-card {
+    background: #141923;
+
+    border:
+        1px solid #252d3a;
+
+    border-radius: 16px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 8px 25px
+        rgba(0,0,0,.22);
+}
+
+.game-header {
+    padding:
+        18px 20px;
+
+    border-bottom:
+        1px solid #252d3a;
+}
+
+.matchup {
+    font-size: 18px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.matchup .at-symbol {
+    color: #677386;
+    margin: 0 2px;
+}
+
+.team-with-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 0;
+}
+
+.team-logo-small {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    flex: 0 0 auto;
+}
+
+.team-logo-score {
+    width: 34px;
+    height: 34px;
+    object-fit: contain;
+    flex: 0 0 auto;
+}
+
+.kickoff {
+    color: #8993a3;
+
+    font-size: 12px;
+
+    margin-top: 6px;
+}
+
+.final-score {
+    color: #56c2ff;
+
+    font-weight: 700;
+
+    font-size: 13px;
+
+    margin-top: 7px;
+}
+
+.score-title {
+    padding:
+        15px 20px 5px;
+
+    color: #778397;
+
+    font-size: 11px;
+
+    letter-spacing: 1.5px;
+}
+
+.scoreboard {
+    padding:
+        4px 20px 17px;
+}
+
+.team-score {
+    display: flex;
+
+    align-items: center;
+
+    justify-content:
+        space-between;
+
+    padding:
+        4px 0;
+}
+
+.team-score > .score-team-name {
+    font-size: 16px;
+    min-width: 0;
+}
+
+.team-score strong {
+    font-size: 26px;
+}
+
+.markets {
+    border-top:
+        1px solid #252d3a;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+}
+
+.market {
+    padding:
+        17px 20px;
+}
+
+.market:first-child {
+    border-right:
+        1px solid #252d3a;
+}
+
+.market-title {
+    color: #8c97a8;
+
+    font-size: 11px;
+
+    letter-spacing: 1.5px;
+
+    font-weight: 800;
+}
+
+.market-line,
+.model-line {
+    margin-top: 7px;
+
+    color: #aab3c1;
+
+    font-size: 12px;
+}
+
+.pick {
+    margin-top: 12px;
+
+    font-size: 17px;
+
+    font-weight: 900;
+}
+
+.confidence {
+    margin-top: 5px;
+
+    color: #7f8a9c;
+
+    font-size: 11px;
+}
+
+.best-pick {
+    padding:
+        18px 20px;
+
+    background: #1b2230;
+
+    border-top:
+        1px solid #303a4b;
+}
+
+.best-label {
+    color: #56c2ff;
+
+    font-size: 11px;
+
+    letter-spacing: 1.5px;
+
+    font-weight: 900;
+}
+
+.best-value {
+    font-size: 22px;
+
+    font-weight: 900;
+
+    margin-top: 6px;
+}
+
+.best-confidence {
+    color: #98a3b4;
+
+    font-size: 12px;
+
+    margin-top: 4px;
+}
+
+.no-market {
+    border-top:
+        1px solid #252d3a;
+
+    padding: 20px;
+
+    color: #8f99a8;
+
+    font-size: 13px;
+}
+
+.result {
+    display: none;
+
+    margin-top: 8px;
+
+    font-weight: 900;
+
+    font-size: 12px;
+}
+
+.result.win {
+    display: block;
+
+    color: #62d890;
+}
+
+.result.loss {
+    display: block;
+
+    color: #ff6b6b;
+}
+
+.result.push {
+    display: block;
+
+    color: #f3c969;
+}
+
+.footer {
+    text-align: center;
+
+    color: #596475;
+
+    font-size: 12px;
+
+    padding:
+        20px 15px 45px;
+}
+
+
+@media (max-width: 800px) {
+
+    .games {
+        grid-template-columns:
+            1fr;
+    }
+
+    .logo {
+        font-size: 37px;
+    }
+
+}
+
+
+@media (max-width: 520px) {
+
+    .records {
+        grid-template-columns:
+            1fr;
+    }
+
+    .markets {
+        grid-template-columns:
+            1fr;
+    }
+
+    .market:first-child {
+        border-right: none;
+
+        border-bottom:
+            1px solid #252d3a;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header class="hero">
+
+    <div class="logo">
+        CFB <span>MODEL</span>
+    </div>
+
+    <div class="subtitle">
+        College Football Predictions
+    </div>
+
+    <div class="week">
+        2026
+        ·
+        Week 4
+        ·
+        58 Model Predictions
+    </div>
+
+    <div class="updated">
+        Model predictions locked for Week 4
+    </div>
+
+
+    <nav
+        class="week-navigation"
+        aria-label="Weekly predictions"
+    >
+        
+            <a
+                class="week-link"
+                href="/cfb-model/week3/"
+            >
+                Week 3
+            </a>
+            
+
+            <a
+                class="week-link active"
+                href="/cfb-model/week4/"
+            >
+                Week 4
+            </a>
+            
+    </nav>
+
+
+    <div class="record-section-title">
+        WEEK 4 RECORD
+    </div>
+
+    <div class="records">
+        <div class="record"><div class="record-label">SPREAD</div><div class="record-value">0-0-0</div></div>
+        <div class="record"><div class="record-label">OVER / UNDER</div><div class="record-value">0-0-0</div></div>
+        <div class="record"><div class="record-label">BEST PICKS</div><div class="record-value">0-0-0</div></div>
+    </div>
+
+    <div class="record-section-title">
+        2026 SEASON RECORD
+    </div>
+
+    <div class="records">
+        <div class="record"><div class="record-label">SPREAD</div><div class="record-value">0-0-0</div></div>
+        <div class="record"><div class="record-label">OVER / UNDER</div><div class="record-value">0-0-0</div></div>
+        <div class="record"><div class="record-label">BEST PICKS</div><div class="record-value">0-0-0</div></div>
+    </div>
+
+</header>
+
+
+<main class="container">
+
+    <h1 class="board-title">
+        Week 4 Picks
+    </h1>
+
+    <section class="games">
+        
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/2335.png" alt="" loading="lazy"><span>Liberty</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/324.png" alt="" loading="lazy"><span>Coastal Carolina</span></span>
+                </div>
+
+                
+        <div class="kickoff">
+            Thu Sep 24 · 11:30 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/2335.png" alt="" loading="lazy"><span>Liberty</span></span>
+                </span>
+
+                <strong>
+                    22.2
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/324.png" alt="" loading="lazy"><span>Coastal Carolina</span></span>
+                </span>
+
+                <strong>
+                    29.6
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="no-market">
+            No current DraftKings market was locked
+            for this game.
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/349.png" alt="" loading="lazy"><span>Army</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/218.png" alt="" loading="lazy"><span>Temple</span></span>
+                </div>
+
+                
+        <div class="kickoff">
+            Fri Sep 25 · 08:00 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/349.png" alt="" loading="lazy"><span>Army</span></span>
+                </span>
+
+                <strong>
+                    26.3
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/218.png" alt="" loading="lazy"><span>Temple</span></span>
+                </span>
+
+                <strong>
+                    25.8
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="no-market">
+            No current DraftKings market was locked
+            for this game.
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/2426.png" alt="" loading="lazy"><span>Navy</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/5.png" alt="" loading="lazy"><span>UAB</span></span>
+                </div>
+
+                
+        <div class="kickoff">
+            Fri Sep 25 · 11:00 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/2426.png" alt="" loading="lazy"><span>Navy</span></span>
+                </span>
+
+                <strong>
+                    30.0
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/5.png" alt="" loading="lazy"><span>UAB</span></span>
+                </span>
+
+                <strong>
+                    26.9
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="no-market">
+            No current DraftKings market was locked
+            for this game.
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/77.png" alt="" loading="lazy"><span>Northwestern</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/84.png" alt="" loading="lazy"><span>Indiana</span></span>
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 26 · 12:00 AM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/77.png" alt="" loading="lazy"><span>Northwestern</span></span>
+                </span>
+
+                <strong>
+                    20.8
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/84.png" alt="" loading="lazy"><span>Indiana</span></span>
+                </span>
+
+                <strong>
+                    38.7
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="no-market">
+            No current DraftKings market was locked
+            for this game.
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/228.png" alt="" loading="lazy"><span>Clemson</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/25.png" alt="" loading="lazy"><span>California</span></span>
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 26 · 02:30 AM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/228.png" alt="" loading="lazy"><span>Clemson</span></span>
+                </span>
+
+                <strong>
+                    23.2
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/25.png" alt="" loading="lazy"><span>California</span></span>
+                </span>
+
+                <strong>
+                    27.6
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="no-market">
+            No current DraftKings market was locked
+            for this game.
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/68.png" alt="" loading="lazy"><span>Boise State</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/2711.png" alt="" loading="lazy"><span>Western Michigan</span></span>
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 26 · 04:00 AM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/68.png" alt="" loading="lazy"><span>Boise State</span></span>
+                </span>
+
+                <strong>
+                    25.3
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/2711.png" alt="" loading="lazy"><span>Western Michigan</span></span>
+                </span>
+
+                <strong>
+                    26.6
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="markets">
+
+            <div class="market">
+
+                <div class="market-title">
+                    SPREAD
+                </div>
+
+                <div class="market-line">
+                    DK: Boise State -7.5
+                    ·
+                    Western Michigan +7.5
+                </div>
+
+                <div class="model-line">
+                    Model margin:
+                    Western Michigan by 1.3
+                </div>
+
+                <div class="pick">
+                    Western Michigan +7.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    51.4%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+
+            <div class="market">
+
+                <div class="market-title">
+                    TOTAL
+                </div>
+
+                <div class="market-line">
+                    DK O/U:
+                    47.5
+                </div>
+
+                <div class="model-line">
+                    Model total:
+                    51.9
+                </div>
+
+                <div class="pick">
+                    Over 47.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    47.8%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="best-pick">
+
+            <div class="best-label">
+                BEST PICK ·
+                SPREAD
+            </div>
+
+            <div class="best-value">
+                Western Michigan +7.5
+            </div>
+
+            <div class="best-confidence">
+                Historical confidence:
+                51.4%
+            </div>
+
+            <div class="
+                result
+                
+            ">
+                
+            </div>
+
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/248.png" alt="" loading="lazy"><span>Houston</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/290.png" alt="" loading="lazy"><span>Georgia Southern</span></span>
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 26 · 04:00 AM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/248.png" alt="" loading="lazy"><span>Houston</span></span>
+                </span>
+
+                <strong>
+                    30.8
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/290.png" alt="" loading="lazy"><span>Georgia Southern</span></span>
+                </span>
+
+                <strong>
+                    23.6
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="no-market">
+            No current DraftKings market was locked
+            for this game.
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/2050.png" alt="" loading="lazy"><span>Ball State</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/2309.png" alt="" loading="lazy"><span>Kent State</span></span>
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 26 · 04:00 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/2050.png" alt="" loading="lazy"><span>Ball State</span></span>
+                </span>
+
+                <strong>
+                    25.2
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/2309.png" alt="" loading="lazy"><span>Kent State</span></span>
+                </span>
+
+                <strong>
+                    25.7
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="no-market">
+            No current DraftKings market was locked
+            for this game.
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/38.png" alt="" loading="lazy"><span>Colorado</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/239.png" alt="" loading="lazy"><span>Baylor</span></span>
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 26 · 04:00 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/38.png" alt="" loading="lazy"><span>Colorado</span></span>
+                </span>
+
+                <strong>
+                    23.5
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/239.png" alt="" loading="lazy"><span>Baylor</span></span>
+                </span>
+
+                <strong>
+                    27.4
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="no-market">
+            No current DraftKings market was locked
+            for this game.
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/36.png" alt="" loading="lazy"><span>Colorado State</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/2636.png" alt="" loading="lazy"><span>UTSA</span></span>
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 26 · 04:00 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/36.png" alt="" loading="lazy"><span>Colorado State</span></span>
+                </span>
+
+                <strong>
+                    26.7
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/2636.png" alt="" loading="lazy"><span>UTSA</span></span>
+                </span>
+
+                <strong>
+                    31.7
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="no-market">
+            No current DraftKings market was locked
+            for this game.
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/356.png" alt="" loading="lazy"><span>Illinois</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/194.png" alt="" loading="lazy"><span>Ohio State</span></span>
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 26 · 04:00 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/356.png" alt="" loading="lazy"><span>Illinois</span></span>
+                </span>
+
+                <strong>
+                    20.3
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/194.png" alt="" loading="lazy"><span>Ohio State</span></span>
+                </span>
+
+                <strong>
+                    38.4
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="no-market">
+            No current DraftKings market was locked
+            for this game.
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/2534.png" alt="" loading="lazy"><span>Sam Houston</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/2641.png" alt="" loading="lazy"><span>Texas Tech</span></span>
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 26 · 04:00 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/2534.png" alt="" loading="lazy"><span>Sam Houston</span></span>
+                </span>
+
+                <strong>
+                    17.7
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/2641.png" alt="" loading="lazy"><span>Texas Tech</span></span>
+                </span>
+
+                <strong>
+                    42.8
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="no-market">
+            No current DraftKings market was locked
+            for this game.
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/21.png" alt="" loading="lazy"><span>San Diego State</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/2649.png" alt="" loading="lazy"><span>Toledo</span></span>
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 26 · 04:00 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/21.png" alt="" loading="lazy"><span>San Diego State</span></span>
+                </span>
+
+                <strong>
+                    20.9
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/2649.png" alt="" loading="lazy"><span>Toledo</span></span>
+                </span>
+
+                <strong>
+                    30.8
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="no-market">
+            No current DraftKings market was locked
+            for this game.
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/251.png" alt="" loading="lazy"><span>Texas</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/2633.png" alt="" loading="lazy"><span>Tennessee</span></span>
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 26 · 04:00 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/251.png" alt="" loading="lazy"><span>Texas</span></span>
+                </span>
+
+                <strong>
+                    28.2
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/2633.png" alt="" loading="lazy"><span>Tennessee</span></span>
+                </span>
+
+                <strong>
+                    30.6
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="markets">
+
+            <div class="market">
+
+                <div class="market-title">
+                    SPREAD
+                </div>
+
+                <div class="market-line">
+                    DK: Texas -4.5
+                    ·
+                    Tennessee +4.5
+                </div>
+
+                <div class="model-line">
+                    Model margin:
+                    Tennessee by 2.4
+                </div>
+
+                <div class="pick">
+                    Tennessee +4.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    51.4%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+
+            <div class="market">
+
+                <div class="market-title">
+                    TOTAL
+                </div>
+
+                <div class="market-line">
+                    DK O/U:
+                    56.5
+                </div>
+
+                <div class="model-line">
+                    Model total:
+                    58.7
+                </div>
+
+                <div class="pick">
+                    Over 56.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    53.2%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="best-pick">
+
+            <div class="best-label">
+                BEST PICK ·
+                TOTAL
+            </div>
+
+            <div class="best-value">
+                Over 56.5
+            </div>
+
+            <div class="best-confidence">
+                Historical confidence:
+                53.2%
+            </div>
+
+            <div class="
+                result
+                
+            ">
+                
+            </div>
+
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/2439.png" alt="" loading="lazy"><span>UNLV</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/2006.png" alt="" loading="lazy"><span>Akron</span></span>
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 26 · 04:00 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/2439.png" alt="" loading="lazy"><span>UNLV</span></span>
+                </span>
+
+                <strong>
+                    24.4
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/2006.png" alt="" loading="lazy"><span>Akron</span></span>
+                </span>
+
+                <strong>
+                    29.1
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="no-market">
+            No current DraftKings market was locked
+            for this game.
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/259.png" alt="" loading="lazy"><span>Virginia Tech</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/103.png" alt="" loading="lazy"><span>Boston College</span></span>
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 26 · 04:00 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/259.png" alt="" loading="lazy"><span>Virginia Tech</span></span>
+                </span>
+
+                <strong>
+                    37.6
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/103.png" alt="" loading="lazy"><span>Boston College</span></span>
+                </span>
+
+                <strong>
+                    23.9
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="no-market">
+            No current DraftKings market was locked
+            for this game.
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/154.png" alt="" loading="lazy"><span>Wake Forest</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/97.png" alt="" loading="lazy"><span>Louisville</span></span>
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 26 · 04:00 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/154.png" alt="" loading="lazy"><span>Wake Forest</span></span>
+                </span>
+
+                <strong>
+                    24.0
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/97.png" alt="" loading="lazy"><span>Louisville</span></span>
+                </span>
+
+                <strong>
+                    31.7
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="no-market">
+            No current DraftKings market was locked
+            for this game.
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/6.png" alt="" loading="lazy"><span>South Alabama</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/96.png" alt="" loading="lazy"><span>Kentucky</span></span>
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 26 · 04:45 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/6.png" alt="" loading="lazy"><span>South Alabama</span></span>
+                </span>
+
+                <strong>
+                    26.4
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/96.png" alt="" loading="lazy"><span>Kentucky</span></span>
+                </span>
+
+                <strong>
+                    29.4
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="no-market">
+            No current DraftKings market was locked
+            for this game.
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/26.png" alt="" loading="lazy"><span>UCLA</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/120.png" alt="" loading="lazy"><span>Maryland</span></span>
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 26 · 05:30 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/26.png" alt="" loading="lazy"><span>UCLA</span></span>
+                </span>
+
+                <strong>
+                    23.2
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/120.png" alt="" loading="lazy"><span>Maryland</span></span>
+                </span>
+
+                <strong>
+                    31.6
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="markets">
+
+            <div class="market">
+
+                <div class="market-title">
+                    SPREAD
+                </div>
+
+                <div class="market-line">
+                    DK: UCLA -1.5
+                    ·
+                    Maryland +1.5
+                </div>
+
+                <div class="model-line">
+                    Model margin:
+                    Maryland by 8.4
+                </div>
+
+                <div class="pick">
+                    Maryland +1.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    51.4%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+
+            <div class="market">
+
+                <div class="market-title">
+                    TOTAL
+                </div>
+
+                <div class="market-line">
+                    DK O/U:
+                    51.5
+                </div>
+
+                <div class="model-line">
+                    Model total:
+                    54.8
+                </div>
+
+                <div class="pick">
+                    Over 51.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    53.8%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="best-pick">
+
+            <div class="best-label">
+                BEST PICK ·
+                TOTAL
+            </div>
+
+            <div class="best-value">
+                Over 51.5
+            </div>
+
+            <div class="best-confidence">
+                Historical confidence:
+                53.8%
+            </div>
+
+            <div class="
+                result
+                
+            ">
+                
+            </div>
+
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/2459.png" alt="" loading="lazy"><span>Northern Illinois</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/2247.png" alt="" loading="lazy"><span>Georgia State</span></span>
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 26 · 06:00 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/2459.png" alt="" loading="lazy"><span>Northern Illinois</span></span>
+                </span>
+
+                <strong>
+                    22.6
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/2247.png" alt="" loading="lazy"><span>Georgia State</span></span>
+                </span>
+
+                <strong>
+                    35.0
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="no-market">
+            No current DraftKings market was locked
+            for this game.
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/87.png" alt="" loading="lazy"><span>Notre Dame</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/2509.png" alt="" loading="lazy"><span>Purdue</span></span>
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 26 · 06:00 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/87.png" alt="" loading="lazy"><span>Notre Dame</span></span>
+                </span>
+
+                <strong>
+                    37.2
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/2509.png" alt="" loading="lazy"><span>Purdue</span></span>
+                </span>
+
+                <strong>
+                    22.7
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="no-market">
+            No current DraftKings market was locked
+            for this game.
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/62.png" alt="" loading="lazy"><span>Hawai&#x27;i</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/2751.png" alt="" loading="lazy"><span>Wyoming</span></span>
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 26 · 07:00 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/62.png" alt="" loading="lazy"><span>Hawai&#x27;i</span></span>
+                </span>
+
+                <strong>
+                    24.3
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/2751.png" alt="" loading="lazy"><span>Wyoming</span></span>
+                </span>
+
+                <strong>
+                    25.9
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="no-market">
+            No current DraftKings market was locked
+            for this game.
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/2294.png" alt="" loading="lazy"><span>Iowa</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/130.png" alt="" loading="lazy"><span>Michigan</span></span>
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 26 · 07:30 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/2294.png" alt="" loading="lazy"><span>Iowa</span></span>
+                </span>
+
+                <strong>
+                    23.1
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/130.png" alt="" loading="lazy"><span>Michigan</span></span>
+                </span>
+
+                <strong>
+                    25.0
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="markets">
+
+            <div class="market">
+
+                <div class="market-title">
+                    SPREAD
+                </div>
+
+                <div class="market-line">
+                    DK: Iowa +4.5
+                    ·
+                    Michigan -4.5
+                </div>
+
+                <div class="model-line">
+                    Model margin:
+                    Michigan by 1.9
+                </div>
+
+                <div class="pick">
+                    Iowa +4.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    50.3%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+
+            <div class="market">
+
+                <div class="market-title">
+                    TOTAL
+                </div>
+
+                <div class="market-line">
+                    DK O/U:
+                    37.5
+                </div>
+
+                <div class="model-line">
+                    Model total:
+                    48.1
+                </div>
+
+                <div class="pick">
+                    Over 37.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    57.0%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="best-pick">
+
+            <div class="best-label">
+                BEST PICK ·
+                TOTAL
+            </div>
+
+            <div class="best-value">
+                Over 37.5
+            </div>
+
+            <div class="best-confidence">
+                Historical confidence:
+                57.0%
+            </div>
+
+            <div class="
+                result
+                
+            ">
+                
+            </div>
+
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/167.png" alt="" loading="lazy"><span>New Mexico</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/166.png" alt="" loading="lazy"><span>New Mexico State</span></span>
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 26 · 07:30 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/167.png" alt="" loading="lazy"><span>New Mexico</span></span>
+                </span>
+
+                <strong>
+                    28.8
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/166.png" alt="" loading="lazy"><span>New Mexico State</span></span>
+                </span>
+
+                <strong>
+                    23.2
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="no-market">
+            No current DraftKings market was locked
+            for this game.
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/201.png" alt="" loading="lazy"><span>Oklahoma</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/61.png" alt="" loading="lazy"><span>Georgia</span></span>
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 26 · 07:30 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/201.png" alt="" loading="lazy"><span>Oklahoma</span></span>
+                </span>
+
+                <strong>
+                    24.8
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/61.png" alt="" loading="lazy"><span>Georgia</span></span>
+                </span>
+
+                <strong>
+                    33.5
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="markets">
+
+            <div class="market">
+
+                <div class="market-title">
+                    SPREAD
+                </div>
+
+                <div class="market-line">
+                    DK: Oklahoma +13.5
+                    ·
+                    Georgia -13.5
+                </div>
+
+                <div class="model-line">
+                    Model margin:
+                    Georgia by 8.7
+                </div>
+
+                <div class="pick">
+                    Oklahoma +13.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    51.7%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+
+            <div class="market">
+
+                <div class="market-title">
+                    TOTAL
+                </div>
+
+                <div class="market-line">
+                    DK O/U:
+                    47.5
+                </div>
+
+                <div class="model-line">
+                    Model total:
+                    58.3
+                </div>
+
+                <div class="pick">
+                    Over 47.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    57.0%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="best-pick">
+
+            <div class="best-label">
+                BEST PICK ·
+                TOTAL
+            </div>
+
+            <div class="best-value">
+                Over 47.5
+            </div>
+
+            <div class="best-confidence">
+                Historical confidence:
+                57.0%
+            </div>
+
+            <div class="
+                result
+                
+            ">
+                
+            </div>
+
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/145.png" alt="" loading="lazy"><span>Ole Miss</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/57.png" alt="" loading="lazy"><span>Florida</span></span>
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 26 · 07:30 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/145.png" alt="" loading="lazy"><span>Ole Miss</span></span>
+                </span>
+
+                <strong>
+                    27.8
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/57.png" alt="" loading="lazy"><span>Florida</span></span>
+                </span>
+
+                <strong>
+                    29.9
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="markets">
+
+            <div class="market">
+
+                <div class="market-title">
+                    SPREAD
+                </div>
+
+                <div class="market-line">
+                    DK: Ole Miss +1.5
+                    ·
+                    Florida -1.5
+                </div>
+
+                <div class="model-line">
+                    Model margin:
+                    Florida by 2.1
+                </div>
+
+                <div class="pick">
+                    Florida -1.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    49.0%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+
+            <div class="market">
+
+                <div class="market-title">
+                    TOTAL
+                </div>
+
+                <div class="market-line">
+                    DK O/U:
+                    57.5
+                </div>
+
+                <div class="model-line">
+                    Model total:
+                    57.6
+                </div>
+
+                <div class="pick">
+                    Over 57.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    48.2%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="best-pick">
+
+            <div class="best-label">
+                BEST PICK ·
+                SPREAD
+            </div>
+
+            <div class="best-value">
+                Florida -1.5
+            </div>
+
+            <div class="best-confidence">
+                Historical confidence:
+                49.0%
+            </div>
+
+            <div class="
+                result
+                
+            ">
+                
+            </div>
+
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/2628.png" alt="" loading="lazy"><span>TCU</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/2116.png" alt="" loading="lazy"><span>UCF</span></span>
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 26 · 07:30 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/2628.png" alt="" loading="lazy"><span>TCU</span></span>
+                </span>
+
+                <strong>
+                    27.6
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/2116.png" alt="" loading="lazy"><span>UCF</span></span>
+                </span>
+
+                <strong>
+                    25.2
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="no-market">
+            No current DraftKings market was locked
+            for this game.
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/41.png" alt="" loading="lazy"><span>UConn</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/193.png" alt="" loading="lazy"><span>Miami (OH)</span></span>
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 26 · 07:30 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/41.png" alt="" loading="lazy"><span>UConn</span></span>
+                </span>
+
+                <strong>
+                    30.6
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/193.png" alt="" loading="lazy"><span>Miami (OH)</span></span>
+                </span>
+
+                <strong>
+                    26.2
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="no-market">
+            No current DraftKings market was locked
+            for this game.
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/254.png" alt="" loading="lazy"><span>Utah</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/66.png" alt="" loading="lazy"><span>Iowa State</span></span>
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 26 · 07:30 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/254.png" alt="" loading="lazy"><span>Utah</span></span>
+                </span>
+
+                <strong>
+                    32.1
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/66.png" alt="" loading="lazy"><span>Iowa State</span></span>
+                </span>
+
+                <strong>
+                    24.5
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="no-market">
+            No current DraftKings market was locked
+            for this game.
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/238.png" alt="" loading="lazy"><span>Vanderbilt</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/2.png" alt="" loading="lazy"><span>Auburn</span></span>
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 26 · 08:15 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/238.png" alt="" loading="lazy"><span>Vanderbilt</span></span>
+                </span>
+
+                <strong>
+                    25.3
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/2.png" alt="" loading="lazy"><span>Auburn</span></span>
+                </span>
+
+                <strong>
+                    30.4
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="markets">
+
+            <div class="market">
+
+                <div class="market-title">
+                    SPREAD
+                </div>
+
+                <div class="market-line">
+                    DK: Vanderbilt +8.5
+                    ·
+                    Auburn -8.5
+                </div>
+
+                <div class="model-line">
+                    Model margin:
+                    Auburn by 5.2
+                </div>
+
+                <div class="pick">
+                    Vanderbilt +8.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    50.8%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+
+            <div class="market">
+
+                <div class="market-title">
+                    TOTAL
+                </div>
+
+                <div class="market-line">
+                    DK O/U:
+                    50.5
+                </div>
+
+                <div class="model-line">
+                    Model total:
+                    55.7
+                </div>
+
+                <div class="pick">
+                    Over 50.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    53.9%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="best-pick">
+
+            <div class="best-label">
+                BEST PICK ·
+                TOTAL
+            </div>
+
+            <div class="best-value">
+                Over 50.5
+            </div>
+
+            <div class="best-confidence">
+                Historical confidence:
+                53.9%
+            </div>
+
+            <div class="
+                result
+                
+            ">
+                
+            </div>
+
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/158.png" alt="" loading="lazy"><span>Nebraska</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/127.png" alt="" loading="lazy"><span>Michigan State</span></span>
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 26 · 09:00 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/158.png" alt="" loading="lazy"><span>Nebraska</span></span>
+                </span>
+
+                <strong>
+                    31.6
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/127.png" alt="" loading="lazy"><span>Michigan State</span></span>
+                </span>
+
+                <strong>
+                    24.6
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="markets">
+
+            <div class="market">
+
+                <div class="market-title">
+                    SPREAD
+                </div>
+
+                <div class="market-line">
+                    DK: Nebraska -5.5
+                    ·
+                    Michigan State +5.5
+                </div>
+
+                <div class="model-line">
+                    Model margin:
+                    Nebraska by 7.0
+                </div>
+
+                <div class="pick">
+                    Nebraska -5.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    52.6%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+
+            <div class="market">
+
+                <div class="market-title">
+                    TOTAL
+                </div>
+
+                <div class="market-line">
+                    DK O/U:
+                    52.5
+                </div>
+
+                <div class="model-line">
+                    Model total:
+                    56.2
+                </div>
+
+                <div class="pick">
+                    Over 52.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    53.8%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="best-pick">
+
+            <div class="best-label">
+                BEST PICK ·
+                TOTAL
+            </div>
+
+            <div class="best-value">
+                Over 52.5
+            </div>
+
+            <div class="best-confidence">
+                Historical confidence:
+                53.8%
+            </div>
+
+            <div class="
+                result
+                
+            ">
+                
+            </div>
+
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/58.png" alt="" loading="lazy"><span>South Florida</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/189.png" alt="" loading="lazy"><span>Bowling Green</span></span>
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 26 · 09:00 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/58.png" alt="" loading="lazy"><span>South Florida</span></span>
+                </span>
+
+                <strong>
+                    33.0
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/189.png" alt="" loading="lazy"><span>Bowling Green</span></span>
+                </span>
+
+                <strong>
+                    22.2
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="no-market">
+            No current DraftKings market was locked
+            for this game.
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/275.png" alt="" loading="lazy"><span>Wisconsin</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/213.png" alt="" loading="lazy"><span>Penn State</span></span>
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 26 · 09:00 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/275.png" alt="" loading="lazy"><span>Wisconsin</span></span>
+                </span>
+
+                <strong>
+                    20.9
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/213.png" alt="" loading="lazy"><span>Penn State</span></span>
+                </span>
+
+                <strong>
+                    34.7
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="markets">
+
+            <div class="market">
+
+                <div class="market-title">
+                    SPREAD
+                </div>
+
+                <div class="market-line">
+                    DK: Wisconsin +11.5
+                    ·
+                    Penn State -11.5
+                </div>
+
+                <div class="model-line">
+                    Model margin:
+                    Penn State by 13.9
+                </div>
+
+                <div class="pick">
+                    Penn State -11.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    50.3%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+
+            <div class="market">
+
+                <div class="market-title">
+                    TOTAL
+                </div>
+
+                <div class="market-line">
+                    DK O/U:
+                    42.5
+                </div>
+
+                <div class="model-line">
+                    Model total:
+                    55.6
+                </div>
+
+                <div class="pick">
+                    Over 42.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    57.0%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="best-pick">
+
+            <div class="best-label">
+                BEST PICK ·
+                TOTAL
+            </div>
+
+            <div class="best-value">
+                Over 42.5
+            </div>
+
+            <div class="best-confidence">
+                Historical confidence:
+                57.0%
+            </div>
+
+            <div class="
+                result
+                
+            ">
+                
+            </div>
+
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/48.png" alt="" loading="lazy"><span>Delaware</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/258.png" alt="" loading="lazy"><span>Virginia</span></span>
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 26 · 10:00 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/48.png" alt="" loading="lazy"><span>Delaware</span></span>
+                </span>
+
+                <strong>
+                    12.8
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/258.png" alt="" loading="lazy"><span>Virginia</span></span>
+                </span>
+
+                <strong>
+                    41.8
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="no-market">
+            No current DraftKings market was locked
+            for this game.
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/256.png" alt="" loading="lazy"><span>James Madison</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/295.png" alt="" loading="lazy"><span>Old Dominion</span></span>
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 26 · 10:00 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/256.png" alt="" loading="lazy"><span>James Madison</span></span>
+                </span>
+
+                <strong>
+                    31.3
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/295.png" alt="" loading="lazy"><span>Old Dominion</span></span>
+                </span>
+
+                <strong>
+                    23.6
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="no-market">
+            No current DraftKings market was locked
+            for this game.
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/2117.png" alt="" loading="lazy"><span>Central Michigan</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/2390.png" alt="" loading="lazy"><span>Miami</span></span>
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 26 · 10:30 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/2117.png" alt="" loading="lazy"><span>Central Michigan</span></span>
+                </span>
+
+                <strong>
+                    15.4
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/2390.png" alt="" loading="lazy"><span>Miami</span></span>
+                </span>
+
+                <strong>
+                    44.9
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="no-market">
+            No current DraftKings market was locked
+            for this game.
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/309.png" alt="" loading="lazy"><span>Louisiana</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/2429.png" alt="" loading="lazy"><span>Charlotte</span></span>
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 26 · 10:30 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/309.png" alt="" loading="lazy"><span>Louisiana</span></span>
+                </span>
+
+                <strong>
+                    38.0
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/2429.png" alt="" loading="lazy"><span>Charlotte</span></span>
+                </span>
+
+                <strong>
+                    26.4
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="no-market">
+            No current DraftKings market was locked
+            for this game.
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/2306.png" alt="" loading="lazy"><span>Kansas State</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/2132.png" alt="" loading="lazy"><span>Cincinnati</span></span>
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 26 · 11:00 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/2306.png" alt="" loading="lazy"><span>Kansas State</span></span>
+                </span>
+
+                <strong>
+                    28.8
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/2132.png" alt="" loading="lazy"><span>Cincinnati</span></span>
+                </span>
+
+                <strong>
+                    27.4
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="no-market">
+            No current DraftKings market was locked
+            for this game.
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/338.png" alt="" loading="lazy"><span>Kennesaw State</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/2032.png" alt="" loading="lazy"><span>Arkansas State</span></span>
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 26 · 11:00 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/338.png" alt="" loading="lazy"><span>Kennesaw State</span></span>
+                </span>
+
+                <strong>
+                    27.4
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/2032.png" alt="" loading="lazy"><span>Arkansas State</span></span>
+                </span>
+
+                <strong>
+                    30.5
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="no-market">
+            No current DraftKings market was locked
+            for this game.
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/2393.png" alt="" loading="lazy"><span>Middle Tennessee</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/55.png" alt="" loading="lazy"><span>Jacksonville State</span></span>
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 26 · 11:00 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/2393.png" alt="" loading="lazy"><span>Middle Tennessee</span></span>
+                </span>
+
+                <strong>
+                    26.0
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/55.png" alt="" loading="lazy"><span>Jacksonville State</span></span>
+                </span>
+
+                <strong>
+                    30.7
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="no-market">
+            No current DraftKings market was locked
+            for this game.
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/197.png" alt="" loading="lazy"><span>Oklahoma State</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/277.png" alt="" loading="lazy"><span>West Virginia</span></span>
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 26 · 11:00 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/197.png" alt="" loading="lazy"><span>Oklahoma State</span></span>
+                </span>
+
+                <strong>
+                    19.1
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/277.png" alt="" loading="lazy"><span>West Virginia</span></span>
+                </span>
+
+                <strong>
+                    37.2
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="markets">
+
+            <div class="market">
+
+                <div class="market-title">
+                    SPREAD
+                </div>
+
+                <div class="market-line">
+                    DK: Oklahoma State -2.5
+                    ·
+                    West Virginia +2.5
+                </div>
+
+                <div class="model-line">
+                    Model margin:
+                    West Virginia by 18.1
+                </div>
+
+                <div class="pick">
+                    West Virginia +2.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    54.4%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+
+            <div class="market">
+
+                <div class="market-title">
+                    TOTAL
+                </div>
+
+                <div class="market-line">
+                    DK O/U:
+                    57.5
+                </div>
+
+                <div class="model-line">
+                    Model total:
+                    56.4
+                </div>
+
+                <div class="pick">
+                    Under 57.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    48.5%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="best-pick">
+
+            <div class="best-label">
+                BEST PICK ·
+                SPREAD
+            </div>
+
+            <div class="best-value">
+                West Virginia +2.5
+            </div>
+
+            <div class="best-confidence">
+                Historical confidence:
+                54.4%
+            </div>
+
+            <div class="
+                result
+                
+            ">
+                
+            </div>
+
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/2579.png" alt="" loading="lazy"><span>South Carolina</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/333.png" alt="" loading="lazy"><span>Alabama</span></span>
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 26 · 11:00 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/2579.png" alt="" loading="lazy"><span>South Carolina</span></span>
+                </span>
+
+                <strong>
+                    23.0
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/333.png" alt="" loading="lazy"><span>Alabama</span></span>
+                </span>
+
+                <strong>
+                    28.3
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="markets">
+
+            <div class="market">
+
+                <div class="market-title">
+                    SPREAD
+                </div>
+
+                <div class="market-line">
+                    DK: South Carolina +11.5
+                    ·
+                    Alabama -11.5
+                </div>
+
+                <div class="model-line">
+                    Model margin:
+                    Alabama by 5.2
+                </div>
+
+                <div class="pick">
+                    South Carolina +11.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    51.4%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+
+            <div class="market">
+
+                <div class="market-title">
+                    TOTAL
+                </div>
+
+                <div class="market-line">
+                    DK O/U:
+                    48.5
+                </div>
+
+                <div class="model-line">
+                    Model total:
+                    51.3
+                </div>
+
+                <div class="pick">
+                    Over 48.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    53.2%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="best-pick">
+
+            <div class="best-label">
+                BEST PICK ·
+                TOTAL
+            </div>
+
+            <div class="best-value">
+                Over 48.5
+            </div>
+
+            <div class="best-confidence">
+                Historical confidence:
+                53.2%
+            </div>
+
+            <div class="
+                result
+                
+            ">
+                
+            </div>
+
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/2572.png" alt="" loading="lazy"><span>Southern Miss</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/2655.png" alt="" loading="lazy"><span>Tulane</span></span>
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 26 · 11:00 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/2572.png" alt="" loading="lazy"><span>Southern Miss</span></span>
+                </span>
+
+                <strong>
+                    25.4
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/2655.png" alt="" loading="lazy"><span>Tulane</span></span>
+                </span>
+
+                <strong>
+                    25.9
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="no-market">
+            No current DraftKings market was locked
+            for this game.
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/2026.png" alt="" loading="lazy"><span>App State</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/152.png" alt="" loading="lazy"><span>NC State</span></span>
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 26 · 11:30 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/2026.png" alt="" loading="lazy"><span>App State</span></span>
+                </span>
+
+                <strong>
+                    23.6
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/152.png" alt="" loading="lazy"><span>NC State</span></span>
+                </span>
+
+                <strong>
+                    30.2
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="no-market">
+            No current DraftKings market was locked
+            for this game.
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/12.png" alt="" loading="lazy"><span>Arizona</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/265.png" alt="" loading="lazy"><span>Washington State</span></span>
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 26 · 11:30 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/12.png" alt="" loading="lazy"><span>Arizona</span></span>
+                </span>
+
+                <strong>
+                    34.5
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/265.png" alt="" loading="lazy"><span>Washington State</span></span>
+                </span>
+
+                <strong>
+                    22.1
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="no-market">
+            No current DraftKings market was locked
+            for this game.
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/2483.png" alt="" loading="lazy"><span>Oregon</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/30.png" alt="" loading="lazy"><span>USC</span></span>
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 26 · 11:30 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/2483.png" alt="" loading="lazy"><span>Oregon</span></span>
+                </span>
+
+                <strong>
+                    25.6
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/30.png" alt="" loading="lazy"><span>USC</span></span>
+                </span>
+
+                <strong>
+                    32.7
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="markets">
+
+            <div class="market">
+
+                <div class="market-title">
+                    SPREAD
+                </div>
+
+                <div class="market-line">
+                    DK: Oregon +2.5
+                    ·
+                    USC -2.5
+                </div>
+
+                <div class="model-line">
+                    Model margin:
+                    USC by 7.2
+                </div>
+
+                <div class="pick">
+                    USC -2.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    51.7%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+
+            <div class="market">
+
+                <div class="market-title">
+                    TOTAL
+                </div>
+
+                <div class="market-line">
+                    DK O/U:
+                    62.5
+                </div>
+
+                <div class="model-line">
+                    Model total:
+                    58.3
+                </div>
+
+                <div class="pick">
+                    Under 62.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    47.8%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="best-pick">
+
+            <div class="best-label">
+                BEST PICK ·
+                SPREAD
+            </div>
+
+            <div class="best-value">
+                USC -2.5
+            </div>
+
+            <div class="best-confidence">
+                Historical confidence:
+                51.7%
+            </div>
+
+            <div class="
+                result
+                
+            ">
+                
+            </div>
+
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/245.png" alt="" loading="lazy"><span>Texas A&amp;M</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/99.png" alt="" loading="lazy"><span>LSU</span></span>
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 26 · 11:30 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/245.png" alt="" loading="lazy"><span>Texas A&amp;M</span></span>
+                </span>
+
+                <strong>
+                    27.1
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/99.png" alt="" loading="lazy"><span>LSU</span></span>
+                </span>
+
+                <strong>
+                    28.2
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="markets">
+
+            <div class="market">
+
+                <div class="market-title">
+                    SPREAD
+                </div>
+
+                <div class="market-line">
+                    DK: Texas A&amp;M +5.5
+                    ·
+                    LSU -5.5
+                </div>
+
+                <div class="model-line">
+                    Model margin:
+                    LSU by 1.1
+                </div>
+
+                <div class="pick">
+                    Texas A&amp;M +5.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    51.7%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+
+            <div class="market">
+
+                <div class="market-title">
+                    TOTAL
+                </div>
+
+                <div class="market-line">
+                    DK O/U:
+                    54.5
+                </div>
+
+                <div class="model-line">
+                    Model total:
+                    55.3
+                </div>
+
+                <div class="pick">
+                    Over 54.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    48.2%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="best-pick">
+
+            <div class="best-label">
+                BEST PICK ·
+                SPREAD
+            </div>
+
+            <div class="best-value">
+                Texas A&amp;M +5.5
+            </div>
+
+            <div class="best-confidence">
+                Historical confidence:
+                51.7%
+            </div>
+
+            <div class="
+                result
+                
+            ">
+                
+            </div>
+
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/2653.png" alt="" loading="lazy"><span>Troy</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/328.png" alt="" loading="lazy"><span>Utah State</span></span>
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 26 · 11:30 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/2653.png" alt="" loading="lazy"><span>Troy</span></span>
+                </span>
+
+                <strong>
+                    27.4
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/328.png" alt="" loading="lazy"><span>Utah State</span></span>
+                </span>
+
+                <strong>
+                    23.6
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="no-market">
+            No current DraftKings market was locked
+            for this game.
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/142.png" alt="" loading="lazy"><span>Missouri</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/344.png" alt="" loading="lazy"><span>Mississippi State</span></span>
+                </div>
+
+                
+        <div class="kickoff">
+            Sat Sep 26 · 11:45 PM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/142.png" alt="" loading="lazy"><span>Missouri</span></span>
+                </span>
+
+                <strong>
+                    28.3
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/344.png" alt="" loading="lazy"><span>Mississippi State</span></span>
+                </span>
+
+                <strong>
+                    29.3
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="markets">
+
+            <div class="market">
+
+                <div class="market-title">
+                    SPREAD
+                </div>
+
+                <div class="market-line">
+                    DK: Missouri +1.5
+                    ·
+                    Mississippi State -1.5
+                </div>
+
+                <div class="model-line">
+                    Model margin:
+                    Mississippi State by 1.0
+                </div>
+
+                <div class="pick">
+                    Missouri +1.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    49.0%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+
+            <div class="market">
+
+                <div class="market-title">
+                    TOTAL
+                </div>
+
+                <div class="market-line">
+                    DK O/U:
+                    56.5
+                </div>
+
+                <div class="model-line">
+                    Model total:
+                    57.6
+                </div>
+
+                <div class="pick">
+                    Over 56.5
+                </div>
+
+                <div class="confidence">
+                    Historical confidence:
+                    48.5%
+                </div>
+
+                <div class="
+                    result
+                    
+                ">
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="best-pick">
+
+            <div class="best-label">
+                BEST PICK ·
+                SPREAD
+            </div>
+
+            <div class="best-value">
+                Missouri +1.5
+            </div>
+
+            <div class="best-confidence">
+                Historical confidence:
+                49.0%
+            </div>
+
+            <div class="
+                result
+                
+            ">
+                
+            </div>
+
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/2226.png" alt="" loading="lazy"><span>Florida Atlantic</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/2433.png" alt="" loading="lazy"><span>UL Monroe</span></span>
+                </div>
+
+                
+        <div class="kickoff">
+            Sun Sep 27 · 12:00 AM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/2226.png" alt="" loading="lazy"><span>Florida Atlantic</span></span>
+                </span>
+
+                <strong>
+                    34.0
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/2433.png" alt="" loading="lazy"><span>UL Monroe</span></span>
+                </span>
+
+                <strong>
+                    27.3
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="no-market">
+            No current DraftKings market was locked
+            for this game.
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/202.png" alt="" loading="lazy"><span>Tulsa</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/8.png" alt="" loading="lazy"><span>Arkansas</span></span>
+                </div>
+
+                
+        <div class="kickoff">
+            Sun Sep 27 · 12:00 AM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/202.png" alt="" loading="lazy"><span>Tulsa</span></span>
+                </span>
+
+                <strong>
+                    29.3
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/8.png" alt="" loading="lazy"><span>Arkansas</span></span>
+                </span>
+
+                <strong>
+                    28.4
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="no-market">
+            No current DraftKings market was locked
+            for this game.
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/113.png" alt="" loading="lazy"><span>Massachusetts</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/16.png" alt="" loading="lazy"><span>Sacramento State</span></span>
+                </div>
+
+                
+        <div class="kickoff">
+            Sun Sep 27 · 01:00 AM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/113.png" alt="" loading="lazy"><span>Massachusetts</span></span>
+                </span>
+
+                <strong>
+                    27.6
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/16.png" alt="" loading="lazy"><span>Sacramento State</span></span>
+                </span>
+
+                <strong>
+                    26.4
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="no-market">
+            No current DraftKings market was locked
+            for this game.
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/2623.png" alt="" loading="lazy"><span>Missouri State</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/2567.png" alt="" loading="lazy"><span>SMU</span></span>
+                </div>
+
+                
+        <div class="kickoff">
+            Sun Sep 27 · 01:00 AM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/2623.png" alt="" loading="lazy"><span>Missouri State</span></span>
+                </span>
+
+                <strong>
+                    17.2
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/2567.png" alt="" loading="lazy"><span>SMU</span></span>
+                </span>
+
+                <strong>
+                    47.0
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="no-market">
+            No current DraftKings market was locked
+            for this game.
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/204.png" alt="" loading="lazy"><span>Oregon State</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/2638.png" alt="" loading="lazy"><span>UTEP</span></span>
+                </div>
+
+                
+        <div class="kickoff">
+            Sun Sep 27 · 01:00 AM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/204.png" alt="" loading="lazy"><span>Oregon State</span></span>
+                </span>
+
+                <strong>
+                    24.7
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/2638.png" alt="" loading="lazy"><span>UTEP</span></span>
+                </span>
+
+                <strong>
+                    27.6
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="no-market">
+            No current DraftKings market was locked
+            for this game.
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/242.png" alt="" loading="lazy"><span>Rice</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/278.png" alt="" loading="lazy"><span>Fresno State</span></span>
+                </div>
+
+                
+        <div class="kickoff">
+            Sun Sep 27 · 02:00 AM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/242.png" alt="" loading="lazy"><span>Rice</span></span>
+                </span>
+
+                <strong>
+                    20.4
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/278.png" alt="" loading="lazy"><span>Fresno State</span></span>
+                </span>
+
+                <strong>
+                    33.2
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="no-market">
+            No current DraftKings market was locked
+            for this game.
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/2005.png" alt="" loading="lazy"><span>Air Force</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/2440.png" alt="" loading="lazy"><span>Nevada</span></span>
+                </div>
+
+                
+        <div class="kickoff">
+            Sun Sep 27 · 02:30 AM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/2005.png" alt="" loading="lazy"><span>Air Force</span></span>
+                </span>
+
+                <strong>
+                    25.2
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/2440.png" alt="" loading="lazy"><span>Nevada</span></span>
+                </span>
+
+                <strong>
+                    26.5
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="no-market">
+            No current DraftKings market was locked
+            for this game.
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/59.png" alt="" loading="lazy"><span>Georgia Tech</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/24.png" alt="" loading="lazy"><span>Stanford</span></span>
+                </div>
+
+                
+        <div class="kickoff">
+            Sun Sep 27 · 02:30 AM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/59.png" alt="" loading="lazy"><span>Georgia Tech</span></span>
+                </span>
+
+                <strong>
+                    27.3
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/24.png" alt="" loading="lazy"><span>Stanford</span></span>
+                </span>
+
+                <strong>
+                    25.6
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="no-market">
+            No current DraftKings market was locked
+            for this game.
+        </div>
+        
+
+    </article>
+    
+
+    <article class="game-card">
+
+        <div class="game-header">
+
+            <div>
+
+                <div class="matchup">
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/135.png" alt="" loading="lazy"><span>Minnesota</span></span>
+                    <span class="at-symbol">@</span>
+                    <span class="team-with-logo"><img class="team-logo-small" src="https://cdn.collegefootballdata.com/logos/128/264.png" alt="" loading="lazy"><span>Washington</span></span>
+                </div>
+
+                
+        <div class="kickoff">
+            Sun Sep 27 · 03:00 AM UTC
+        </div>
+        
+
+            </div>
+
+        </div>
+
+
+        <div class="score-title">
+            MODEL PROJECTED SCORE
+        </div>
+
+
+        <div class="scoreboard">
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/135.png" alt="" loading="lazy"><span>Minnesota</span></span>
+                </span>
+
+                <strong>
+                    24.7
+                </strong>
+
+            </div>
+
+
+            <div class="team-score">
+
+                <span class="score-team-name">
+                    <span class="team-with-logo"><img class="team-logo-score" src="https://cdn.collegefootballdata.com/logos/128/264.png" alt="" loading="lazy"><span>Washington</span></span>
+                </span>
+
+                <strong>
+                    29.7
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="no-market">
+            No current DraftKings market was locked
+            for this game.
+        </div>
+        
+
+    </article>
+    
+    </section>
+
+</main>
+
+
+<footer class="footer">
+
+    Model projections are informational and based on
+    pregame data.
+
+    Lines shown are the DraftKings markets saved with
+    the original prediction.
+
+</footer>
+
+
+</body>
+
+</html>
