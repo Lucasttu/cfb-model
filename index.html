@@ -448,6 +448,15 @@ body {
     color: #f3c969;
 }
 
+.game-controls { margin: 0 0 24px; }
+.search-box { width: 100%; padding: 14px 16px; border: 1px solid #303949; border-radius: 10px; background: #151a24; color: #fff; font-size: 15px; outline: none; }
+.search-box:focus { border-color: #56c2ff; }
+.game-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.game-tab { padding: 9px 16px; border: 1px solid #303949; border-radius: 8px; background: #151a24; color: #aeb7c5; font-weight: 800; cursor: pointer; }
+.game-tab:hover { background: #1c2330; color: #fff; }
+.game-tab.active { background: #1d3040; border-color: #56c2ff; color: #56c2ff; }
+.no-games { display: none; padding: 28px; text-align: center; color: #8f99a8; border: 1px solid #252d3a; border-radius: 12px; }
+
 .footer {
     text-align: center;
 
@@ -578,9 +587,19 @@ body {
         Week 3 Picks
     </h1>
 
+    <div class="game-controls">
+        <input id="gameSearch" class="search-box" type="search" placeholder="Search teams..." aria-label="Search teams">
+        <div class="game-tabs" role="group" aria-label="Game view">
+            <button class="game-tab active" data-filter="all" type="button">ALL</button>
+            <button class="game-tab" data-filter="top25" type="button">TOP 25</button>
+            <button class="game-tab" data-filter="upcoming" type="button">UPCOMING</button>
+            <button class="game-tab" data-filter="final" type="button">FINAL</button>
+        </div>
+    </div>
+
     <section class="games">
         
-    <article class="game-card">
+    <article class="game-card" data-top25="false" data-status="upcoming" data-search="Syracuse Pittsburgh">
 
         <div class="game-header">
 
@@ -743,7 +762,7 @@ body {
     </article>
     
 
-    <article class="game-card">
+    <article class="game-card" data-top25="true" data-status="final" data-search="Miami Wake Forest">
 
         <div class="game-header">
 
@@ -906,7 +925,7 @@ body {
     </article>
     
 
-    <article class="game-card">
+    <article class="game-card" data-top25="true" data-status="final" data-search="Houston Texas Tech">
 
         <div class="game-header">
 
@@ -1069,7 +1088,7 @@ body {
     </article>
     
 
-    <article class="game-card">
+    <article class="game-card" data-top25="false" data-status="upcoming" data-search="Coastal Carolina Delaware">
 
         <div class="game-header">
 
@@ -1232,7 +1251,7 @@ body {
     </article>
     
 
-    <article class="game-card">
+    <article class="game-card" data-top25="false" data-status="upcoming" data-search="Akron Minnesota">
 
         <div class="game-header">
 
@@ -1395,7 +1414,7 @@ body {
     </article>
     
 
-    <article class="game-card">
+    <article class="game-card" data-top25="false" data-status="upcoming" data-search="Arizona State Kansas">
 
         <div class="game-header">
 
@@ -1558,7 +1577,7 @@ body {
     </article>
     
 
-    <article class="game-card">
+    <article class="game-card" data-top25="false" data-status="upcoming" data-search="Bowling Green Iowa State">
 
         <div class="game-header">
 
@@ -1721,7 +1740,7 @@ body {
     </article>
     
 
-    <article class="game-card">
+    <article class="game-card" data-top25="true" data-status="upcoming" data-search="Buffalo Penn State">
 
         <div class="game-header">
 
@@ -1884,7 +1903,7 @@ body {
     </article>
     
 
-    <article class="game-card">
+    <article class="game-card" data-top25="true" data-status="upcoming" data-search="Georgia Arkansas">
 
         <div class="game-header">
 
@@ -2047,7 +2066,7 @@ body {
     </article>
     
 
-    <article class="game-card">
+    <article class="game-card" data-top25="true" data-status="upcoming" data-search="Kent State Ohio State">
 
         <div class="game-header">
 
@@ -2210,7 +2229,7 @@ body {
     </article>
     
 
-    <article class="game-card">
+    <article class="game-card" data-top25="false" data-status="upcoming" data-search="North Carolina Clemson">
 
         <div class="game-header">
 
@@ -2373,7 +2392,7 @@ body {
     </article>
     
 
-    <article class="game-card">
+    <article class="game-card" data-top25="false" data-status="upcoming" data-search="North Texas Texas State">
 
         <div class="game-header">
 
@@ -2536,7 +2555,7 @@ body {
     </article>
     
 
-    <article class="game-card">
+    <article class="game-card" data-top25="false" data-status="upcoming" data-search="Tulane Kansas State">
 
         <div class="game-header">
 
@@ -2699,7 +2718,7 @@ body {
     </article>
     
 
-    <article class="game-card">
+    <article class="game-card" data-top25="false" data-status="upcoming" data-search="Eastern Michigan Wisconsin">
 
         <div class="game-header">
 
@@ -2862,7 +2881,7 @@ body {
     </article>
     
 
-    <article class="game-card">
+    <article class="game-card" data-top25="false" data-status="upcoming" data-search="NC State Vanderbilt">
 
         <div class="game-header">
 
@@ -3025,7 +3044,7 @@ body {
     </article>
     
 
-    <article class="game-card">
+    <article class="game-card" data-top25="false" data-status="upcoming" data-search="Wyoming Central Michigan">
 
         <div class="game-header">
 
@@ -3188,7 +3207,7 @@ body {
     </article>
     
 
-    <article class="game-card">
+    <article class="game-card" data-top25="false" data-status="upcoming" data-search="Temple Toledo">
 
         <div class="game-header">
 
@@ -3351,7 +3370,7 @@ body {
     </article>
     
 
-    <article class="game-card">
+    <article class="game-card" data-top25="true" data-status="upcoming" data-search="Florida State Alabama">
 
         <div class="game-header">
 
@@ -3514,7 +3533,7 @@ body {
     </article>
     
 
-    <article class="game-card">
+    <article class="game-card" data-top25="true" data-status="upcoming" data-search="Kentucky Texas A&amp;M">
 
         <div class="game-header">
 
@@ -3677,7 +3696,7 @@ body {
     </article>
     
 
-    <article class="game-card">
+    <article class="game-card" data-top25="false" data-status="upcoming" data-search="Miami (OH) Cincinnati">
 
         <div class="game-header">
 
@@ -3840,7 +3859,7 @@ body {
     </article>
     
 
-    <article class="game-card">
+    <article class="game-card" data-top25="true" data-status="upcoming" data-search="SMU Louisville">
 
         <div class="game-header">
 
@@ -4003,7 +4022,7 @@ body {
     </article>
     
 
-    <article class="game-card">
+    <article class="game-card" data-top25="true" data-status="upcoming" data-search="USC Rutgers">
 
         <div class="game-header">
 
@@ -4166,7 +4185,7 @@ body {
     </article>
     
 
-    <article class="game-card">
+    <article class="game-card" data-top25="true" data-status="upcoming" data-search="UTEP Michigan">
 
         <div class="game-header">
 
@@ -4329,7 +4348,7 @@ body {
     </article>
     
 
-    <article class="game-card">
+    <article class="game-card" data-top25="true" data-status="upcoming" data-search="Utah State Utah">
 
         <div class="game-header">
 
@@ -4492,7 +4511,7 @@ body {
     </article>
     
 
-    <article class="game-card">
+    <article class="game-card" data-top25="false" data-status="upcoming" data-search="Ball State Liberty">
 
         <div class="game-header">
 
@@ -4655,7 +4674,7 @@ body {
     </article>
     
 
-    <article class="game-card">
+    <article class="game-card" data-top25="false" data-status="upcoming" data-search="Louisiana Tech Baylor">
 
         <div class="game-header">
 
@@ -4818,7 +4837,7 @@ body {
     </article>
     
 
-    <article class="game-card">
+    <article class="game-card" data-top25="false" data-status="upcoming" data-search="Stanford Duke">
 
         <div class="game-header">
 
@@ -4981,7 +5000,7 @@ body {
     </article>
     
 
-    <article class="game-card">
+    <article class="game-card" data-top25="true" data-status="upcoming" data-search="Western Kentucky Indiana">
 
         <div class="game-header">
 
@@ -5144,7 +5163,7 @@ body {
     </article>
     
 
-    <article class="game-card">
+    <article class="game-card" data-top25="false" data-status="upcoming" data-search="Mississippi State South Carolina">
 
         <div class="game-header">
 
@@ -5307,7 +5326,7 @@ body {
     </article>
     
 
-    <article class="game-card">
+    <article class="game-card" data-top25="false" data-status="upcoming" data-search="Charlotte App State">
 
         <div class="game-header">
 
@@ -5470,7 +5489,7 @@ body {
     </article>
     
 
-    <article class="game-card">
+    <article class="game-card" data-top25="false" data-status="upcoming" data-search="East Carolina Old Dominion">
 
         <div class="game-header">
 
@@ -5633,7 +5652,7 @@ body {
     </article>
     
 
-    <article class="game-card">
+    <article class="game-card" data-top25="false" data-status="upcoming" data-search="Florida International Florida Atlantic">
 
         <div class="game-header">
 
@@ -5796,7 +5815,7 @@ body {
     </article>
     
 
-    <article class="game-card">
+    <article class="game-card" data-top25="false" data-status="upcoming" data-search="Marshall Missouri State">
 
         <div class="game-header">
 
@@ -5959,7 +5978,7 @@ body {
     </article>
     
 
-    <article class="game-card">
+    <article class="game-card" data-top25="false" data-status="upcoming" data-search="Florida Auburn">
 
         <div class="game-header">
 
@@ -6122,7 +6141,7 @@ body {
     </article>
     
 
-    <article class="game-card">
+    <article class="game-card" data-top25="false" data-status="upcoming" data-search="Georgia Southern Jacksonville State">
 
         <div class="game-header">
 
@@ -6285,7 +6304,7 @@ body {
     </article>
     
 
-    <article class="game-card">
+    <article class="game-card" data-top25="false" data-status="upcoming" data-search="Georgia State UCF">
 
         <div class="game-header">
 
@@ -6448,7 +6467,7 @@ body {
     </article>
     
 
-    <article class="game-card">
+    <article class="game-card" data-top25="false" data-status="upcoming" data-search="Nevada Middle Tennessee">
 
         <div class="game-header">
 
@@ -6611,7 +6630,7 @@ body {
     </article>
     
 
-    <article class="game-card">
+    <article class="game-card" data-top25="false" data-status="upcoming" data-search="Ohio South Alabama">
 
         <div class="game-header">
 
@@ -6774,7 +6793,7 @@ body {
     </article>
     
 
-    <article class="game-card">
+    <article class="game-card" data-top25="true" data-status="upcoming" data-search="Troy Missouri">
 
         <div class="game-header">
 
@@ -6937,7 +6956,7 @@ body {
     </article>
     
 
-    <article class="game-card">
+    <article class="game-card" data-top25="false" data-status="upcoming" data-search="UConn Southern Miss">
 
         <div class="game-header">
 
@@ -7100,7 +7119,7 @@ body {
     </article>
     
 
-    <article class="game-card">
+    <article class="game-card" data-top25="false" data-status="upcoming" data-search="Western Michigan Rice">
 
         <div class="game-header">
 
@@ -7263,7 +7282,7 @@ body {
     </article>
     
 
-    <article class="game-card">
+    <article class="game-card" data-top25="true" data-status="upcoming" data-search="BYU Colorado State">
 
         <div class="game-header">
 
@@ -7426,7 +7445,7 @@ body {
     </article>
     
 
-    <article class="game-card">
+    <article class="game-card" data-top25="false" data-status="upcoming" data-search="Colorado Northwestern">
 
         <div class="game-header">
 
@@ -7589,7 +7608,7 @@ body {
     </article>
     
 
-    <article class="game-card">
+    <article class="game-card" data-top25="true" data-status="upcoming" data-search="LSU Ole Miss">
 
         <div class="game-header">
 
@@ -7752,7 +7771,7 @@ body {
     </article>
     
 
-    <article class="game-card">
+    <article class="game-card" data-top25="true" data-status="upcoming" data-search="Michigan State Notre Dame">
 
         <div class="game-header">
 
@@ -7915,7 +7934,7 @@ body {
     </article>
     
 
-    <article class="game-card">
+    <article class="game-card" data-top25="true" data-status="upcoming" data-search="New Mexico Oklahoma">
 
         <div class="game-header">
 
@@ -8078,7 +8097,7 @@ body {
     </article>
     
 
-    <article class="game-card">
+    <article class="game-card" data-top25="false" data-status="upcoming" data-search="Virginia Tech Maryland">
 
         <div class="game-header">
 
@@ -8241,7 +8260,7 @@ body {
     </article>
     
 
-    <article class="game-card">
+    <article class="game-card" data-top25="true" data-status="upcoming" data-search="West Virginia Virginia">
 
         <div class="game-header">
 
@@ -8404,7 +8423,7 @@ body {
     </article>
     
 
-    <article class="game-card">
+    <article class="game-card" data-top25="true" data-status="upcoming" data-search="Kennesaw State Tennessee">
 
         <div class="game-header">
 
@@ -8567,7 +8586,7 @@ body {
     </article>
     
 
-    <article class="game-card">
+    <article class="game-card" data-top25="false" data-status="upcoming" data-search="Arkansas State TCU">
 
         <div class="game-header">
 
@@ -8730,7 +8749,7 @@ body {
     </article>
     
 
-    <article class="game-card">
+    <article class="game-card" data-top25="false" data-status="upcoming" data-search="UAB Louisiana">
 
         <div class="game-header">
 
@@ -8893,7 +8912,7 @@ body {
     </article>
     
 
-    <article class="game-card">
+    <article class="game-card" data-top25="true" data-status="upcoming" data-search="UTSA Texas">
 
         <div class="game-header">
 
@@ -9056,7 +9075,7 @@ body {
     </article>
     
 
-    <article class="game-card">
+    <article class="game-card" data-top25="false" data-status="upcoming" data-search="James Madison San Diego State">
 
         <div class="game-header">
 
@@ -9219,7 +9238,7 @@ body {
     </article>
     
 
-    <article class="game-card">
+    <article class="game-card" data-top25="false" data-status="upcoming" data-search="North Dakota State Sacramento State">
 
         <div class="game-header">
 
@@ -9382,7 +9401,7 @@ body {
     </article>
     
 
-    <article class="game-card">
+    <article class="game-card" data-top25="false" data-status="upcoming" data-search="Northern Illinois Arizona">
 
         <div class="game-header">
 
@@ -9545,7 +9564,7 @@ body {
     </article>
     
 
-    <article class="game-card">
+    <article class="game-card" data-top25="false" data-status="upcoming" data-search="Fresno State San José State">
 
         <div class="game-header">
 
@@ -9708,7 +9727,7 @@ body {
     </article>
     
 
-    <article class="game-card">
+    <article class="game-card" data-top25="false" data-status="upcoming" data-search="Purdue UCLA">
 
         <div class="game-header">
 
@@ -9872,6 +9891,8 @@ body {
     
     </section>
 
+    <div id="noGames" class="no-games">No games found.</div>
+
 </main>
 
 
@@ -9885,6 +9906,39 @@ body {
 
 </footer>
 
+
+<script>
+(() => {
+    const search = document.getElementById('gameSearch');
+    const tabs = document.querySelectorAll('.game-tab');
+    const cards = document.querySelectorAll('.game-card');
+    const noGames = document.getElementById('noGames');
+    let activeFilter = 'all';
+
+    function updateGames() {
+        const query = search.value.trim().toLowerCase();
+        let visible = 0;
+        cards.forEach(card => {
+            const matchesSearch = !query || card.dataset.search.toLowerCase().includes(query);
+            const matchesTab = activeFilter === 'all' ||
+                (activeFilter === 'top25' && card.dataset.top25 === 'true') ||
+                card.dataset.status === activeFilter;
+            const show = matchesSearch && matchesTab;
+            card.style.display = show ? '' : 'none';
+            if (show) visible++;
+        });
+        noGames.style.display = visible ? 'none' : 'block';
+    }
+
+    search.addEventListener('input', updateGames);
+    tabs.forEach(tab => tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        activeFilter = tab.dataset.filter;
+        updateGames();
+    }));
+})();
+</script>
 
 </body>
 
