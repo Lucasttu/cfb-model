@@ -11,7 +11,7 @@
     content="width=device-width, initial-scale=1.0"
 >
 
-<title>CFB MODEL · Week 5</title>
+<title>SPORTS PREDICTIONS · Week 5</title>
 
 
 <style>
@@ -75,6 +75,39 @@ body {
     margin-top: 8px;
     color: #8993a3;
     font-size: 12px;
+}
+
+.sport-navigation {
+    margin: 22px auto 0;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.sport-link {
+    display: inline-block;
+    padding: 10px 18px;
+    border: 1px solid #303949;
+    border-radius: 9px;
+    color: #aeb7c5;
+    background: #151a24;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: .5px;
+}
+
+.sport-link:hover {
+    background: #1c2330;
+    border-color: #46536a;
+    color: #ffffff;
+}
+
+.sport-link.active {
+    background: #1d3040;
+    border-color: #56c2ff;
+    color: #56c2ff;
 }
 
 .week-navigation {
@@ -515,8 +548,13 @@ body {
 <header class="hero">
 
     <div class="logo">
-        CFB <span>MODEL</span>
+        SPORTS <span>PREDICTIONS</span>
     </div>
+
+    <nav class="sport-navigation" aria-label="Sports">
+        <a class="sport-link active" href="/cfb-model/">COLLEGE FOOTBALL</a>
+        <a class="sport-link" href="/cfb-model/nfl/">NFL</a>
+    </nav>
 
     <div class="subtitle">
         College Football Predictions
