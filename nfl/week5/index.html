@@ -7,25 +7,351 @@
 .container{width:min(1150px,94%);margin:26px auto 60px}h1{font-size:24px}.search{width:100%;padding:14px 16px;border:1px solid #303949;border-radius:10px;background:#151a24;color:#fff;font-size:15px}.tabs{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 24px}.tab{padding:9px 16px;border:1px solid #303949;border-radius:8px;background:#151a24;color:#aeb7c5;font-weight:800;cursor:pointer}.tab.active{background:#1d3040;border-color:#56c2ff;color:#56c2ff}
 .games{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.game-card{background:#141923;border:1px solid #252d3a;border-radius:16px;overflow:hidden;box-shadow:0 8px 25px rgba(0,0,0,.22)}.gh{padding:18px 20px;border-bottom:1px solid #252d3a}.match{font-size:18px;font-weight:800;display:flex;align-items:center;gap:9px;flex-wrap:wrap}.at{color:#677386}.twl{display:inline-flex;align-items:center;gap:8px}.team-logo{width:30px;height:30px;object-fit:contain}.kick{color:#8993a3;font-size:12px;margin-top:7px}.qb{color:#8993a3;font-size:11px;margin-top:7px}.qb b{color:#aab3c1}
 .qbs{text-align:center;font-size:13px;color:#aab4c3;padding:8px 12px 0}
-.st{padding:15px 20px 5px;color:#778397;font-size:11px;letter-spacing:1.5px}.score{padding:4px 20px 17px}.ts{display:flex;align-items:center;justify-content:space-between;padding:4px 0}.ts strong{font-size:26px}.markets{border-top:1px solid #252d3a;display:grid;grid-template-columns:1fr 1fr}.market{padding:17px 20px}.market:first-child{border-right:1px solid #252d3a}.mt{color:#8c97a8;font-size:11px;letter-spacing:1.5px;font-weight:800}.ml,.model{margin-top:7px;color:#aab3c1;font-size:12px}.pick{margin-top:12px;font-size:17px;font-weight:900}.conf{margin-top:5px;color:#7f8a9c;font-size:11px}.best{padding:18px 20px;background:#1b2230;border-top:1px solid #303a4b}.bl{font-size:11px;letter-spacing:1.5px;font-weight:900}.bv{font-size:22px;font-weight:900;margin-top:6px}.bc{color:#98a3b4;font-size:12px;margin-top:4px}.empty{display:none;text-align:center;color:#8f99a8;padding:28px}
+.st{padding:15px 20px 5px;color:#778397;font-size:11px;letter-spacing:1.5px}.score{padding:4px 20px 17px}.ts{display:flex;align-items:center;justify-content:space-between;padding:4px 0}.ts strong{font-size:26px}.markets{border-top:1px solid #252d3a;display:grid;grid-template-columns:1fr}.market{padding:17px 20px}.market:first-child{border-bottom:1px solid #252d3a}.mt{color:#8c97a8;font-size:11px;letter-spacing:1.5px;font-weight:800}.ml,.model{margin-top:7px;color:#aab3c1;font-size:12px}.pick{margin-top:12px;font-size:17px;font-weight:900}.conf{margin-top:5px;color:#7f8a9c;font-size:11px}.best{padding:18px 20px;background:#1b2230;border-top:1px solid #303a4b}.bl{font-size:11px;letter-spacing:1.5px;font-weight:900}.bv{font-size:22px;font-weight:900;margin-top:6px}.bc{color:#98a3b4;font-size:12px;margin-top:4px}.empty{display:none;text-align:center;color:#8f99a8;padding:28px}
+ .result{display:block;font-size:14px;font-weight:800;margin-top:10px;background:none;padding:0;border-radius:0}.result-w{color:#4de2a3}.result-l{color:#ff777f}.result-p{color:#e8d58b}
+ .inline-splits{margin-top:16px;padding-top:14px;border-top:1px solid #303a4b}.split-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.split-team{font-size:12px;color:#fff}.split-type{font-size:11px;color:#9eaac0;margin-top:8px}.split-meter{position:relative}.split-meter>strong{position:absolute;right:0;top:-17px;font-size:11px;color:#fff}.split-track{height:7px;background:#303949;border-radius:9px;overflow:hidden;margin-top:5px}.split-fill{height:100%;background:#56c2ff}.split-source{font-size:10px;color:#8e98a8;margin-top:12px;overflow-wrap:anywhere}
+
+
+/* Shared Sports Predictions styling, sourced from CFB builder. */
+.gh {
+    padding:
+        18px 20px;
+
+    border-bottom:
+        1px solid #252d3a;
+}
+.match {
+    font-size: 18px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+.kick {
+    color: #8993a3;
+
+    font-size: 12px;
+
+    margin-top: 6px;
+}
+.st {
+    padding:
+        15px 20px 5px;
+
+    color: #778397;
+
+    font-size: 11px;
+
+    letter-spacing: 1.5px;
+}
+.score {
+    padding:
+        4px 20px 17px;
+}
+.ts {
+    display: flex;
+
+    align-items: center;
+
+    justify-content:
+        space-between;
+
+    padding:
+        4px 0;
+}
+.mt {
+    color: #8c97a8;
+
+    font-size: 11px;
+
+    letter-spacing: 1.5px;
+
+    font-weight: 800;
+}
+.ml,
+.model {
+    margin-top: 7px;
+
+    color: #aab3c1;
+
+    font-size: 12px;
+}
+.pick {
+    margin-top: 12px;
+
+    font-size: 17px;
+
+    font-weight: 900;
+}
+.conf {
+    margin-top: 5px;
+
+    color: #7f8a9c;
+
+    font-size: 11px;
+}
+.best {
+    padding:
+        18px 20px;
+
+    background: #1b2230;
+
+    border-top:
+        1px solid #303a4b;
+}
+.bl {
+    color: #56c2ff;
+
+    font-size: 11px;
+
+    letter-spacing: 1.5px;
+
+    font-weight: 900;
+}
+.bv {
+    font-size: 22px;
+
+    font-weight: 900;
+
+    margin-top: 6px;
+}
+.bc {
+    color: #98a3b4;
+
+    font-size: 12px;
+
+    margin-top: 4px;
+}
+.result {
+    display: none;
+
+    margin-top: 8px;
+
+    font-weight: 900;
+
+    font-size: 12px;
+}
+.result-w {
+    display: block;
+
+    color: #62d890;
+}
+.result-l {
+    display: block;
+
+    color: #ff6b6b;
+}
+.result-p {
+    display: block;
+
+    color: #f3c969;
+}
+.inline-splits { margin-top: 16px; padding-top: 14px; border-top: 1px solid #303a4b; }
+.split-pair { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+.split-team { font-size:12px; font-weight:700; color:#fff; display:block; margin-bottom:6px; }
+.split-type { font-size:11px; color:#aab3c1; margin:5px 0 3px; }
+.split-meter { position:relative; margin-bottom:5px; }
+.split-meter>strong { position:absolute; right:0; top:-17px; font-size:11px; color:#f4f6f8; }
+.split-track { height:7px; border-radius:9px; background:#303949; overflow:hidden; }
+.split-fill { height:100%; background:#56c2ff; border-radius:9px; }
+.split-source { font-size:10px; color:#8f99a8; margin-top:12px; }
+.search:focus { border-color:#56c2ff; outline:none; }
+.tab:hover { background:#1c2330; color:#fff; }
+.hero { padding-bottom:35px; }
+.container { margin:25px auto 60px; }
+.match { gap:8px; }
+.kick { margin-top:6px; }
+.qbs { padding:8px 12px 0; }
+.markets { grid-template-columns:1fr; }
+.market:not(:last-child) { border-right:none; border-bottom:1px solid #252d3a; }
+
 @media(max-width:800px){.games{grid-template-columns:1fr}}@media(max-width:520px){.rs{grid-template-columns:1fr}.markets{grid-template-columns:1fr}.market:first-child{border-right:0;border-bottom:1px solid #252d3a}}
-</style></head><body><header class="hero"><div class="title">SPORTS <span>PREDICTIONS</span></div><div class="sub">Professional Football Predictions</div><nav class="sports-nav" aria-label="Sports"><a class="sports-link" href="/cfb-model/">COLLEGE FOOTBALL</a><a class="sports-link active" href="/cfb-model/nfl/">NFL</a></nav><div class="wk">2026 · WEEK 5 · 1 MODEL PREDICTIONS</div><nav class="wn"><a class="wl " href="/cfb-model/nfl/week4/">Week 4</a><a class="wl active" href="/cfb-model/nfl/week5/">Week 5</a></nav><div class="records"><div class="rh">WEEK 5 RECORD</div><div class="rs">
-<div class="rc"><div class="rl">SPREAD</div><div class="rv">7-6-1</div></div>
-<div class="rc"><div class="rl">OVER / UNDER</div><div class="rv">7-7-0</div></div>
-<div class="rc"><div class="rl">BEST PICKS</div><div class="rv">7-6-1</div></div></div><div class="rh">2026 SEASON RECORD</div><div class="rs">
-<div class="rc"><div class="rl">SPREAD</div><div class="rv">16-10-3</div></div>
-<div class="rc"><div class="rl">OVER / UNDER</div><div class="rv">12-17-0</div></div>
-<div class="rc"><div class="rl">BEST PICKS</div><div class="rv">13-15-1</div></div></div></div></header>
-<main class="container"><h1>Week 5 Picks</h1><input id="q" class="search" placeholder="Search teams or quarterbacks..."><div class="tabs"><button class="tab active" data-f="all">ALL</button><button class="tab" data-f="noon">NOON</button><button class="tab" data-f="afternoon">AFTERNOON</button><button class="tab" data-f="upcoming">UPCOMING</button><button class="tab" data-f="final">FINAL</button></div><section class="games"><article class="game-card" data-window="other" data-status="upcoming" data-search="buf la josh allen matthew stafford">
+</style></head><body><header class="hero"><div class="title">SPORTS <span>PREDICTIONS</span></div><div class="sub">Professional Football Predictions</div><nav class="sports-nav" aria-label="Sports"><a class="sports-link" href="/cfb-model/">COLLEGE FOOTBALL</a><a class="sports-link active" href="/cfb-model/nfl/">NFL</a></nav><div class="wk">2026 · WEEK 5 · 15 MODEL PREDICTIONS</div><nav class="wn"><a class="wl " href="/cfb-model/nfl/week4/">Week 4</a><a class="wl active" href="/cfb-model/nfl/week5/">Week 5</a><a class="wl " href="/cfb-model/nfl/week6/">Week 6</a></nav><div class="records"><div class="rh">WEEK 5 RECORD</div><div class="rs">
+<div class="rc"><div class="rl">SPREAD</div><div class="rv">7-7-1</div></div>
+<div class="rc"><div class="rl">OVER / UNDER</div><div class="rv">7-8-0</div></div>
+<div class="rc"><div class="rl">BEST PICKS</div><div class="rv">7-7-1</div></div></div><div class="rh">2026 SEASON RECORD</div><div class="rs">
+<div class="rc"><div class="rl">SPREAD</div><div class="rv">16-11-3</div></div>
+<div class="rc"><div class="rl">OVER / UNDER</div><div class="rv">12-18-0</div></div>
+<div class="rc"><div class="rl">BEST PICKS</div><div class="rv">13-16-1</div></div></div></div></header>
+<main class="container"><h1>Week 5 Picks</h1><input id="q" class="search" placeholder="Search teams or quarterbacks..."><div class="tabs"><button class="tab active" data-f="upcoming">UPCOMING</button><button class="tab" data-f="noon">NOON</button><button class="tab" data-f="afternoon">AFTERNOON</button><button class="tab" data-f="final">FINAL</button><button class="tab" data-f="all">ALL</button></div><section class="games"><article class="game-card" data-window="other" data-status="final" data-search="tb dal jalon daniels dak prescott">
+<div class="gh"><div class="match"><span class="twl"><img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nfl/500/27.png" alt="">TB</span><span class="at">@</span><span class="twl"><img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nfl/500/6.png" alt="">DAL</span></div>
+<div class="kick">FINAL - 24-16</div></div>
+<div class="qbs">TB QB: Jalon Daniels · DAL QB: Dak Prescott</div>
+<div class="st">MODEL PROJECTED SCORE</div><div class="score">
+<div class="ts"><span class="twl"><img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nfl/500/27.png" alt="">TB</span><strong>21.7</strong></div>
+<div class="ts"><span class="twl"><img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nfl/500/6.png" alt="">DAL</span><strong>24.4</strong></div></div>
+<div class="markets"><div class="market"><div class="mt">SPREAD</div><div class="ml">MARKET: DAL -8.5</div>
+<div class="model">Model margin: DAL by 2.7</div><div class="pick">TB +8.5</div><div class="conf">Historical Confidence: 59.4%</div><div class="result result-w">Win</div><div class="inline-splits"><div class="split-pair"><div><strong class="split-team">TB +8.5</strong><div class="split-type">Bets</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div><div class="split-type">Money</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div></div><div><strong class="split-team">DAL -8.5</strong><div class="split-type">Bets</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div><div class="split-type">Money</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div></div></div><div class="split-source">No betting-splits source available</div></div></div>
+<div class="market"><div class="mt">TOTAL</div><div class="ml">MARKET O/U: 48.5</div>
+<div class="model">Model total: 46.1</div><div class="pick">UNDER 48.5</div><div class="conf">Historical Confidence: 47.7%</div><div class="result result-w">Win</div><div class="inline-splits"><div class="split-pair"><div><strong class="split-team">Over 48.5</strong><div class="split-type">Bets</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div><div class="split-type">Money</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div></div><div><strong class="split-team">Under 48.5</strong><div class="split-type">Bets</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div><div class="split-type">Money</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div></div></div><div class="split-source">No betting-splits source available</div></div></div></div>
+<div class="best"><div class="bl">BEST PICK · SPREAD</div><div class="bv">TB +8.5</div><div class="bc">Historical Confidence: 59.4%</div><div class="result result-w">Win</div></div></article>
+<article class="game-card" data-window="noon" data-status="final" data-search="phi jax jalen hurts trevor lawrence">
+<div class="gh"><div class="match"><span class="twl"><img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nfl/500/21.png" alt="">PHI</span><span class="at">@</span><span class="twl"><img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nfl/500/30.png" alt="">JAX</span></div>
+<div class="kick">FINAL - 17-19</div></div>
+<div class="qbs">PHI QB: Jalen Hurts · JAX QB: Trevor Lawrence</div>
+<div class="st">MODEL PROJECTED SCORE</div><div class="score">
+<div class="ts"><span class="twl"><img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nfl/500/21.png" alt="">PHI</span><strong>20.0</strong></div>
+<div class="ts"><span class="twl"><img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nfl/500/30.png" alt="">JAX</span><strong>26.6</strong></div></div>
+<div class="markets"><div class="market"><div class="mt">SPREAD</div><div class="ml">MARKET: JAX -7.5</div>
+<div class="model">Model margin: JAX by 6.6</div><div class="pick">PHI +7.5</div><div class="conf">Historical Confidence: 50.2%</div><div class="result result-w">Win</div><div class="inline-splits"><div class="split-pair"><div><strong class="split-team">PHI +7.5</strong><div class="split-type">Bets</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div><div class="split-type">Money</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div></div><div><strong class="split-team">JAX -7.5</strong><div class="split-type">Bets</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div><div class="split-type">Money</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div></div></div><div class="split-source">No betting-splits source available</div></div></div>
+<div class="market"><div class="mt">TOTAL</div><div class="ml">MARKET O/U: 41.5</div>
+<div class="model">Model total: 46.6</div><div class="pick">OVER 41.5</div><div class="conf">Historical Confidence: 54.6%</div><div class="result result-l">Loss</div><div class="inline-splits"><div class="split-pair"><div><strong class="split-team">Over 41.5</strong><div class="split-type">Bets</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div><div class="split-type">Money</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div></div><div><strong class="split-team">Under 41.5</strong><div class="split-type">Bets</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div><div class="split-type">Money</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div></div></div><div class="split-source">No betting-splits source available</div></div></div></div>
+<div class="best"><div class="bl">BEST PICK · O/U</div><div class="bv">OVER 41.5</div><div class="bc">Historical Confidence: 54.6%</div><div class="result result-l">Loss</div></div></article>
+<article class="game-card" data-window="noon" data-status="final" data-search="chi gb tyson bagent jordan love">
+<div class="gh"><div class="match"><span class="twl"><img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nfl/500/3.png" alt="">CHI</span><span class="at">@</span><span class="twl"><img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nfl/500/9.png" alt="">GB</span></div>
+<div class="kick">FINAL - 7-31</div></div>
+<div class="qbs">CHI QB: Tyson Bagent · GB QB: Jordan Love</div>
+<div class="st">MODEL PROJECTED SCORE</div><div class="score">
+<div class="ts"><span class="twl"><img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nfl/500/3.png" alt="">CHI</span><strong>22.7</strong></div>
+<div class="ts"><span class="twl"><img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nfl/500/9.png" alt="">GB</span><strong>23.3</strong></div></div>
+<div class="markets"><div class="market"><div class="mt">SPREAD</div><div class="ml">MARKET: CHI -1.5</div>
+<div class="model">Model margin: GB by 0.6</div><div class="pick">GB +1.5</div><div class="conf">Historical Confidence: 45.0%</div><div class="result result-w">Win</div><div class="inline-splits"><div class="split-pair"><div><strong class="split-team">CHI -1.5</strong><div class="split-type">Bets</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div><div class="split-type">Money</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div></div><div><strong class="split-team">GB +1.5</strong><div class="split-type">Bets</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div><div class="split-type">Money</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div></div></div><div class="split-source">No betting-splits source available</div></div></div>
+<div class="market"><div class="mt">TOTAL</div><div class="ml">MARKET O/U: 47.5</div>
+<div class="model">Model total: 46.0</div><div class="pick">UNDER 47.5</div><div class="conf">Historical Confidence: 51.6%</div><div class="result result-w">Win</div><div class="inline-splits"><div class="split-pair"><div><strong class="split-team">Over 47.5</strong><div class="split-type">Bets</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div><div class="split-type">Money</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div></div><div><strong class="split-team">Under 47.5</strong><div class="split-type">Bets</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div><div class="split-type">Money</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div></div></div><div class="split-source">No betting-splits source available</div></div></div></div>
+<div class="best"><div class="bl">BEST PICK · SPREAD</div><div class="bv">GB +1.5</div><div class="bc">Historical Confidence: 45.0%</div><div class="result result-w">Win</div></div></article>
+<article class="game-card" data-window="noon" data-status="final" data-search="cin mia joe burrow malik willis">
+<div class="gh"><div class="match"><span class="twl"><img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nfl/500/4.png" alt="">CIN</span><span class="at">@</span><span class="twl"><img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nfl/500/15.png" alt="">MIA</span></div>
+<div class="kick">FINAL - 31-24</div></div>
+<div class="qbs">CIN QB: Joe Burrow · MIA QB: Malik Willis</div>
+<div class="st">MODEL PROJECTED SCORE</div><div class="score">
+<div class="ts"><span class="twl"><img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nfl/500/4.png" alt="">CIN</span><strong>22.0</strong></div>
+<div class="ts"><span class="twl"><img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nfl/500/15.png" alt="">MIA</span><strong>22.1</strong></div></div>
+<div class="markets"><div class="market"><div class="mt">SPREAD</div><div class="ml">MARKET: CIN -7.0</div>
+<div class="model">Model margin: MIA by 0.2</div><div class="pick">MIA +7.0</div><div class="conf">Historical Confidence: 57.1%</div><div class="result result-p">Push</div><div class="inline-splits"><div class="split-pair"><div><strong class="split-team">CIN -7.0</strong><div class="split-type">Bets</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div><div class="split-type">Money</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div></div><div><strong class="split-team">MIA +7.0</strong><div class="split-type">Bets</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div><div class="split-type">Money</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div></div></div><div class="split-source">No betting-splits source available</div></div></div>
+<div class="market"><div class="mt">TOTAL</div><div class="ml">MARKET O/U: 44.5</div>
+<div class="model">Model total: 44.1</div><div class="pick">UNDER 44.5</div><div class="conf">Historical Confidence: 48.8%</div><div class="result result-l">Loss</div><div class="inline-splits"><div class="split-pair"><div><strong class="split-team">Over 44.5</strong><div class="split-type">Bets</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div><div class="split-type">Money</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div></div><div><strong class="split-team">Under 44.5</strong><div class="split-type">Bets</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div><div class="split-type">Money</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div></div></div><div class="split-source">No betting-splits source available</div></div></div></div>
+<div class="best"><div class="bl">BEST PICK · SPREAD</div><div class="bv">MIA +7.0</div><div class="bc">Historical Confidence: 57.1%</div><div class="result result-p">Push</div></div></article>
+<article class="game-card" data-window="noon" data-status="final" data-search="cle nyj deshaun watson geno smith">
+<div class="gh"><div class="match"><span class="twl"><img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nfl/500/5.png" alt="">CLE</span><span class="at">@</span><span class="twl"><img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nfl/500/20.png" alt="">NYJ</span></div>
+<div class="kick">FINAL - 12-17</div></div>
+<div class="qbs">CLE QB: Deshaun Watson · NYJ QB: Geno Smith</div>
+<div class="st">MODEL PROJECTED SCORE</div><div class="score">
+<div class="ts"><span class="twl"><img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nfl/500/5.png" alt="">CLE</span><strong>19.9</strong></div>
+<div class="ts"><span class="twl"><img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nfl/500/20.png" alt="">NYJ</span><strong>22.7</strong></div></div>
+<div class="markets"><div class="market"><div class="mt">SPREAD</div><div class="ml">MARKET: NYJ -2.5</div>
+<div class="model">Model margin: NYJ by 2.8</div><div class="pick">NYJ -2.5</div><div class="conf">Historical Confidence: 50.2%</div><div class="result result-w">Win</div><div class="inline-splits"><div class="split-pair"><div><strong class="split-team">CLE +2.5</strong><div class="split-type">Bets</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div><div class="split-type">Money</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div></div><div><strong class="split-team">NYJ -2.5</strong><div class="split-type">Bets</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div><div class="split-type">Money</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div></div></div><div class="split-source">No betting-splits source available</div></div></div>
+<div class="market"><div class="mt">TOTAL</div><div class="ml">MARKET O/U: 38.5</div>
+<div class="model">Model total: 42.7</div><div class="pick">OVER 38.5</div><div class="conf">Historical Confidence: 45.9%</div><div class="result result-l">Loss</div><div class="inline-splits"><div class="split-pair"><div><strong class="split-team">Over 38.5</strong><div class="split-type">Bets</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div><div class="split-type">Money</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div></div><div><strong class="split-team">Under 38.5</strong><div class="split-type">Bets</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div><div class="split-type">Money</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div></div></div><div class="split-source">No betting-splits source available</div></div></div></div>
+<div class="best"><div class="bl">BEST PICK · O/U</div><div class="bv">OVER 38.5</div><div class="bc">Historical Confidence: 45.9%</div><div class="result result-l">Loss</div></div></article>
+<article class="game-card" data-window="noon" data-status="final" data-search="hou ten c.j. stroud cam ward">
+<div class="gh"><div class="match"><span class="twl"><img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nfl/500/34.png" alt="">HOU</span><span class="at">@</span><span class="twl"><img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nfl/500/10.png" alt="">TEN</span></div>
+<div class="kick">FINAL - 26-3</div></div>
+<div class="qbs">HOU QB: C.J. Stroud · TEN QB: Cam Ward</div>
+<div class="st">MODEL PROJECTED SCORE</div><div class="score">
+<div class="ts"><span class="twl"><img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nfl/500/34.png" alt="">HOU</span><strong>22.2</strong></div>
+<div class="ts"><span class="twl"><img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nfl/500/10.png" alt="">TEN</span><strong>20.9</strong></div></div>
+<div class="markets"><div class="market"><div class="mt">SPREAD</div><div class="ml">MARKET: HOU -6.5</div>
+<div class="model">Model margin: HOU by 1.2</div><div class="pick">TEN +6.5</div><div class="conf">Historical Confidence: 59.4%</div><div class="result result-l">Loss</div><div class="inline-splits"><div class="split-pair"><div><strong class="split-team">HOU -6.5</strong><div class="split-type">Bets</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div><div class="split-type">Money</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div></div><div><strong class="split-team">TEN +6.5</strong><div class="split-type">Bets</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div><div class="split-type">Money</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div></div></div><div class="split-source">No betting-splits source available</div></div></div>
+<div class="market"><div class="mt">TOTAL</div><div class="ml">MARKET O/U: 37.5</div>
+<div class="model">Model total: 43.1</div><div class="pick">OVER 37.5</div><div class="conf">Historical Confidence: 54.6%</div><div class="result result-l">Loss</div><div class="inline-splits"><div class="split-pair"><div><strong class="split-team">Over 37.5</strong><div class="split-type">Bets</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div><div class="split-type">Money</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div></div><div><strong class="split-team">Under 37.5</strong><div class="split-type">Bets</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div><div class="split-type">Money</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div></div></div><div class="split-source">No betting-splits source available</div></div></div></div>
+<div class="best"><div class="bl">BEST PICK · O/U</div><div class="bv">OVER 37.5</div><div class="bc">Historical Confidence: 54.6%</div><div class="result result-l">Loss</div></div></article>
+<article class="game-card" data-window="noon" data-status="final" data-search="ind pit daniel jones aaron rodgers">
+<div class="gh"><div class="match"><span class="twl"><img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nfl/500/11.png" alt="">IND</span><span class="at">@</span><span class="twl"><img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nfl/500/23.png" alt="">PIT</span></div>
+<div class="kick">FINAL - 22-34</div></div>
+<div class="qbs">IND QB: Daniel Jones · PIT QB: Aaron Rodgers</div>
+<div class="st">MODEL PROJECTED SCORE</div><div class="score">
+<div class="ts"><span class="twl"><img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nfl/500/11.png" alt="">IND</span><strong>21.4</strong></div>
+<div class="ts"><span class="twl"><img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nfl/500/23.png" alt="">PIT</span><strong>23.6</strong></div></div>
+<div class="markets"><div class="market"><div class="mt">SPREAD</div><div class="ml">MARKET: PIT -3.0</div>
+<div class="model">Model margin: PIT by 2.2</div><div class="pick">IND +3.0</div><div class="conf">Historical Confidence: 50.2%</div><div class="result result-l">Loss</div><div class="inline-splits"><div class="split-pair"><div><strong class="split-team">IND +3.0</strong><div class="split-type">Bets</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div><div class="split-type">Money</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div></div><div><strong class="split-team">PIT -3.0</strong><div class="split-type">Bets</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div><div class="split-type">Money</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div></div></div><div class="split-source">No betting-splits source available</div></div></div>
+<div class="market"><div class="mt">TOTAL</div><div class="ml">MARKET O/U: 41.5</div>
+<div class="model">Model total: 45.0</div><div class="pick">OVER 41.5</div><div class="conf">Historical Confidence: 47.9%</div><div class="result result-w">Win</div><div class="inline-splits"><div class="split-pair"><div><strong class="split-team">Over 41.5</strong><div class="split-type">Bets</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div><div class="split-type">Money</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div></div><div><strong class="split-team">Under 41.5</strong><div class="split-type">Bets</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div><div class="split-type">Money</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div></div></div><div class="split-source">No betting-splits source available</div></div></div></div>
+<div class="best"><div class="bl">BEST PICK · O/U</div><div class="bv">OVER 41.5</div><div class="bc">Historical Confidence: 47.9%</div><div class="result result-w">Win</div></div></article>
+<article class="game-card" data-window="noon" data-status="final" data-search="lv ne kirk cousins drake maye">
+<div class="gh"><div class="match"><span class="twl"><img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nfl/500/13.png" alt="">LV</span><span class="at">@</span><span class="twl"><img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nfl/500/17.png" alt="">NE</span></div>
+<div class="kick">FINAL - 17-45</div></div>
+<div class="qbs">LV QB: Kirk Cousins · NE QB: Drake Maye</div>
+<div class="st">MODEL PROJECTED SCORE</div><div class="score">
+<div class="ts"><span class="twl"><img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nfl/500/13.png" alt="">LV</span><strong>19.8</strong></div>
+<div class="ts"><span class="twl"><img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nfl/500/17.png" alt="">NE</span><strong>26.5</strong></div></div>
+<div class="markets"><div class="market"><div class="mt">SPREAD</div><div class="ml">MARKET: NE -3.5</div>
+<div class="model">Model margin: NE by 6.7</div><div class="pick">NE -3.5</div><div class="conf">Historical Confidence: 52.1%</div><div class="result result-w">Win</div><div class="inline-splits"><div class="split-pair"><div><strong class="split-team">LV +3.5</strong><div class="split-type">Bets</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div><div class="split-type">Money</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div></div><div><strong class="split-team">NE -3.5</strong><div class="split-type">Bets</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div><div class="split-type">Money</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div></div></div><div class="split-source">No betting-splits source available</div></div></div>
+<div class="market"><div class="mt">TOTAL</div><div class="ml">MARKET O/U: 45.5</div>
+<div class="model">Model total: 46.4</div><div class="pick">OVER 45.5</div><div class="conf">Historical Confidence: 48.8%</div><div class="result result-w">Win</div><div class="inline-splits"><div class="split-pair"><div><strong class="split-team">Over 45.5</strong><div class="split-type">Bets</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div><div class="split-type">Money</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div></div><div><strong class="split-team">Under 45.5</strong><div class="split-type">Bets</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div><div class="split-type">Money</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div></div></div><div class="split-source">No betting-splits source available</div></div></div></div>
+<div class="best"><div class="bl">BEST PICK · SPREAD</div><div class="bv">NE -3.5</div><div class="bc">Historical Confidence: 52.1%</div><div class="result result-w">Win</div></div></article>
+<article class="game-card" data-window="noon" data-status="final" data-search="min no kyler murray tyler shough">
+<div class="gh"><div class="match"><span class="twl"><img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nfl/500/16.png" alt="">MIN</span><span class="at">@</span><span class="twl"><img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nfl/500/18.png" alt="">NO</span></div>
+<div class="kick">FINAL - 23-13</div></div>
+<div class="qbs">MIN QB: Kyler Murray · NO QB: Tyler Shough</div>
+<div class="st">MODEL PROJECTED SCORE</div><div class="score">
+<div class="ts"><span class="twl"><img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nfl/500/16.png" alt="">MIN</span><strong>22.8</strong></div>
+<div class="ts"><span class="twl"><img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nfl/500/18.png" alt="">NO</span><strong>20.9</strong></div></div>
+<div class="markets"><div class="market"><div class="mt">SPREAD</div><div class="ml">MARKET: MIN -2.5</div>
+<div class="model">Model margin: MIN by 1.9</div><div class="pick">NO +2.5</div><div class="conf">Historical Confidence: 50.2%</div><div class="result result-l">Loss</div><div class="inline-splits"><div class="split-pair"><div><strong class="split-team">MIN -2.5</strong><div class="split-type">Bets</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div><div class="split-type">Money</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div></div><div><strong class="split-team">NO +2.5</strong><div class="split-type">Bets</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div><div class="split-type">Money</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div></div></div><div class="split-source">No betting-splits source available</div></div></div>
+<div class="market"><div class="mt">TOTAL</div><div class="ml">MARKET O/U: 41.5</div>
+<div class="model">Model total: 43.7</div><div class="pick">OVER 41.5</div><div class="conf">Historical Confidence: 47.7%</div><div class="result result-l">Loss</div><div class="inline-splits"><div class="split-pair"><div><strong class="split-team">Over 41.5</strong><div class="split-type">Bets</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div><div class="split-type">Money</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div></div><div><strong class="split-team">Under 41.5</strong><div class="split-type">Bets</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div><div class="split-type">Money</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div></div></div><div class="split-source">No betting-splits source available</div></div></div></div>
+<div class="best"><div class="bl">BEST PICK · O/U</div><div class="bv">OVER 41.5</div><div class="bc">Historical Confidence: 47.7%</div><div class="result result-l">Loss</div></div></article>
+<article class="game-card" data-window="noon" data-status="final" data-search="nyg was jameis winston jayden daniels">
+<div class="gh"><div class="match"><span class="twl"><img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nfl/500/19.png" alt="">NYG</span><span class="at">@</span><span class="twl"><img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nfl/500/28.png" alt="">WAS</span></div>
+<div class="kick">FINAL - 27-27</div></div>
+<div class="qbs">NYG QB: Jameis Winston · WAS QB: Jayden Daniels</div>
+<div class="st">MODEL PROJECTED SCORE</div><div class="score">
+<div class="ts"><span class="twl"><img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nfl/500/19.png" alt="">NYG</span><strong>21.8</strong></div>
+<div class="ts"><span class="twl"><img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nfl/500/28.png" alt="">WAS</span><strong>23.0</strong></div></div>
+<div class="markets"><div class="market"><div class="mt">SPREAD</div><div class="ml">MARKET: WAS -3.5</div>
+<div class="model">Model margin: WAS by 1.2</div><div class="pick">NYG +3.5</div><div class="conf">Historical Confidence: 45.0%</div><div class="result result-w">Win</div><div class="inline-splits"><div class="split-pair"><div><strong class="split-team">NYG +3.5</strong><div class="split-type">Bets</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div><div class="split-type">Money</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div></div><div><strong class="split-team">WAS -3.5</strong><div class="split-type">Bets</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div><div class="split-type">Money</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div></div></div><div class="split-source">No betting-splits source available</div></div></div>
+<div class="market"><div class="mt">TOTAL</div><div class="ml">MARKET O/U: 41.5</div>
+<div class="model">Model total: 44.8</div><div class="pick">OVER 41.5</div><div class="conf">Historical Confidence: 47.9%</div><div class="result result-w">Win</div><div class="inline-splits"><div class="split-pair"><div><strong class="split-team">Over 41.5</strong><div class="split-type">Bets</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div><div class="split-type">Money</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div></div><div><strong class="split-team">Under 41.5</strong><div class="split-type">Bets</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div><div class="split-type">Money</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div></div></div><div class="split-source">No betting-splits source available</div></div></div></div>
+<div class="best"><div class="bl">BEST PICK · O/U</div><div class="bv">OVER 41.5</div><div class="bc">Historical Confidence: 47.9%</div><div class="result result-w">Win</div></div></article>
+<article class="game-card" data-window="afternoon" data-status="final" data-search="den lac bo nix justin herbert">
+<div class="gh"><div class="match"><span class="twl"><img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nfl/500/7.png" alt="">DEN</span><span class="at">@</span><span class="twl"><img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nfl/500/24.png" alt="">LAC</span></div>
+<div class="kick">FINAL - 23-17</div></div>
+<div class="qbs">DEN QB: Bo Nix · LAC QB: Justin Herbert</div>
+<div class="st">MODEL PROJECTED SCORE</div><div class="score">
+<div class="ts"><span class="twl"><img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nfl/500/7.png" alt="">DEN</span><strong>21.1</strong></div>
+<div class="ts"><span class="twl"><img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nfl/500/24.png" alt="">LAC</span><strong>22.8</strong></div></div>
+<div class="markets"><div class="market"><div class="mt">SPREAD</div><div class="ml">MARKET: DEN -3.5</div>
+<div class="model">Model margin: LAC by 1.7</div><div class="pick">LAC +3.5</div><div class="conf">Historical Confidence: 59.4%</div><div class="result result-l">Loss</div><div class="inline-splits"><div class="split-pair"><div><strong class="split-team">DEN -3.5</strong><div class="split-type">Bets</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div><div class="split-type">Money</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div></div><div><strong class="split-team">LAC +3.5</strong><div class="split-type">Bets</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div><div class="split-type">Money</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div></div></div><div class="split-source">No betting-splits source available</div></div></div>
+<div class="market"><div class="mt">TOTAL</div><div class="ml">MARKET O/U: 42.5</div>
+<div class="model">Model total: 43.9</div><div class="pick">OVER 42.5</div><div class="conf">Historical Confidence: 51.6%</div><div class="result result-l">Loss</div><div class="inline-splits"><div class="split-pair"><div><strong class="split-team">Over 42.5</strong><div class="split-type">Bets</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div><div class="split-type">Money</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div></div><div><strong class="split-team">Under 42.5</strong><div class="split-type">Bets</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div><div class="split-type">Money</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div></div></div><div class="split-source">No betting-splits source available</div></div></div></div>
+<div class="best"><div class="bl">BEST PICK · SPREAD</div><div class="bv">LAC +3.5</div><div class="bc">Historical Confidence: 59.4%</div><div class="result result-l">Loss</div></div></article>
+<article class="game-card" data-window="afternoon" data-status="final" data-search="det ari jared goff jacoby brissett">
+<div class="gh"><div class="match"><span class="twl"><img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nfl/500/8.png" alt="">DET</span><span class="at">@</span><span class="twl"><img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nfl/500/22.png" alt="">ARI</span></div>
+<div class="kick">FINAL - 45-21</div></div>
+<div class="qbs">DET QB: Jared Goff · ARI QB: Jacoby Brissett</div>
+<div class="st">MODEL PROJECTED SCORE</div><div class="score">
+<div class="ts"><span class="twl"><img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nfl/500/8.png" alt="">DET</span><strong>22.5</strong></div>
+<div class="ts"><span class="twl"><img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nfl/500/22.png" alt="">ARI</span><strong>21.0</strong></div></div>
+<div class="markets"><div class="market"><div class="mt">SPREAD</div><div class="ml">MARKET: DET -5.5</div>
+<div class="model">Model margin: DET by 1.5</div><div class="pick">ARI +5.5</div><div class="conf">Historical Confidence: 52.1%</div><div class="result result-l">Loss</div><div class="inline-splits"><div class="split-pair"><div><strong class="split-team">DET -5.5</strong><div class="split-type">Bets</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div><div class="split-type">Money</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div></div><div><strong class="split-team">ARI +5.5</strong><div class="split-type">Bets</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div><div class="split-type">Money</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div></div></div><div class="split-source">No betting-splits source available</div></div></div>
+<div class="market"><div class="mt">TOTAL</div><div class="ml">MARKET O/U: 55.5</div>
+<div class="model">Model total: 43.5</div><div class="pick">UNDER 55.5</div><div class="conf">Historical Confidence: 42.3%</div><div class="result result-l">Loss</div><div class="inline-splits"><div class="split-pair"><div><strong class="split-team">Over 55.5</strong><div class="split-type">Bets</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div><div class="split-type">Money</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div></div><div><strong class="split-team">Under 55.5</strong><div class="split-type">Bets</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div><div class="split-type">Money</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div></div></div><div class="split-source">No betting-splits source available</div></div></div></div>
+<div class="best"><div class="bl">BEST PICK · O/U</div><div class="bv">UNDER 55.5</div><div class="bc">Historical Confidence: 42.3%</div><div class="result result-l">Loss</div></div></article>
+<article class="game-card" data-window="afternoon" data-status="final" data-search="sf sea brock purdy drew lock">
+<div class="gh"><div class="match"><span class="twl"><img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nfl/500/25.png" alt="">SF</span><span class="at">@</span><span class="twl"><img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nfl/500/26.png" alt="">SEA</span></div>
+<div class="kick">FINAL - 32-29</div></div>
+<div class="qbs">SF QB: Brock Purdy · SEA QB: Drew Lock</div>
+<div class="st">MODEL PROJECTED SCORE</div><div class="score">
+<div class="ts"><span class="twl"><img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nfl/500/25.png" alt="">SF</span><strong>21.8</strong></div>
+<div class="ts"><span class="twl"><img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nfl/500/26.png" alt="">SEA</span><strong>25.2</strong></div></div>
+<div class="markets"><div class="market"><div class="mt">SPREAD</div><div class="ml">MARKET: SEA -3.0</div>
+<div class="model">Model margin: SEA by 3.4</div><div class="pick">SEA -3.0</div><div class="conf">Historical Confidence: 50.2%</div><div class="result result-l">Loss</div><div class="inline-splits"><div class="split-pair"><div><strong class="split-team">SF +3.0</strong><div class="split-type">Bets</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div><div class="split-type">Money</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div></div><div><strong class="split-team">SEA -3.0</strong><div class="split-type">Bets</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div><div class="split-type">Money</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div></div></div><div class="split-source">No betting-splits source available</div></div></div>
+<div class="market"><div class="mt">TOTAL</div><div class="ml">MARKET O/U: 46.5</div>
+<div class="model">Model total: 47.0</div><div class="pick">OVER 46.5</div><div class="conf">Historical Confidence: 48.8%</div><div class="result result-w">Win</div><div class="inline-splits"><div class="split-pair"><div><strong class="split-team">Over 46.5</strong><div class="split-type">Bets</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div><div class="split-type">Money</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div></div><div><strong class="split-team">Under 46.5</strong><div class="split-type">Bets</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div><div class="split-type">Money</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div></div></div><div class="split-source">No betting-splits source available</div></div></div></div>
+<div class="best"><div class="bl">BEST PICK · O/U</div><div class="bv">OVER 46.5</div><div class="bc">Historical Confidence: 48.8%</div><div class="result result-w">Win</div></div></article>
+<article class="game-card" data-window="afternoon" data-status="final" data-search="bal atl tyler huntley michael penix jr.">
+<div class="gh"><div class="match"><span class="twl"><img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nfl/500/33.png" alt="">BAL</span><span class="at">@</span><span class="twl"><img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nfl/500/1.png" alt="">ATL</span></div>
+<div class="kick">FINAL - 30-23</div></div>
+<div class="qbs">BAL QB: Tyler Huntley · ATL QB: Michael Penix Jr.</div>
+<div class="st">MODEL PROJECTED SCORE</div><div class="score">
+<div class="ts"><span class="twl"><img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nfl/500/33.png" alt="">BAL</span><strong>22.3</strong></div>
+<div class="ts"><span class="twl"><img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nfl/500/1.png" alt="">ATL</span><strong>24.1</strong></div></div>
+<div class="markets"><div class="market"><div class="mt">SPREAD</div><div class="ml">MARKET: ATL -3.5</div>
+<div class="model">Model margin: ATL by 1.8</div><div class="pick">BAL +3.5</div><div class="conf">Historical Confidence: 47.3%</div><div class="result result-w">Win</div><div class="inline-splits"><div class="split-pair"><div><strong class="split-team">BAL +3.5</strong><div class="split-type">Bets</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div><div class="split-type">Money</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div></div><div><strong class="split-team">ATL -3.5</strong><div class="split-type">Bets</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div><div class="split-type">Money</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div></div></div><div class="split-source">No betting-splits source available</div></div></div>
+<div class="market"><div class="mt">TOTAL</div><div class="ml">MARKET O/U: 44.5</div>
+<div class="model">Model total: 46.4</div><div class="pick">OVER 44.5</div><div class="conf">Historical Confidence: 51.6%</div><div class="result result-w">Win</div><div class="inline-splits"><div class="split-pair"><div><strong class="split-team">Over 44.5</strong><div class="split-type">Bets</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div><div class="split-type">Money</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div></div><div><strong class="split-team">Under 44.5</strong><div class="split-type">Bets</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div><div class="split-type">Money</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div></div></div><div class="split-source">No betting-splits source available</div></div></div></div>
+<div class="best"><div class="bl">BEST PICK · O/U</div><div class="bv">OVER 44.5</div><div class="bc">Historical Confidence: 51.6%</div><div class="result result-w">Win</div></div></article>
+<article class="game-card" data-window="other" data-status="final" data-search="buf la josh allen matthew stafford">
 <div class="gh"><div class="match"><span class="twl"><img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nfl/500/2.png" alt="">BUF</span><span class="at">@</span><span class="twl"><img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nfl/500/14.png" alt="">LA</span></div>
-<div class="kick">Mon Oct 12 · 7:15 PM CT</div></div>
+<div class="kick">FINAL - 37-34</div></div>
 <div class="qbs">BUF QB: Josh Allen · LA QB: Matthew Stafford</div>
 <div class="st">MODEL PROJECTED SCORE</div><div class="score">
 <div class="ts"><span class="twl"><img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nfl/500/2.png" alt="">BUF</span><strong>22.2</strong></div>
 <div class="ts"><span class="twl"><img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nfl/500/14.png" alt="">LA</span><strong>26.5</strong></div></div>
 <div class="markets"><div class="market"><div class="mt">SPREAD</div><div class="ml">MARKET: LA -3.5</div>
-<div class="model">Model margin: LA by 4.3</div><div class="pick">LA -3.5</div><div class="conf">Historical Confidence: 50.2%</div></div>
+<div class="model">Model margin: LA by 4.3</div><div class="pick">LA -3.5</div><div class="conf">Historical Confidence: 50.2%</div><div class="result result-l">Loss</div><div class="inline-splits"><div class="split-pair"><div><strong class="split-team">BUF +3.5</strong><div class="split-type">Bets</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div><div class="split-type">Money</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div></div><div><strong class="split-team">LA -3.5</strong><div class="split-type">Bets</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div><div class="split-type">Money</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div></div></div><div class="split-source">No betting-splits source available</div></div></div>
 <div class="market"><div class="mt">TOTAL</div><div class="ml">MARKET O/U: 55.5</div>
-<div class="model">Model total: 48.6</div><div class="pick">UNDER 55.5</div><div class="conf">Historical Confidence: 66.2%</div></div></div>
-<div class="best"><div class="bl">BEST PICK · O/U</div><div class="bv">UNDER 55.5</div><div class="bc">Historical Confidence: 66.2%</div></div></article></section><div id="empty" class="empty">No games found.</div></main>
-<script>(()=>{let f="all",q=document.getElementById("q"),cs=[...document.querySelectorAll(".game-card")],empty=document.getElementById("empty");function go(){let s=q.value.trim().toLowerCase(),z=0;cs.forEach(c=>{let ok=(!s||c.dataset.search.includes(s))&&(f==="all"||c.dataset.window===f||c.dataset.status===f);c.style.display=ok?"":"none";if(ok)z++});empty.style.display=z?"none":"block"}q.oninput=go;document.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));b.classList.add("active");f=b.dataset.f;go()})})();</script></body></html>
+<div class="model">Model total: 48.6</div><div class="pick">UNDER 55.5</div><div class="conf">Historical Confidence: 66.2%</div><div class="result result-l">Loss</div><div class="inline-splits"><div class="split-pair"><div><strong class="split-team">Over 55.5</strong><div class="split-type">Bets</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div><div class="split-type">Money</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div></div><div><strong class="split-team">Under 55.5</strong><div class="split-type">Bets</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div><div class="split-type">Money</div><div class="split-meter"><strong>N/A</strong><div class="split-track"><div class="split-fill" style="width:0%"></div></div></div></div></div><div class="split-source">No betting-splits source available</div></div></div></div>
+<div class="best"><div class="bl">BEST PICK · O/U</div><div class="bv">UNDER 55.5</div><div class="bc">Historical Confidence: 66.2%</div><div class="result result-l">Loss</div></div></article></section><div id="empty" class="empty">No games found.</div></main>
+<script>(()=>{let f="upcoming",q=document.getElementById("q"),cs=[...document.querySelectorAll(".game-card")],empty=document.getElementById("empty");function go(){let s=q.value.trim().toLowerCase(),z=0;cs.forEach(c=>{let ok=(!s||c.dataset.search.includes(s))&&(f==="all"||c.dataset.window===f||c.dataset.status===f);c.style.display=ok?"":"none";if(ok)z++});empty.style.display=z?"none":"block"}q.oninput=go;document.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));b.classList.add("active");f=b.dataset.f;go()});go()})();</script></body></html>
