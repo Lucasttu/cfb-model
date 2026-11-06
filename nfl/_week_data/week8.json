@@ -798,15 +798,15 @@
       "under_edge": -1.3632643625104492,
       "qualified_total_signal": null,
       "qualified_total_pick": null,
-      "away_score": null,
-      "home_score": null,
-      "completed": false,
-      "spread_result": null,
-      "ou_result": null,
+      "away_score": 34.0,
+      "home_score": 17.0,
+      "completed": true,
+      "spread_result": "L",
+      "ou_result": "W",
       "best_pick_market": "SPREAD",
       "best_pick": "SEA",
       "best_pick_edge": 1.5183682983752078,
-      "best_pick_result": null,
+      "best_pick_result": "L",
       "spread_away_bets_pct": 44.0,
       "spread_home_bets_pct": 56.0,
       "spread_away_money_pct": 69.0,
@@ -818,7 +818,7 @@
       "source": "DraftKings Network",
       "captured_at": "2026-10-31T15:23:38+00:00",
       "_window": "other",
-      "_status": "upcoming",
+      "_status": "final",
       "_spread_pick_display": "SEA -3.0",
       "_spread_hist_conf": 47.31707317073171,
       "_spread_hist_n": 205,
@@ -829,13 +829,13 @@
     }
   ],
   "week_record": {
-    "spread": "9-4-0",
-    "ou": "6-7-0",
-    "best": "6-7-0"
+    "spread": "9-5-0",
+    "ou": "7-7-0",
+    "best": "6-8-0"
   },
   "season_record": {
-    "spread": "34-33-4",
-    "ou": "34-37-0",
-    "best": "32-38-1"
+    "spread": "34-34-4",
+    "ou": "35-37-0",
+    "best": "32-39-1"
   }
 }
